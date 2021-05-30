@@ -1,0 +1,35 @@
+.panel-heading .accordion-toggle:before {
+  font-family: "Glyphicons Halflings";
+  content: "\e114";
+  float: right;
+  transition: all 0.5s;
+}
+.panel-heading .accordion-toggle.active:before {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+#preventchange-2 {
+  content: "\f107";
+  /* color: #333; */
+  top: 19px;
+  right: 23px;
+  //   position: absolute;
+  font-size: 24px;
+  font-family: "FontAwesome";
+}
+
+// div#preventchange-2-header::before {
+//   content: "\f107";
+//   /* color: #333; */
+//   top: 19px;
+//   right: 23px;
+//   position: absolute;
+//   font-size: 24px;
+//   font-family: "FontAwesome";
+// }
+.range-accordion .btn-link {
+  width: 100%;
+  text-decoration-line: none;
+}
