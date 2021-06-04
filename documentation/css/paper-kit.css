@@ -2773,8 +2773,8 @@ textarea.form-control {
 }
 .navbar[class*="bg-"] .navbar-toggler .navbar-toggler-bar,
 .navbar.navbar-transparent .navbar-toggler .navbar-toggler-bar {
-  /* background: #fff;sabita */
-  background: #351d1a !important;
+  background: #fff;
+  /* background: #351d1a !important; */
 }
 .navbar-toggler .navbar-toggler-bar {
   display: block;

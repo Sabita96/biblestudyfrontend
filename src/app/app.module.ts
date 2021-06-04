@@ -14,6 +14,8 @@ import { ExamplesModule } from "./examples/examples.module";
 import { StudyContentComponent } from "./study-content/study-content.component";
 import { SliderComponent } from "./shared/slider/slider.component";
 import { HttpClientModule } from "@angular/common/http";
+import { TopicDetailComponent } from "./components/topic-detail/topic-detail.component";
+import { ContactPageComponent } from './contact-page/contact-page.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { HttpClientModule } from "@angular/common/http";
     FooterComponent,
     StudyContentComponent,
     SliderComponent,
+    TopicDetailComponent,
+    ContactPageComponent,
   ],
   imports: [
     BrowserModule,

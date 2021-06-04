@@ -1,0 +1,220 @@
+<div
+  class="page-header"
+  data-parallax="true"
+  style="background-image: url('./assets/img/daniel-olahh.jpg')"
+>
+  <div class="filter"></div>
+  <div class="container">
+    <div class="motto text-center">
+      <h1>Promise Verse</h1>
+      <h3>The Lord is My Shepherd</h3>
+      <br />
+      <!-- <a
+        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        class="btn btn-outline-neutral btn-round"
+        ><i class="fa fa-play"></i>Watch video</a
+      >
+      <button type="button" class="btn btn-outline-neutral btn-round">
+        Download
+      </button> -->
+    </div>
+  </div>
+</div>
+<div class="main pt-5">
+  <div class="container">
+    <h2 class="title text-center">Ark of Covenant</h2>
+    <div class="row">
+      <div class="col-md-6 no-trans">
+        <div class="mini-spacer">
+          <img
+            src="../../../assets/img/Dress Of Priest.jpg"
+            alt="wrapkit"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+      <div class="col-md-6" style="background: azure">
+        <h3 class="title font-light">Ark Of Covenant - I</h3>
+        <p class="m-t-30 m-b-30">
+          Adipisicing sit minim occaecat nulla proident exercitation do laboris.
+        </p>
+        <p class="m-t-30 m-b-30">
+          Laboris culpa ea est et aliqua amet ullamco Lorem non enim laborum
+          incididunt ex Lorem. Minim sint cupidatat magna esse labore id.
+        </p>
+
+        <div class="m-t-30 mb-2 pt-5">
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-round mr-md-3 mr-lg-3"
+            (click)="navigateToVideo()"
+          >
+            <i class="fa fa-play"></i>Watch Video
+          </button>
+          <!-- <button
+            type="button"
+            class="btn btn-outline-neutral btn-round"
+            (click)="downloadNotes()"
+          >
+            Download Notes
+          </button> -->
+          <a (click)="downloadNotes()" class="cursor">
+            <i class="fa fa-download" aria-hidden="true"></i>
+            Download Notes
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-6 no-trans" [ngClass]="{ 'order-2': !isMobile }">
+        <div class="mini-spacer">
+          <img
+            src="../../../assets/img/Dress Of Priest.jpg"
+            alt="wrapkit"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+      <div class="col-md-6" style="background: azure">
+        <h3 class="title font-light">Ark Of Covenant - II</h3>
+        <p class="m-t-30 m-b-30">
+          Adipisicing sit minim occaecat nulla proident exercitation do laboris.
+        </p>
+        <p class="m-t-30 m-b-30">
+          Laboris culpa ea est et aliqua amet ullamco Lorem non enim laborum
+          incididunt ex Lorem. Minim sint cupidatat magna esse labore id.
+        </p>
+
+        <div class="m-t-30 mb-2 pt-5">
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-round mr-md-3 mr-lg-3"
+            (click)="navigateToVideo()"
+          >
+            <i class="fa fa-play"></i>Watch Video
+          </button>
+          <a (click)="downloadNotes()" class="cursor">
+            <i class="fa fa-download" aria-hidden="true"></i>
+            Download Notes
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-6 no-trans">
+        <div class="mini-spacer">
+          <img
+            src="../../../assets/img/Dress Of Priest.jpg"
+            alt="wrapkit"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+      <div class="col-md-6" style="background: azure">
+        <h3 class="title font-light">Ark Of Covenant - III</h3>
+        <p class="m-t-30 m-b-30">
+          Adipisicing sit minim occaecat nulla proident exercitation do laboris.
+        </p>
+        <p class="m-t-30 m-b-30">
+          Laboris culpa ea est et aliqua amet ullamco Lorem non enim laborum
+          incididunt ex Lorem. Minim sint cupidatat magna esse labore id.
+        </p>
+
+        <div class="m-t-30 mb-2 pt-5">
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-round mr-md-3 mr-lg-3"
+            (click)="navigateToVideo()"
+          >
+            <i class="fa fa-play"></i>
+            Watch Video
+          </button>
+          <a (click)="downloadNotes()" class="cursor">
+            <i class="fa fa-download" aria-hidden="true"></i>
+            Download Notes
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="video-section">
+  <div class="container">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe
+        class="embed-responsive-item"
+        src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</div>
+<!-- </ng-template>
+  </ngb-carousel> -->
+<!-- <div class="container">
+  <button (click)="open()">open</button>
+</div> -->
+<!-- Vertically centered modal -->
+<!-- Button trigger modal -->
+<!-- Button trigger modal -->
+<!-- <button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header d-flex" style="display: flex !important">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Ark of Covenant Part I
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe
+            class="embed-responsive-item"
+            src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="margin: 20px 10px"></div>
+<!-- <button (click)="previous()" class="btn btn-default">
+  <i class="fa fa-chevron-left"></i>
+</button>
+
+<div
+  [@slider]="selectedIndex"
+  class="slider-container"
+  style="margin: 20px 10px"
+>
+  <div class="slide" *ngFor="let image of images">
+    <img [src]="image" />
+  </div>
+</div>
+<button (click)="next()" class="btn btn-default">
+  <i class="fa fa-chevron-right"></i>
+</button> -->

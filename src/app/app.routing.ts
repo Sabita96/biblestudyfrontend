@@ -8,13 +8,16 @@ import { ProfileComponent } from "./examples/profile/profile.component";
 import { SignupComponent } from "./examples/signup/signup.component";
 import { LandingComponent } from "./examples/landing/landing.component";
 import { NucleoiconsComponent } from "./components/nucleoicons/nucleoicons.component";
+import { TopicDetailComponent } from "./components/topic-detail/topic-detail.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
-  // { path: "home", component: ComponentsComponent },
+  { path: "home", component: ComponentsComponent },
   { path: "user-profile", component: ProfileComponent },
   { path: "signup", component: SignupComponent },
-  { path: "home", component: LandingComponent },
+  { path: "landing", component: LandingComponent },
+  { path: "topicDetail", component: TopicDetailComponent },
+
   { path: "nucleoicons", component: NucleoiconsComponent },
 ];
 

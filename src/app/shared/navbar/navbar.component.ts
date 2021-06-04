@@ -71,4 +71,14 @@ export class NavbarComponent implements OnInit {
             return false;
         }
     }
+    navigateToContact() {
+        const el = document.getElementById("contact-section");
+        if (el) {
+          el.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest",
+          });
+        }
+      }
 }

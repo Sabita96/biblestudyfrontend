@@ -12,6 +12,8 @@ export class LandingComponent implements OnInit {
   focus: any;
   focus1: any;
   topicsList;
+  isLoading: boolean = true;
+  selectedTopic;
   constructor(private topicService: TopicService) {}
 
   ngOnInit() {
@@ -30,6 +32,7 @@ export class LandingComponent implements OnInit {
           console.log("topic", topic);
           topic.img = imgList[i];
         });
+        this.isLoading = false;
         console.log("res", this.topicsList);
       },
       (err) => {
@@ -58,6 +61,7 @@ export class LandingComponent implements OnInit {
       document.getElementById(topic._id).click();
     }
   }
+
   handleEvent(t) {
     console.log("t", t);
     t.isClicked = true;
