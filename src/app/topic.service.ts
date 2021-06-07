@@ -6,6 +6,9 @@ import { map } from "rxjs/operators";
   providedIn: "root",
 })
 export class TopicService {
+  topics: any = [];
+
+  
   constructor(private apiService: ApiService) {}
 
   getTopics() {

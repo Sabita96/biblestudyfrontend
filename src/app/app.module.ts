@@ -14,8 +14,7 @@ import { ExamplesModule } from "./examples/examples.module";
 import { StudyContentComponent } from "./study-content/study-content.component";
 import { SliderComponent } from "./shared/slider/slider.component";
 import { HttpClientModule } from "@angular/common/http";
-import { TopicDetailComponent } from "./components/topic-detail/topic-detail.component";
-import { ContactPageComponent } from './contact-page/contact-page.component';
+import { ContactPageComponent } from "./contact-page/contact-page.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +23,6 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     FooterComponent,
     StudyContentComponent,
     SliderComponent,
-    TopicDetailComponent,
     ContactPageComponent,
   ],
   imports: [

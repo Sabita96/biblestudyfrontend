@@ -1,25 +1,5 @@
-<div
-  class="page-header"
-  data-parallax="true"
-  style="background-image: url('./assets/img/daniel-olahh.jpg')"
->
-  <div class="filter"></div>
-  <div class="container">
-    <div class="motto text-center">
-      <h1>Promise Verse</h1>
-      <h3>The Lord is My Shepherd</h3>
-      <br />
-      <!-- <a
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        class="btn btn-outline-neutral btn-round"
-        ><i class="fa fa-play"></i>Watch video</a
-      >
-      <button type="button" class="btn btn-outline-neutral btn-round">
-        Download
-      </button> -->
-    </div>
-  </div>
-</div>
+<app-landing-page-banner></app-landing-page-banner>
+
 <div
   class="modal fade"
   id="exampleModal"
@@ -27,27 +7,38 @@
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-xl modal-lg">
+    <a
+      class="cursor close"
+      style="float: right; color: black; font-size: 25px"
+      data-bs-dismiss="modal"
+      aria-label="Close"
+      (click)="document.getElementById('embed-video').src = ''"
+      ><span aria-hidden="true">&times;</span></a
+    >
+
     <div class="modal-content">
-      <div class="modal-header d-flex" style="display: flex !important">
+      <!-- <div
+        class="modal-header d-flex"
+        style="display: flex !important; height: 0"
+      >
         <h5 class="modal-title" id="exampleModalLabel">
           {{ selectedTopic?.name }}
         </h5>
         <button
           type="button"
-          class="btn-close"
+          class="btn-close float-right"
           data-bs-dismiss="modal"
           aria-label="Close"
         ></button>
-      </div>
-      <div class="modal-body">
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe
-            class="embed-responsive-item"
-            src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-            allowfullscreen
-          ></iframe>
-        </div>
+      </div> -->
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe
+          id="embed-video"
+          class="embed-responsive-item"
+          src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   </div>
@@ -97,6 +88,35 @@
     </div>
   </div>
 </div> -->
+<div class="main" style="background: #f7fbfe">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="title">Overview</h2>
+    </div>
+    <div class="card-group vgr-cards pt-5">
+      <div class="card" *ngFor="let topic of topicsList">
+        <div class="card-img-body">
+          <img class="card-img" [src]="topic.img" alt="Card image cap" />
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">{{ topic.name }}</h4>
+          <p class="card-text">
+            This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer. This is
+            a wider card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.
+          </p>
+          <!-- <a class="button arrow">Read More</a> -->
+          <a
+            [routerLink]="['/topic-detail', topic._id]"
+            class="arrow btn btn-outline-primary"
+            >View Detail
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="main">
   <!-- <div class="section text-center">
     <div class="container">
@@ -509,35 +529,6 @@
             </ng-template>
           </ngb-panel> -->
         </ngb-accordion>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="main" style="background: #f7fbfe">
-  <div class="container">
-    <div class="text-center">
-      <h2 class="title">Overview</h2>
-    </div>
-    <div class="card-group vgr-cards pt-5">
-      <div class="card" *ngFor="let topic of topicsList">
-        <div class="card-img-body">
-          <img class="card-img" [src]="topic.img" alt="Card image cap" />
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">{{ topic.name }}</h4>
-          <p class="card-text">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer. This is
-            a wider card with supporting text below as a natural lead-in to
-            additional content. This content is a little bit longer.
-          </p>
-          <!-- <a class="button arrow">Read More</a> -->
-          <a
-            [routerLink]="['/topicDetail']"
-            class="arrow btn btn-outline-primary"
-            >View Detail
-          </a>
-        </div>
       </div>
     </div>
   </div>

@@ -7,9 +7,17 @@ import { LandingComponent } from "./landing/landing.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { SignupComponent } from "./signup/signup.component";
 import { RouterModule } from "@angular/router";
+import { ComponentsModule } from "app/components/components.module";
+import { AppModule } from "app/app.module";
 
 @NgModule({
-  imports: [CommonModule, FormsModule, NgbModule, RouterModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    NgbModule,
+    RouterModule,
+    ComponentsModule,
+  ],
   declarations: [LandingComponent, SignupComponent, ProfileComponent],
 })
 export class ExamplesModule {}

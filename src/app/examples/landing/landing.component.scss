@@ -155,10 +155,10 @@
     &:nth-child(even) .card-body {
       padding-left: 0;
       padding-right: 1.25rem;
-      padding: 1% 1%;
+      padding: 0% 0% 3% 3%;
     }
     &:nth-child(odd) .card-body {
-      padding: 1% 1%;
+      padding: 0% 0% 3% 3%;
     }
     @media (max-width: 576px) {
       display: block;
@@ -179,7 +179,9 @@
 
   .card-img {
     width: 100%;
-    height: auto;
+    height: 100%;
+
+    // height: auto;
     position: absolute;
     margin-left: 50%;
     transform: translateX(-50%);
@@ -188,7 +190,8 @@
       margin: 0;
       transform: none;
       width: 100%;
-      height: auto;
+      height: 100%;
+      // height: auto;
     }
   }
 
@@ -200,6 +203,10 @@
       padding: 0;
     }
   }
+}
+
+.cursor:hover {
+  cursor: pointer;
 }
 .title {
   font-weight: 500;
@@ -248,5 +255,22 @@ a.button {
       -o-transform: translateX(4px);
       transform: translateX(4px);
     }
+  }
+}
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+}
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 900px;
+  }
+}
+@media (min-width: 768px) {
+  .modal-xl {
+    // width: 90%;
+    max-width: 1200px;
   }
 }

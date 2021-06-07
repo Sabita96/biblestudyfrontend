@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { NgbPanelChangeEvent } from "@ng-bootstrap/ng-bootstrap";
 import { ApiService } from "app/services/api-service/api.service";
 import { TopicService } from "app/topic.service";
@@ -14,6 +14,10 @@ export class LandingComponent implements OnInit {
   topicsList;
   isLoading: boolean = true;
   selectedTopic;
+
+  name = "Angular";
+  @ViewChild("videoPlayer", { static: false }) videoplayer: ElementRef;
+  isPlay: boolean = false;
   constructor(private topicService: TopicService) {}
 
   ngOnInit() {
@@ -74,4 +78,38 @@ export class LandingComponent implements OnInit {
   //   $event.preventDefault();
   // }
   // }
+
+  toggleVideo(event: any) {
+    this.videoplayer.nativeElement.play();
+  }
+  playPause() {
+    var myVideo: any = document.getElementById("my_video_1");
+    if (myVideo.paused) myVideo.play();
+    else myVideo.pause();
+  }
+
+  makeBig() {
+    var myVideo: any = document.getElementById("my_video_1");
+    myVideo.width = 560;
+  }
+
+  makeSmall() {
+    var myVideo: any = document.getElementById("my_video_1");
+    myVideo.width = 320;
+  }
+
+  makeNormal() {
+    var myVideo: any = document.getElementById("my_video_1");
+    myVideo.width = 420;
+  }
+
+  skip(value) {
+    let video: any = document.getElementById("my_video_1");
+    video.currentTime += value;
+  }
+
+  restart() {
+    let video: any = document.getElementById("my_video_1");
+    video.currentTime = 0;
+  }
 }
