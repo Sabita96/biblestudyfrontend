@@ -67,7 +67,7 @@ export class LandingComponent implements OnInit {
     //       res.Value.forEach((element) => {
     this.http
       .get(
-        "https://51.143.20.126:4000/api/v1/file-upload/files/test_1623516359084.pdf",
+        "http://51.143.20.126:4000/api/v1/file-upload/files/test_1623516359084.pdf",
 
         { responseType: "arraybuffer" }
       )
