@@ -14,11 +14,11 @@ const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   // { path: "home", component: ComponentsComponent },
   { path: "user-profile", component: ProfileComponent },
-  { path: "signup", component: SignupComponent },
+  // { path: "signup", component: SignupComponent },
   { path: "home", component: LandingComponent },
   { path: "topic-detail/:id", component: TopicDetailComponent },
 
-  { path: "nucleoicons", component: NucleoiconsComponent },
+  // { path: "nucleoicons", component: NucleoiconsComponent },
 ];
 
 @NgModule({

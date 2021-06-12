@@ -1,7 +1,8 @@
+import { HttpClient } from "@angular/common/http";
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { NgbPanelChangeEvent } from "@ng-bootstrap/ng-bootstrap";
-import { ApiService } from "app/services/api-service/api.service";
+import { HttpService } from "app/http.service";
 import { TopicService } from "app/topic.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-landing",
@@ -18,7 +19,11 @@ export class LandingComponent implements OnInit {
   name = "Angular";
   @ViewChild("videoPlayer", { static: false }) videoplayer: ElementRef;
   isPlay: boolean = false;
-  constructor(private topicService: TopicService) {}
+  constructor(
+    private topicService: TopicService,
+    private httpService: HttpService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit() {
     console.log("ssssssssssssssssss");
@@ -45,9 +50,51 @@ export class LandingComponent implements OnInit {
     );
     // this.apiService.get('')
   }
-  downloadNotes(pdfUrl) {
-    window.open("http://www.africau.edu/images/default/sample.pdf", "_blank");
+  downloadNotes1(pdfUrl) {
+    window.open(
+      "http://51.143.20.126:4000/api/v1/file-upload/files/test_1623516359084.pdf",
+      "_blank"
+    );
     //
+  }
+
+  downloadNotes(formID) {
+    // this.externalService
+    //   .getInvestorAttachments(formID)
+    //   .toPromise()
+    // //   .then((res: any) => {
+    //     if (res.Value.length > 0) {
+    //       res.Value.forEach((element) => {
+    this.http
+      .get(
+        "http://51.143.20.126:4000/api/v1/file-upload/files/test_1623516359084.pdf",
+
+        { responseType: "arraybuffer" }
+      )
+      .subscribe((response) => {
+        // let ext = element.FilePath.split("/");
+        // let exten = ext[ext.length - 1].split(".");
+        // console.log(exten);
+        // let fileName = element.Name + "." + exten[exten.length - 1];
+        // console.log(fileName);
+        // console.log("elemnt-----", element);
+        let blob = new Blob([response]);
+        // const data = Buffer.from(response.).toString("base64");
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "abc.pdf");
+        document.body.appendChild(link);
+        link.click();
+      });
+    //     });
+    //   } else {
+    //     this.toastr.error("Error While downloading pdf!!!");
+    //   }
+    // })
+    // .catch((err) => {
+    //   console.log(err);
+    // });
   }
   openLink(url) {
     window.open(url, "_blank");

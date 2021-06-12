@@ -13,8 +13,12 @@ export class HttpService {
       headers: headers,
       responseType: "blob" as "json",
     });
+
     // let headers = new HttpHeaders();
     // headers = headers.set("Accept", "application/pdf");
     // return this.http.get(url, { headers: headers, responseType: "blob" });
+  }
+  get(url, payload) {
+    return this.http.get(url, payload);
   }
 }

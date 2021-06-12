@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Nuptial BT";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Nuptial BT"), url("Nuptial-BT.woff") format("woff");
+}
+* {
+  font-family: "Nuptial BT";
+}
+
+html {
+  scroll-behavior: smooth;
+}
