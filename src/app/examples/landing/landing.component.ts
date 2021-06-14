@@ -67,7 +67,7 @@ export class LandingComponent implements OnInit {
     //       res.Value.forEach((element) => {
     this.http
       .get(
-        "https://tamilbiblestudybackend.herokuapp.com/file-upload/files/abc1623520227014.pdf",
+        "http://tamilbiblestudybackend.herokuapp.com/file-upload/files/abc1623602821653.pdf",
 
         { responseType: "arraybuffer" }
       )

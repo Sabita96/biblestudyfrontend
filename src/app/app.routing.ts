@@ -12,7 +12,7 @@ import { TopicDetailComponent } from "./components/topic-detail/topic-detail.com
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
-  // { path: "home", component: ComponentsComponent },
+  { path: "home1", component: ComponentsComponent },
   { path: "user-profile", component: ProfileComponent },
   // { path: "signup", component: SignupComponent },
   { path: "home", component: LandingComponent },

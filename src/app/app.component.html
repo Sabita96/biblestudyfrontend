@@ -1,10 +1,18 @@
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
 <app-contact-page></app-contact-page>
+
 <!-- <div
   inViewport
   [inViewportOptions]="{ threshold: [1] }"
-  (inViewportAction)="loadComponent($event, 'contact-page')"
+  (inViewportAction)="loadComponent($event, 'app-contact')"
   #contact
+></div>
+<div
+  *ngIf="removeFooter()"
+  inViewport
+  [inViewportOptions]="{ threshold: [1] }"
+  (inViewportAction)="loadComponent($event, 'app-footer')"
+  #footer
 ></div> -->
 <app-footer *ngIf="removeFooter()"></app-footer>

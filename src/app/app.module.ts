@@ -15,7 +15,7 @@ import { StudyContentComponent } from "./study-content/study-content.component";
 import { SliderComponent } from "./shared/slider/slider.component";
 import { HttpClientModule } from "@angular/common/http";
 import { ContactPageComponent } from "./contact-page/contact-page.component";
-
+import { InViewportModule } from "ng-in-viewport";
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +34,7 @@ import { ContactPageComponent } from "./contact-page/contact-page.component";
     ExamplesModule,
     AppRoutingModule,
     HttpClientModule,
+    InViewportModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

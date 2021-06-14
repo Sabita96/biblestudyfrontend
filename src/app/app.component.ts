@@ -15,6 +15,7 @@ import { DOCUMENT } from "@angular/common";
 import { LocationStrategy, PlatformLocation, Location } from "@angular/common";
 import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { ContactPageComponent } from "./contact-page/contact-page.component";
+import { FooterComponent } from "./shared/footer/footer.component";
 
 @Component({
   selector: "app-root",
@@ -25,6 +26,10 @@ export class AppComponent implements OnInit {
   private _router: Subscription;
   @ViewChild(NavbarComponent) navbar: NavbarComponent;
   userAgent;
+
+  footer2;
+  @ViewChild("footer", { read: ViewContainerRef, static: true })
+  footer: ViewContainerRef;
 
   contact2;
   @ViewChild("contact", { read: ViewContainerRef, static: true })
@@ -83,23 +88,34 @@ export class AppComponent implements OnInit {
   }
 
   async loadComponent(
-    { visible }: { target: Element; visible: boolean },
+    { visible, target }: { target: Element; visible: boolean },
     name: string
   ) {
+    console.log("visible", visible);
+
     switch (name) {
-      case "contact-page":
+      case "app-footer":
+        if (this.footer2) {
+          return;
+        }
+        if (visible) {
+          this.footer.clear();
+
+          this.footer2 = this.footer.createComponent(
+            this.cfr.resolveComponentFactory(FooterComponent)
+          );
+        }
+        break;
+      case "app-contact":
         if (this.contact2) {
           return;
         }
-        if (visible || this.userAgent === "Prerender") {
-          //   const { ContactPageComponent } = await import(
-          //     "./contact-page/contact-page.component"
-          //   );
+        if (visible) {
           this.contact.clear();
+
           this.contact2 = this.contact.createComponent(
             this.cfr.resolveComponentFactory(ContactPageComponent)
           );
-          //   this.updateScrollData();
         }
         break;
 

@@ -8,12 +8,21 @@ import { map } from "rxjs/operators";
 export class TopicService {
   topics: any = [];
 
-  
   constructor(private apiService: ApiService) {}
 
   getTopics() {
     return this.apiService
       .get(`${SharedEnvironment.apiUrl}` + "topic", null)
+      .pipe(
+        map((res: any) => {
+          return res.data;
+        })
+      );
+  }
+
+  getTopicById(id) {
+    return this.apiService
+      .get(`${SharedEnvironment.apiUrl}` + "topic/" + id, null)
       .pipe(
         map((res: any) => {
           return res.data;
