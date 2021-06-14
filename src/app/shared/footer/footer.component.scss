@@ -185,12 +185,18 @@ ul.social-network {
     display: inline;
     margin: 0 5px;
   }
+  .social-circle {
+    padding-right: 2rem !important;
+  }
 }
 
 @media screen and (max-width: 450px) {
   ul.social-network li {
     display: inline;
     margin: 0 5px;
+  }
+  .social-circle {
+    padding-right: 2rem !important;
   }
   .social-circle li a {
     display: inline-block;
@@ -215,6 +221,9 @@ ul.social-network {
   ul.social-network li {
     display: inline;
     margin: 0 2px;
+  }
+  .social-circle {
+    padding-right: 2rem !important;
   }
   .social-circle li a {
     display: inline-block;
