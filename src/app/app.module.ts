@@ -9,10 +9,10 @@ import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { FooterComponent } from "./shared/footer/footer.component";
 
-import { ComponentsModule } from "./components/components.module";
+// import { ComponentsModule } from "./components/components.module";
 import { ExamplesModule } from "./examples/examples.module";
-import { StudyContentComponent } from "./study-content/study-content.component";
-import { SliderComponent } from "./shared/slider/slider.component";
+// import { StudyContentComponent } from "./study-content/study-content.component";
+// import { SliderComponent } from "./shared/slider/slider.component";
 import { HttpClientModule } from "@angular/common/http";
 import { ContactPageComponent } from "./contact-page/contact-page.component";
 import { InViewportModule } from "ng-in-viewport";
@@ -21,8 +21,8 @@ import { InViewportModule } from "ng-in-viewport";
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    StudyContentComponent,
-    SliderComponent,
+    // StudyContentComponent,
+    // SliderComponent,
     ContactPageComponent,
   ],
   imports: [
@@ -30,7 +30,7 @@ import { InViewportModule } from "ng-in-viewport";
     NgbModule,
     FormsModule,
     RouterModule,
-    ComponentsModule,
+    // ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
     HttpClientModule,

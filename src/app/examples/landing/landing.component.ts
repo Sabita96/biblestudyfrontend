@@ -1,28 +1,36 @@
 import { HttpClient } from "@angular/common/http";
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from "@angular/core";
 import { HttpService } from "app/http.service";
 import { TopicService } from "app/topic.service";
 import { ToastrService } from "ngx-toastr";
-
+import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgbdModalContent } from "app/components/modal/modal.component";
 @Component({
   selector: "app-landing",
   templateUrl: "./landing.component.html",
   styleUrls: ["./landing.component.scss"],
 })
 export class LandingComponent implements OnInit {
-  focus: any;
-  focus1: any;
   topicsList;
   isLoading: boolean = true;
   selectedTopic;
-
   name = "Angular";
   @ViewChild("videoPlayer", { static: false }) videoplayer: ElementRef;
   isPlay: boolean = false;
   constructor(
     private topicService: TopicService,
     private httpService: HttpService,
-    private http: HttpClient
+    private http: HttpClient,
+    private cd: ChangeDetectorRef,
+    public sanitizer: DomSanitizer,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit() {
@@ -57,7 +65,35 @@ export class LandingComponent implements OnInit {
     );
     //
   }
+  stopVideo(id) {
+    let a = document.getElementById(id);
+    console.log("a", a);
+    document.getElementById(id).setAttribute("src", "");
+    this.cd.markForCheck();
+    // var src = $j("iframe." + id).attr("src");
+    // $j("iframe." + id).attr("src", "");
+    // $j("iframe." + id).attr("src", src);
+  }
+  watchVideo(subTopic) {
+    console.log("url", "subTopic", subTopic.youtubeLink);
+    const modalRef = this.modalService.open(NgbdModalContent, {
+      windowClass: "modal-holder",
+      centered: true,
+      backdrop: "static",
+      keyboard: false,
+      size: "lg",
+    });
+    modalRef.componentInstance.subTopic = subTopic;
+    // document
+    //   .getElementById("embed-video")
+    //   .setAttribute("src", "https://www.youtube.com/embed/IvWlF-XM7pk");
+    subTopic.youtubeLink = this.sanitizer.bypassSecurityTrustResourceUrl(
+      "https://youtu.be/P5zOcuf51V8"
+    );
+    console.log("subTopic", subTopic);
 
+    this.selectedTopic = subTopic;
+  }
   downloadNotes(formID) {
     // this.externalService
     //   .getInvestorAttachments(formID)
@@ -130,7 +166,9 @@ export class LandingComponent implements OnInit {
     this.videoplayer.nativeElement.play();
   }
   playPause() {
-    var myVideo: any = document.getElementById("my_video_1");
+    var myVideo: any = document.getElementById(
+      "ytp-large-play-button ytp-button"
+    );
     if (myVideo.paused) myVideo.play();
     else myVideo.pause();
   }

@@ -19,7 +19,7 @@
   .navbar-brand {
     font-weight: $font-weight-bold;
     margin: $navbar-margin-brand;
-    padding: $navbar-padding-brand;
+    // padding: $navbar-padding-brand;
     font-size: $font-size-base;
     color: $default-color;
     text-transform: uppercase;
@@ -56,7 +56,8 @@
       font-size: $font-size-small;
       text-transform: uppercase;
       font-weight: 600;
-      color: $default-color;
+      // color: $default-color;
+      color: $white-color;
     }
     .nav-item .nav-link.btn {
       margin: $navbar-margin-a-btn;

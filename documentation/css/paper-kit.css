@@ -2419,9 +2419,9 @@ textarea.form-control {
 .navbar .navbar-brand {
   font-weight: 600;
   margin: 5px 0px;
-  padding: 20px 15px;
+  /* padding: 20px 15px; */
   font-size: 14px;
-  color: #66615b;
+  color: white;
   text-transform: uppercase;
 }
 .navbar .nav-link i {
@@ -2738,7 +2738,6 @@ textarea.form-control {
 .navbar-default .navbar-brand {
   /* color: #66615b; */
   color: white;
-
 }
 
 .navbar-default .navbar-brand:hover,

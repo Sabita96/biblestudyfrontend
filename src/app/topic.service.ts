@@ -15,6 +15,7 @@ export class TopicService {
       .get(`${SharedEnvironment.apiUrl}` + "topic", null)
       .pipe(
         map((res: any) => {
+          // return [{}];
           return res.data;
         })
       );

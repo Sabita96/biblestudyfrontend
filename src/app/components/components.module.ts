@@ -12,7 +12,7 @@ import { TypographyComponent } from "./typography/typography.component";
 import { NucleoiconsComponent } from "./nucleoicons/nucleoicons.component";
 import { ComponentsComponent } from "./components.component";
 import { NotificationComponent } from "./notification/notification.component";
-import { NgbdModalComponent } from "./modal/modal.component";
+// import { NgbdModalComponent } from "./modal/modal.component";
 import { NgbdModalContent } from "./modal/modal.component";
 import { TopicDetailComponent } from "./topic-detail/topic-detail.component";
 import { ExamplesModule } from "app/examples/examples.module";
@@ -34,7 +34,7 @@ import { LandingPageBannerComponent } from "./landing-page-banner/landing-page-b
     TypographyComponent,
     NucleoiconsComponent,
     NotificationComponent,
-    NgbdModalComponent,
+    // NgbdModalComponent,
     NgbdModalContent,
     TopicDetailComponent,
     LandingPageBannerComponent,

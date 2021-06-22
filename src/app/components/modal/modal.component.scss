@@ -2,6 +2,17 @@
   animation-name: example;
   animation-duration: 0.5s;
 }
+.modal-dialog,
+.modal-content {
+  /* 80% of window height */
+  height: 80% !important;
+}
+
+.modal-body {
+  /* 100% = dialog height, 120px = header + footer */
+  max-height: calc(100vh - 210px) !important;
+  overflow-y: auto !important;
+}
 
 @keyframes example {
   0% {
@@ -12,5 +23,23 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+}
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 900px;
+  }
+}
+@media (min-width: 768px) {
+  .modal-xl {
+    // width: 90%;
+    max-width: 1200px;
   }
 }
