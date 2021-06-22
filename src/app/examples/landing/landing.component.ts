@@ -37,10 +37,10 @@ export class LandingComponent implements OnInit {
     console.log("ssssssssssssssssss");
     let imgList = [
       "../../../assets//img/Offering.jpg",
-      "../../../assets//img/Tabernacle.jpg",
       "../../../assets//img/Dress Of Priest.jpg",
-
       "../../../assets//img/Ark Of Covenant.jpg",
+
+      "../../../assets//img/Tabernacle.jpg",
     ];
     this.topicService.getTopics().subscribe(
       (res) => {
