@@ -60,7 +60,7 @@ export class LandingComponent implements OnInit {
   }
   downloadNotes1(pdfUrl) {
     window.open(
-      "http://51.143.20.126:4000/api/v1/file-upload/files/test_1623516359084.pdf",
+      "http://51.143.20.126:4005/file-upload/files/T3_P41624534484960.pdf",
       "_blank"
     );
     //
@@ -95,6 +95,8 @@ export class LandingComponent implements OnInit {
     this.selectedTopic = subTopic;
   }
   downloadNotes(formID) {
+    console.log("inside...............");
+
     // this.externalService
     //   .getInvestorAttachments(formID)
     //   .toPromise()
@@ -103,11 +105,13 @@ export class LandingComponent implements OnInit {
     //       res.Value.forEach((element) => {
     this.http
       .get(
-        "http://tamilbiblestudybackend.herokuapp.com/file-upload/files/abc1623602821653.pdf",
+        "http://51.143.20.126:4005/file-upload/files/T3_P41624534484960.pdf",
 
         { responseType: "arraybuffer" }
       )
       .subscribe((response) => {
+        console.log("response", response);
+
         // let ext = element.FilePath.split("/");
         // let exten = ext[ext.length - 1].split(".");
         // console.log(exten);
@@ -123,14 +127,14 @@ export class LandingComponent implements OnInit {
         document.body.appendChild(link);
         link.click();
       });
+    // .catch((err) => {
+    //   console.log(err);
+    // });
     //     });
     //   } else {
     //     this.toastr.error("Error While downloading pdf!!!");
     //   }
     // })
-    // .catch((err) => {
-    //   console.log(err);
-    // });
   }
   openLink(url) {
     window.open(url, "_blank");
