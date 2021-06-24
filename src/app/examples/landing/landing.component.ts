@@ -94,10 +94,10 @@ export class LandingComponent implements OnInit {
 
     this.selectedTopic = subTopic;
   }
-  downloadNotes(formID) {
-    console.log("inside...............");
+  downloadNotes(subTopic) {
+    console.log("inside...............", subTopic.name);
 
-    // this.externalService
+    // this.externalServicefileLink
     //   .getInvestorAttachments(formID)
     //   .toPromise()
     // //   .then((res: any) => {
@@ -123,7 +123,7 @@ export class LandingComponent implements OnInit {
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = url;
-        link.setAttribute("download", "abc.pdf");
+        link.setAttribute("download", subTopic.name + ".pdf");
         document.body.appendChild(link);
         link.click();
       });

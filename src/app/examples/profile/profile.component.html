@@ -10,13 +10,13 @@
     <div class="filter"></div>
     <div class="container">
       <div class="motto text-center">
-        <h3>
+        <h3 class="tamil-title">
           எல்லா மனுஷரும் இரட்சிக்கப்படவும், சத்தியத்தை அறிகிற அறிவை அடையவும்,
           அவர் சித்தமுள்ளவராயிருக்கிறார்.
         </h3>
         <!-- <br /> -->
         <!-- <h1>Promise Verse</h1> -->
-        <h3 style="font-size: 46px; font-family: 'Nuptial BT', sans-serif">
+        <h3 style="font-family: 'Nuptial BT', sans-serif" class="eng-title">
           Who desires all men to be saved and to come to the knowledge of the
           truth.
         </h3>
@@ -208,44 +208,13 @@
         <section>
           <h2>English</h2>
           <div class="row mt-2">
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Verse 1" />
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Verse 2" />
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Tunnel" />
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Tunnel" />
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Tunnel" />
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Tunnel" />
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Tunnel" />
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Tunnel" />
+            <div class="col-sm-6 col-md-3" *ngFor="let img of engImgArr">
+              <a class="lightbox">
+                <img
+                  [src]="'../../../assets/img/gallery/eng/' + img"
+                  height="329"
+                  alt="spiritual truth study"
+                />
               </a>
             </div>
           </div>
@@ -254,24 +223,13 @@
           <h2>Tamil</h2>
 
           <div class="row mt-2">
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Tunnel" />
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Tunnel" />
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Tunnel" />
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Tunnel" />
+            <div class="col-sm-6 col-md-3" *ngFor="let img of tamilImgArr">
+              <a class="lightbox">
+                <img
+                  [src]="'../../../assets/img/gallery/tamil/' + img"
+                  height="329"
+                  alt="spiritual truth study"
+                />
               </a>
             </div>
           </div>
@@ -280,9 +238,13 @@
           <h2>Hindi</h2>
 
           <div class="row mt-2">
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Verse 1" />
+            <div class="col-sm-6 col-md-3" *ngFor="let img of hindiImgArr">
+              <a class="lightbox">
+                <img
+                  [src]="'../../../assets/img/gallery/hindi/' + img"
+                  height="329"
+                  alt="spiritual truth study"
+                />
               </a>
             </div>
           </div>
@@ -291,29 +253,13 @@
           <h2>Marathi</h2>
 
           <div class="row mt-2">
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Verse 1" />
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Verse 2" />
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Tunnel" />
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Tunnel" />
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <a class="lightbox" href="../../../assets/img/verse_1.jpg">
-                <img src="../../../assets/img/verse_1.jpg" alt="Tunnel" />
+            <div class="col-sm-6 col-md-3" *ngFor="let img of marathiImgArr">
+              <a class="lightbox">
+                <img
+                  [src]="'../../../assets/img/gallery/marathi/' + img"
+                  height="329"
+                  alt="spiritual truth study"
+                />
               </a>
             </div>
           </div>

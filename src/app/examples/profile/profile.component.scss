@@ -9,7 +9,17 @@ body {
   font: normal 16px sans-serif;
   padding: 60px 0;
 }
-
+.eng-title {
+  font-size: 46px !important;
+}
+@media (max-width: 600px) {
+  .eng-title {
+    font-size: 31px !important;
+  }
+  .tamil-title {
+    font-size: 1.3em !important;
+  }
+}
 .container.gallery-container {
   background-color: #fff;
   color: #35373a;
