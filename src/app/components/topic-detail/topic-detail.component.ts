@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { NgbdModalContent } from "../modal/modal.component";
-import { TopicService } from "app/topic.service";
 import { ActivatedRoute } from "@angular/router";
+import { TopicService } from "app/services/topic-service/topic.service";
+import { DownloadService } from "app/services/download-service/download.service";
 
 @Component({
   selector: "app-topic-detail",
@@ -16,7 +17,8 @@ export class TopicDetailComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private topicService: TopicService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private downloadService: DownloadService
   ) {
     console.log("this.route.snapshot.params", this.route.snapshot.params.id);
 
@@ -50,7 +52,22 @@ export class TopicDetailComponent implements OnInit {
       }
     );
   }
+  watchVideo(subTopic) {
+    console.log("url", "subTopic", subTopic.youtubeLink);
 
+    console.log("subTopic", subTopic);
+    const modalRef = this.modalService.open(NgbdModalContent, {
+      windowClass: "modal-holder",
+      centered: true,
+      backdrop: "static",
+      keyboard: false,
+      size: "lg",
+    });
+    modalRef.componentInstance.subTopic = subTopic;
+    // document
+    //   .getElementById("embed-video")
+    //   .setAttribute("src", "https://www.youtube.com/embed/IvWlF-XM7pk");
+  }
   detectMob() {
     var check = false;
     (function (a) {
@@ -72,22 +89,24 @@ export class TopicDetailComponent implements OnInit {
     const modalRef = this.modalService.open(NgbdModalContent);
     modalRef.componentInstance.name = "World";
   }
-  downloadNotes() {
+  downloadNotes(subTopic) {
+    this.downloadService.downloadNotes(subTopic);
+
     // this.httpService
     //   .getPdf("http://www.africau.edu/images/default/sample.pdf")
     //   .subscribe((res) => {
     //     console.log("sssssssssssssssssssss", res);
     //   });
-    const link = document.createElement("a");
-    link.setAttribute("target", "_blank");
-    link.setAttribute(
-      "href",
-      "http://www.africau.edu/images/default/sample.pdf"
-    );
-    link.setAttribute("download", `products.pdf`);
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
+    // const link = document.createElement("a");
+    // link.setAttribute("target", "_blank");
+    // link.setAttribute(
+    //   "href",
+    //   "http://www.africau.edu/images/default/sample.pdf"
+    // );
+    // link.setAttribute("download", `products.pdf`);
+    // document.body.appendChild(link);
+    // link.click();
+    // link.remove();
   }
   private _images: string[] = [
     "https://via.placeholder.com/400x400?text=Hello",

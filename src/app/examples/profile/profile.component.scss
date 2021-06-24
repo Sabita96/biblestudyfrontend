@@ -12,13 +12,13 @@ body {
 .eng-title {
   font-size: 46px !important;
 }
-@media (max-width: 600px) {
-  .eng-title {
-    font-size: 31px !important;
-  }
-  .tamil-title {
-    font-size: 1.3em !important;
-  }
+@media (max-width: 768px) {
+    .eng-title {
+      font-size: 31px !important;
+    }
+    .tamil-title {
+      font-size: 1.3em !important;
+    }
 }
 .container.gallery-container {
   background-color: #fff;
@@ -96,7 +96,7 @@ body {
 
 //test
 //test
-@import "https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400";
+// @import "https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400";
 /* colors */
 /* tab setting */
 /* breakpoints */

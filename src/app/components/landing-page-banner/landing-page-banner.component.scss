@@ -6,10 +6,10 @@
   margin-top: 5% !important;
 }
 .eng-title {
-  font-size: calc(2.5em + 1vw);
+  font-size: calc(2.3em + 1vw);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .mt {
     margin-top: 12% !important;
   }
@@ -17,10 +17,11 @@
     font-size: calc(2em + 1vw);
   }
   .page-header {
-    min-height: 64vh !important;
+    min-height: 43vh !important;
   }
 
   .tamil-title {
     font-size: 1.3em !important;
+    line-height: 2em !important;
   }
 }

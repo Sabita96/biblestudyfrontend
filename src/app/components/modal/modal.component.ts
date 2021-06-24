@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { DomSanitizer } from "@angular/platform-browser";
 import { NgbModal, NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 // <h5 class="modal-title text-center">Modal title</h5>
 @Component({
@@ -8,9 +9,17 @@ import { NgbModal, NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 export class NgbdModalContent implements OnInit {
   @Input() subTopic;
 
-  constructor(public activeModal: NgbActiveModal) {}
+  constructor(
+    public activeModal: NgbActiveModal,
+    public sanitizer: DomSanitizer
+  ) {}
   ngOnInit() {
     console.log("subTopic", this.subTopic);
+    if (this.subTopic) {
+      this.subTopic.youtubeLink = this.sanitizer.bypassSecurityTrustResourceUrl(
+        this.subTopic.youtubeLink
+      );
+    }
   }
 }
 

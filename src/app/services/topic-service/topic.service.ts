@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { ApiService } from "./services/api-service/api.service";
-import { SharedEnvironment } from "../environments/environment";
+import { SharedEnvironment } from "environments/environment";
 import { map } from "rxjs/operators";
+import { ApiService } from "../api-service/api.service";
 @Injectable({
   providedIn: "root",
 })

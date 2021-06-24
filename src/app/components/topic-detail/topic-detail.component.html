@@ -2,7 +2,7 @@
 <div class="main pt-5">
   <div class="container">
     <div class="text-center">
-      <h2 class="title">{{ this.topicObj.name }}</h2>
+      <h2 class="title fs-2">{{ this.topicObj.name }}</h2>
     </div>
     <div
       class="row mt-3"
@@ -34,7 +34,7 @@
           <button
             type="button"
             class="btn btn-outline-danger btn-round mr-md-3 mr-lg-3"
-            (click)="navigateToVideo()"
+            (click)="watchVideo(subTopic)"
           >
             <i class="fa fa-play"></i>Watch Video
           </button>
@@ -45,7 +45,7 @@
           >
             Download Notes
           </button> -->
-          <a (click)="downloadNotes()" class="cursor">
+          <a (click)="downloadNotes(subTopic)" class="cursor">
             <i class="fa fa-download" aria-hidden="true"></i>
             Download Notes
           </a>
@@ -54,7 +54,7 @@
     </div>
   </div>
 </div>
-
+<!-- 
 <div class="section" id="video-section">
   <div class="container">
     <div class="embed-responsive embed-responsive-16by9">
@@ -65,7 +65,7 @@
       ></iframe>
     </div>
   </div>
-</div>
+</div> -->
 <!-- </ng-template>
   </ngb-carousel> -->
 <!-- <div class="container">

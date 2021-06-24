@@ -7,11 +7,12 @@ import {
   ViewChild,
 } from "@angular/core";
 import { HttpService } from "app/http.service";
-import { TopicService } from "app/topic.service";
 import { ToastrService } from "ngx-toastr";
 import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { NgbdModalContent } from "app/components/modal/modal.component";
+import { TopicService } from "app/services/topic-service/topic.service";
+import { DownloadService } from "app/services/download-service/download.service";
 @Component({
   selector: "app-landing",
   templateUrl: "./landing.component.html",
@@ -26,7 +27,7 @@ export class LandingComponent implements OnInit {
   isPlay: boolean = false;
   constructor(
     private topicService: TopicService,
-    private httpService: HttpService,
+    private downloadService: DownloadService,
     private http: HttpClient,
     private cd: ChangeDetectorRef,
     public sanitizer: DomSanitizer,
@@ -76,6 +77,8 @@ export class LandingComponent implements OnInit {
   }
   watchVideo(subTopic) {
     console.log("url", "subTopic", subTopic.youtubeLink);
+
+    console.log("subTopic", subTopic);
     const modalRef = this.modalService.open(NgbdModalContent, {
       windowClass: "modal-holder",
       centered: true,
@@ -87,46 +90,42 @@ export class LandingComponent implements OnInit {
     // document
     //   .getElementById("embed-video")
     //   .setAttribute("src", "https://www.youtube.com/embed/IvWlF-XM7pk");
-    subTopic.youtubeLink = this.sanitizer.bypassSecurityTrustResourceUrl(
-      "https://youtu.be/P5zOcuf51V8"
-    );
-    console.log("subTopic", subTopic);
 
     this.selectedTopic = subTopic;
   }
   downloadNotes(subTopic) {
     console.log("inside...............", subTopic.name);
-
+    this.downloadService.downloadNotes(subTopic);
     // this.externalServicefileLink
     //   .getInvestorAttachments(formID)
     //   .toPromise()
     // //   .then((res: any) => {
     //     if (res.Value.length > 0) {
     //       res.Value.forEach((element) => {
-    this.http
-      .get(
-        "http://51.143.20.126:4005/file-upload/files/T3_P41624534484960.pdf",
+    // this.http
+    //   .get(
+    //     "http://51.143.20.126:4005/file-upload/files/T3_P41624534484960.pdf",
 
-        { responseType: "arraybuffer" }
-      )
-      .subscribe((response) => {
-        console.log("response", response);
+    //     { responseType: "arraybuffer" }
+    //   )
+    //   .subscribe((response) => {
+    //     console.log("response", response);
 
-        // let ext = element.FilePath.split("/");
-        // let exten = ext[ext.length - 1].split(".");
-        // console.log(exten);
-        // let fileName = element.Name + "." + exten[exten.length - 1];
-        // console.log(fileName);
-        // console.log("elemnt-----", element);
-        let blob = new Blob([response]);
-        // const data = Buffer.from(response.).toString("base64");
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", subTopic.name + ".pdf");
-        document.body.appendChild(link);
-        link.click();
-      });
+    //     // let ext = element.FilePath.split("/");
+    //     // let exten = ext[ext.length - 1].split(".");
+    //     // console.log(exten);
+    //     // let fileName = element.Name + "." + exten[exten.length - 1];
+    //     // console.log(fileName);
+    //     // console.log("elemnt-----", element);
+    //     let blob = new Blob([response]);
+    //     // const data = Buffer.from(response.).toString("base64");
+    //     const url = window.URL.createObjectURL(blob);
+    //     const link = document.createElement("a");
+    //     link.href = url;
+    //     link.setAttribute("download", subTopic.name + ".pdf");
+    //     document.body.appendChild(link);
+    //     link.click();
+    //   });
     // .catch((err) => {
     //   console.log(err);
     // });
