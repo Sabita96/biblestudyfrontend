@@ -1,15 +1,34 @@
-<html>
-  <head>
-    <script type="text/javascript">
-      $("#myModal").on("hidden.bs.modal", function () {
-        callPlayer("yt-player", "stopVideo");
-      });
-    </script>
-  </head>
-  <body>
-    <app-landing-page-banner></app-landing-page-banner>
-    <!-- Button trigger modal -->
-    <!-- <button
+<!-- <app-loader *ngIf="isLoading">{{ isLoading }}</app-loader> -->
+<app-landing-page-banner></app-landing-page-banner>
+<div class="section" id="video-section">
+  <div class="container">
+    <div class="text-center t1">
+      <h1 class="title">Spritual Truth Study Intro</h1>
+    </div>
+    <p>
+      Spiritual Truth Study is all about the spiritual truths of Bible. The
+      truths are being deeply explained by a Servant Of God Bro. Charles Paul.
+      Preaching videos and notes of the spiritual topics are being published in
+      this website .
+    </p>
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe
+        src="https://www.youtube.com/embed/4UaFJcz_Rlk?autoplay=0&mute=1&loop=0"
+        title="Spiritual Truth Study Introduction"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <!-- <iframe
+        class="embed-responsive-item"
+        src="https://www.youtube.com/embed/4UaFJcz_Rlk"
+        allowfullscreen
+      ></iframe> -->
+    </div>
+  </div>
+</div>
+<!-- Button trigger modal -->
+<!-- <button
       type="button"
       class="btn btn-primary"
       data-bs-toggle="modal"
@@ -18,8 +37,8 @@
       Launch static backdrop modal
     </button> -->
 
-    <!-- Modal -->
-    <!-- <div
+<!-- Modal -->
+<!-- <div
       class="modal fade"
       id="exampleModal"
       data-bs-backdrop="static"
@@ -54,13 +73,13 @@
       </div>
     </div> -->
 
-    <!-- <div [ngClass]="{ loader: isLoading }"></div> -->
-    <!-- 
+<!-- <div [ngClass]="{ loader: isLoading }"></div> -->
+<!-- 
     <div class="spinner-border" style="width: 3rem; height: 3rem" role="status">
       <span class="sr-only">Loading...</span>
     </div> -->
 
-    <!-- <div class="page-header container-fluid" id="carousel">
+<!-- <div class="page-header container-fluid" id="carousel">
       <div class="">
         <div class="row">
           <div class="col-md-12 mr-auto ml-auto">
@@ -99,133 +118,128 @@
         </div>
       </div>
     </div> -->
-    <div class="main" style="background: #f7fbfe">
-      <div class="container">
-        <div class="text-center">
-          <h1 class="title">Overview</h1>
+<div class="main" style="background: #f7fbfe">
+  <div class="container">
+    <div class="text-center">
+      <h1 class="title">Overview</h1>
+    </div>
+    <div class="card-group vgr-cards pt-5">
+      <div class="card" *ngFor="let topic of topicsList">
+        <div class="card-img-body">
+          <img class="card-img" [src]="topic.img" alt="Card image cap" />
         </div>
-        <div class="card-group vgr-cards pt-5">
-          <div class="card" *ngFor="let topic of topicsList">
-            <div class="card-img-body">
-              <img class="card-img" [src]="topic.img" alt="Card image cap" />
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">{{ topic.name }}</h4>
-              <p class="card-text">
-                {{ topic.description }}
-              </p>
-              <!-- <a class="button arrow">Read More</a> -->
-              <a
-                [routerLink]="['/topic-detail', topic._id]"
-                class="arrow btn btn-outline-primary"
-                >View Detail
-              </a>
-            </div>
-          </div>
+        <div class="card-body">
+          <h4 class="card-title">{{ topic.name }}</h4>
+          <p class="card-text">
+            {{ topic.description }}
+          </p>
+          <!-- <a class="button arrow">Read More</a> -->
+          <a
+            [routerLink]="['/topic-detail', topic._id]"
+            class="arrow btn btn-outline-primary"
+            >View Detail
+          </a>
         </div>
       </div>
     </div>
-    <div class="main">
-      <div class="section landing-section" id="topics">
-        <div class="container">
-          <div class="text-center">
-            <h2 class="title">Bible Study Topics</h2>
-          </div>
-          <div class="pt-4">
-            <ngb-accordion class="range-accordion">
-              <ngb-panel
-                *ngFor="let topic of topicsList; let i = index"
-                activeIds="60afcb6b4a82ef3e5077ac60"
+  </div>
+</div>
+<div class="main">
+  <div class="section landing-section" id="topics">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="title">Bible Study Topics</h2>
+      </div>
+      <div class="pt-4">
+        <ngb-accordion class="range-accordion">
+          <ngb-panel
+            *ngFor="let topic of topicsList; let i = index"
+            activeIds="60afcb6b4a82ef3e5077ac60"
+          >
+            <ng-template ngbPanelTitle>
+              <div
+                class="d-flex justify-content-between"
+                style="width: 1027px"
+                [id]="topic._id"
+                (click)="handleEvent(topic)"
               >
-                <ng-template ngbPanelTitle>
-                  <div
-                    class="d-flex justify-content-between"
-                    style="width: 1027px"
-                    [id]="topic._id"
-                    (click)="handleEvent(topic)"
-                  >
-                    <div
-                      class="d-flex"
-                      style="
-                        font-weight: bold;
-                        color: #1c2128;
-                        font-size: 15px !important;
-                      "
-                    >
-                      {{ topic.name }}
-                    </div>
-                    <div class="d-flex">
-                      <i class="nc-icon nc-minimal-down"></i>
-                    </div>
+                <div
+                  class="d-flex"
+                  style="
+                    font-weight: bold;
+                    color: #1c2128;
+                    font-size: 15px !important;
+                  "
+                >
+                  {{ topic.name }}
+                </div>
+                <div class="d-flex">
+                  <i class="nc-icon nc-minimal-down"></i>
+                </div>
 
-                    <!-- <div class="float-right">
+                <!-- <div class="float-right">
                       <i class="nc-icon nc-minimal-down"></i>
                     </div> -->
-                  </div>
-                </ng-template>
-                <ng-template ngbPanelContent>
-                  <div
-                    class="accordion accordion-flush"
-                    id="accordionFlushExample"
-                  >
-                    <div
-                      class="accordion-item"
-                      *ngFor="let subTopic of topic.subTopics"
+              </div>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div
+                  class="accordion-item"
+                  *ngFor="let subTopic of topic.subTopics"
+                >
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      [attr.data-bs-target]="'#flush-collapse' + subTopic._id"
+                      aria-expanded="false"
+                      [attr.aria-controls]="'flush-collapse' + subTopic._id"
                     >
-                      <h2 class="accordion-header" id="flush-headingOne">
-                        <button
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          [attr.data-bs-target]="
-                            '#flush-collapse' + subTopic._id
-                          "
-                          aria-expanded="false"
-                          [attr.aria-controls]="'flush-collapse' + subTopic._id"
-                        >
-                          {{ subTopic.name }}
-                        </button>
-                      </h2>
-                      <div
-                        [attr.id]="'flush-collapse' + subTopic._id"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="flush-heading"
-                        data-bs-parent="#accordionFlushExample"
-                      >
-                        <div class="accordion-body">
-                          <div class="motto row my-3">
-                            <div class="col-md-7"></div>
-                            <div class="col-md-5 col-sm-10">
-                              <a
-                                href="javascript::void(0)"
-                                class="btn btn-round col-sm-12 col-md-6"
-                                (click)="watchVideo(subTopic)"
-                                ><i class="fa fa-play"></i>Watch Video</a
-                              >
+                      {{ subTopic.name }}
+                    </button>
+                  </h2>
+                  <div
+                    [attr.id]="'flush-collapse' + subTopic._id"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <div class="motto row my-3">
+                        <div class="col-md-7"></div>
+                        <div class="col-md-5 col-sm-10">
+                          <a
+                            href="javascript::void(0)"
+                            class="btn btn-round col-sm-12 col-md-6"
+                            (click)="watchVideo(subTopic)"
+                            ><i class="fa fa-play"></i>Watch Video</a
+                          >
 
-                              <button
-                                type="button"
-                                class="
-                                  btn btn-round
-                                  col-sm-12
-                                  mt-2 mt-sm-0
-                                  col-md-5
-                                "
-                                [disabled]="!subTopic.fileLink.includes('pdf')"
-                                (click)="downloadNotes(subTopic)"
-                              >
-                                Download Notes
-                              </button>
-                            </div>
-                          </div>
+                          <button
+                            type="button"
+                            class="
+                              btn btn-round
+                              col-sm-12
+                              mt-2 mt-sm-0
+                              col-md-5
+                            "
+                            [disabled]="!subTopic.fileLink.includes('pdf')"
+                            (click)="downloadNotes(subTopic)"
+                          >
+                            Download Notes
+                          </button>
                         </div>
                       </div>
                     </div>
                   </div>
-                </ng-template>
-              </ngb-panel>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-panel>
 
-              <!-- <!-- <ngb-panel>
+          <!-- <!-- <ngb-panel>
                 <ng-template ngbPanelTitle>
                   <div class="d-flex justify-content-between" style="width: 1027px">
                     <div class="d-flex" style="font-weight: bold; color: #1c2128">
@@ -359,10 +373,8 @@
                   </div>
                 </ng-template>
               </ngb-panel> -->
-            </ngb-accordion>
-          </div>
-        </div>
+        </ngb-accordion>
       </div>
     </div>
-  </body>
-</html>
+  </div>
+</div>

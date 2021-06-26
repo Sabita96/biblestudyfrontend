@@ -16,6 +16,7 @@ import { ExamplesModule } from "./examples/examples.module";
 import { HttpClientModule } from "@angular/common/http";
 import { ContactPageComponent } from "./contact-page/contact-page.component";
 import { InViewportModule } from "ng-in-viewport";
+import { LoaderComponent } from "./shared/loader/loader.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { InViewportModule } from "ng-in-viewport";
     // StudyContentComponent,
     // SliderComponent,
     ContactPageComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,5 +40,6 @@ import { InViewportModule } from "ng-in-viewport";
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [LoaderComponent],
 })
 export class AppModule {}

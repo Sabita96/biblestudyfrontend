@@ -20,11 +20,11 @@ import { DownloadService } from "app/services/download-service/download.service"
 })
 export class LandingComponent implements OnInit {
   topicsList;
-  isLoading: boolean = true;
+  isLoading = true;
   selectedTopic;
   name = "Angular";
   @ViewChild("videoPlayer", { static: false }) videoplayer: ElementRef;
-  isPlay: boolean = false;
+  isPlay = false;
   constructor(
     private topicService: TopicService,
     private downloadService: DownloadService,

@@ -34,6 +34,7 @@ export class AppComponent implements OnInit {
   contact2;
   @ViewChild("contact", { read: ViewContainerRef, static: true })
   contact: ViewContainerRef;
+  mybutton: HTMLElement;
   constructor(
     private renderer: Renderer2,
     private router: Router,
@@ -43,6 +44,10 @@ export class AppComponent implements OnInit {
     private cfr: ComponentFactoryResolver
   ) {}
   ngOnInit() {
+    this.mybutton = document.getElementById("back-to-top");
+    window.onscroll = () => {
+      this.scrollFunction();
+    };
     var navbar: HTMLElement =
       this.element.nativeElement.children[0].children[0];
     this._router = this.router.events
@@ -121,6 +126,18 @@ export class AppComponent implements OnInit {
 
       default:
         break;
+    }
+  }
+  // When the user scrolls down 20px from the top of the document, show the button
+
+  scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      this.mybutton.style.display = "block";
+    } else {
+      this.mybutton.style.display = "none";
     }
   }
 }

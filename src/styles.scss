@@ -1,14 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
-@font-face {
-  font-family: "Nuptial BT";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Nuptial BT"), url("Nuptial-BT.woff") format("woff");
-}
-* {
-  font-family: "Nuptial BT";
-}
+// @font-face {
+//   font-family: "Nuptial BT";
+//   font-style: normal;
+//   font-weight: normal;
+//   src: local("Nuptial BT"), url("Nuptial-BT.woff") format("woff");
+// }
+// * {
+//   font-family: "Nuptial BT";
+// }
 
 html {
   scroll-behavior: smooth;
+}
+.title:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  border-bottom: 3px solid #8c4040;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+  color: white;
+}
+.title:hover:after {
+  width: 100%;
+  left: 0;
+  color: white;
+}
+.title:hover::before {
+  color: white;
+}
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  // position: relative;
+  // top: -20px;
+  background: #3030d3;
+  border-color: #3030d3;
 }

@@ -8,7 +8,6 @@ import { ProfileComponent } from "./profile/profile.component";
 import { SignupComponent } from "./signup/signup.component";
 import { RouterModule } from "@angular/router";
 import { ComponentsModule } from "app/components/components.module";
-import { AppModule } from "app/app.module";
 
 @NgModule({
   imports: [
