@@ -10,36 +10,53 @@ import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { FooterComponent } from "./shared/footer/footer.component";
 
 // import { ComponentsModule } from "./components/components.module";
-import { ExamplesModule } from "./examples/examples.module";
 // import { StudyContentComponent } from "./study-content/study-content.component";
 // import { SliderComponent } from "./shared/slider/slider.component";
 import { HttpClientModule } from "@angular/common/http";
-import { ContactPageComponent } from "./contact-page/contact-page.component";
-import { InViewportModule } from "ng-in-viewport";
+import { ContactPageComponent } from "./shared/contact-page/contact-page.component";
 import { LoaderComponent } from "./shared/loader/loader.component";
+import { LandingComponent } from "./components/landing/landing.component";
+import { ToastrModule } from "ngx-toastr";
+import { ProfileComponent } from "./components/profile/profile.component";
+import { LandingPageBannerComponent } from "./components/landing-page-banner/landing-page-banner.component";
+import { NgbdModalContent } from "./components/modal/modal.component";
+import { TopicDetailComponent } from "./components/topic-detail/topic-detail.component";
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
+import { LazyLoadImageModule } from "ng-lazyload-image";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
+    LandingComponent,
+    ProfileComponent,
+    // SignupComponent
     // StudyContentComponent,
     // SliderComponent,
     ContactPageComponent,
     LoaderComponent,
+    NgbdModalContent,
+    TopicDetailComponent,
+    LandingPageBannerComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
     RouterModule,
+    BrowserAnimationsModule,
     // ComponentsModule,
-    ExamplesModule,
+    // ExamplesModule,
     AppRoutingModule,
     HttpClientModule,
-    InViewportModule,
+    // InViewportModule,
+    ToastrModule.forRoot(),
+    NgxSkeletonLoaderModule,
+    LazyLoadImageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [LoaderComponent],
 })
 export class AppModule {}

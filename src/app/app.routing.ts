@@ -4,11 +4,9 @@ import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule } from "@angular/router";
 
 import { ComponentsComponent } from "./components/components.component";
-import { ProfileComponent } from "./examples/profile/profile.component";
-import { SignupComponent } from "./examples/signup/signup.component";
-import { LandingComponent } from "./examples/landing/landing.component";
-import { NucleoiconsComponent } from "./components/nucleoicons/nucleoicons.component";
+import { LandingComponent } from "./components/landing/landing.component";
 import { TopicDetailComponent } from "./components/topic-detail/topic-detail.component";
+import { ProfileComponent } from "./components/profile/profile.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },

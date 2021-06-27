@@ -14,7 +14,7 @@ import "rxjs/add/operator/filter";
 import { DOCUMENT } from "@angular/common";
 import { LocationStrategy, PlatformLocation, Location } from "@angular/common";
 import { NavbarComponent } from "./shared/navbar/navbar.component";
-import { ContactPageComponent } from "./contact-page/contact-page.component";
+import { ContactPageComponent } from "./shared/contact-page/contact-page.component";
 import { FooterComponent } from "./shared/footer/footer.component";
 
 @Component({
@@ -139,5 +139,9 @@ export class AppComponent implements OnInit {
     } else {
       this.mybutton.style.display = "none";
     }
+  }
+
+  scrollToTop() {
+    window.scroll(0, 0);
   }
 }

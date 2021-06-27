@@ -218,6 +218,13 @@ a.button {
     }
   }
 }
-// .motto.text-center:hover {
-//   top: 100%;
-// }
+
+.item {
+  width: auto;
+  height: auto;
+  margin: 10px auto;
+  padding: 10px;
+}
+#toast-container > div {
+  opacity: 1;
+}

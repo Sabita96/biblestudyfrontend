@@ -14,6 +14,7 @@ import { DownloadService } from "app/services/download-service/download.service"
 export class TopicDetailComponent implements OnInit {
   topicObj;
   id: string;
+  isLoading = true;
   constructor(
     private modalService: NgbModal,
     private topicService: TopicService,
@@ -46,6 +47,7 @@ export class TopicDetailComponent implements OnInit {
           topic.img = imgList[i];
         });
         console.log("this.topicObj.subTopics", this.topicObj.subTopics);
+        this.isLoading = false;
       },
       (err) => {
         console.log("err", err);

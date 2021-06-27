@@ -123,25 +123,40 @@
     <div class="text-center">
       <h1 class="title">Overview</h1>
     </div>
-    <div class="card-group vgr-cards pt-5">
-      <div class="card" *ngFor="let topic of topicsList">
-        <div class="card-img-body">
-          <img class="card-img" [src]="topic.img" alt="Card image cap" />
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">{{ topic.name }}</h4>
-          <p class="card-text">
-            {{ topic.description }}
-          </p>
-          <!-- <a class="button arrow">Read More</a> -->
-          <a
-            [routerLink]="['/topic-detail', topic._id]"
-            class="arrow btn btn-outline-primary"
-            >View Detail
-          </a>
+    <div class="item">
+      <ngx-skeleton-loader
+        *ngIf="isLoading"
+        count="4"
+        [theme]="{ 'border-radius': '0', height: '150px' }"
+      ></ngx-skeleton-loader>
+    </div>
+    <ng-container *ngIf="!isLoading">
+      <div class="card-group vgr-cards">
+        <div class="card" *ngFor="let topic of topicsList">
+          <div class="card-img-body">
+            <img
+              class="card-img"
+              [lazyLoad]="topic.img"
+              alt="Card image cap"
+              loading="lazy"
+              defaultImage="../../../assets/img/shimmer-2.gif"
+            />
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">{{ topic.name }}</h4>
+            <p class="card-text">
+              {{ topic.description }}
+            </p>
+            <!-- <a class="button arrow">Read More</a> -->
+            <a
+              [routerLink]="['/topic-detail', topic._id]"
+              class="arrow btn btn-outline-primary"
+              >View Detail
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </ng-container>
   </div>
 </div>
 <div class="main">
@@ -150,7 +165,81 @@
       <div class="text-center">
         <h2 class="title">Bible Study Topics</h2>
       </div>
-      <div class="pt-4">
+      <div class="item">
+        <ngx-skeleton-loader
+          *ngIf="isLoading"
+          count="4"
+          [theme]="{ 'border-radius': '0', height: '65px' }"
+        ></ngx-skeleton-loader>
+      </div>
+      <div class="pt-4" *ngIf="!isLoading">
+        <!-- <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div
+            class="accordion-item"
+            *ngFor="let topic of topicsList; let i = index"
+          >
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#flush-collapse' + topic._id"
+                aria-expanded="false"
+                [attr.aria-controls]="'flush-collapse' + topic._id"
+              >
+                {{ topic.name }}
+              </button>
+            </h2>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <div
+                class="accordion-item"
+                *ngFor="let subTopic of topic.subTopics"
+              >
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#flush-collapse' + subTopic._id"
+                    aria-expanded="false"
+                    [attr.aria-controls]="'flush-collapse' + subTopic._id"
+                  >
+                    {{ subTopic.name }}
+                  </button>
+                </h2>
+                <div
+                  [attr.id]="'flush-collapse' + subTopic._id"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-heading"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body">
+                    <div class="motto row my-3">
+                      <div class="col-md-7"></div>
+                      <div class="col-md-5 col-sm-10">
+                        <a
+                          href="javascript::void(0)"
+                          class="btn btn-round col-sm-12 col-md-6"
+                          (click)="watchVideo(subTopic)"
+                          ><i class="fa fa-play"></i>Watch Video</a
+                        >
+
+                        <button
+                          type="button"
+                          class="btn btn-round col-sm-12 mt-2 mt-sm-0 col-md-5"
+                          [disabled]="!subTopic.fileLink.includes('pdf')"
+                          (click)="downloadNotes(subTopic)"
+                        >
+                          Download Notes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
         <ngb-accordion class="range-accordion">
           <ngb-panel
             *ngFor="let topic of topicsList; let i = index"
@@ -208,11 +297,11 @@
                   >
                     <div class="accordion-body">
                       <div class="motto row my-3">
-                        <div class="col-md-7"></div>
-                        <div class="col-md-5 col-sm-10">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-7 col-sm-10">
                           <a
                             href="javascript::void(0)"
-                            class="btn btn-round col-sm-12 col-md-6"
+                            class="btn btn-round col-sm-12 col-md-5"
                             (click)="watchVideo(subTopic)"
                             ><i class="fa fa-play"></i>Watch Video</a
                           >
@@ -228,6 +317,8 @@
                             [disabled]="!subTopic.fileLink.includes('pdf')"
                             (click)="downloadNotes(subTopic)"
                           >
+                            <i class="fa fa-download" aria-hidden="true"></i>
+
                             Download Notes
                           </button>
                         </div>
@@ -238,141 +329,6 @@
               </div>
             </ng-template>
           </ngb-panel>
-
-          <!-- <!-- <ngb-panel>
-                <ng-template ngbPanelTitle>
-                  <div class="d-flex justify-content-between" style="width: 1027px">
-                    <div class="d-flex" style="font-weight: bold; color: #1c2128">
-                      Within Yourself...
-                    </div>
-                    <div class="float-right">
-                      <i class="nc-icon nc-minimal-down"></i>
-                    </div>
-                  </div>
-                </ng-template>
-                <ng-template ngbPanelContent>
-                  <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="flush-headingOne">
-                        <button
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapseOne"
-                          aria-expanded="false"
-                          aria-controls="flush-collapseOne"
-                        >
-                          Impossible things are possible with God
-                        </button>
-                      </h2>
-                      <div
-                        id="flush-collapseOne"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingOne"
-                        data-bs-parent="#accordionFlushExample"
-                      >
-                        <div class="accordion-body">
-                          <div class="motto text-right my-3">
-                            <div class="col-md-8"></div>
-                            <div class="col-md-4">
-                              <a
-                                href="javascript::void(0)"
-                                class="btn btn-round"
-                                (click)="openLink()"
-                                ><i class="fa fa-play"></i>Watch video1</a
-                              >
-      
-                              <button
-                                type="button"
-                                class="btn btn-outline-primary btn-round"
-                                (click)="downloadNotes()"
-                              >
-                                View Notes
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="flush-headingTwo">
-                        <button
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapseTwo"
-                          aria-expanded="false"
-                          aria-controls="flush-collapseTwo"
-                        >
-                          My God is the creator of the world
-                        </button>
-                      </h2>
-                      <div
-                        id="flush-collapseTwo"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingTwo"
-                        data-bs-parent="#accordionFlushExample"
-                      >
-                        <div class="motto text-right my-3">
-                          <div class="col-md-4"></div>
-                          <div class="col-md-8">
-                            <a
-                              href="javascript::void(0)"
-                              class="btn btn-round"
-                              (click)="openLink()"
-                              ><i class="fa fa-play"></i>Watch video1</a
-                            >
-      
-                            <button
-                              type="button"
-                              class="btn btn-outline-primary btn-round"
-                              (click)="downloadNotes()"
-                            >
-                              View Notes
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="flush-headingThree">
-                        <button
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapseThree"
-                          aria-expanded="false"
-                          aria-controls="flush-collapseThree"
-                        >
-                          My God is an Awesome God
-                        </button>
-                      </h2>
-                      <div
-                        id="flush-collapseThree"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingThree"
-                        data-bs-parent="#accordionFlushExample"
-                      >
-                        <div class="motto text-right my-3">
-                          <a
-                            href="javascript::void(0)"
-                            class="btn btn-round"
-                            (click)="openLink()"
-                            ><i class="fa fa-play"></i>Watch video</a
-                          >
-                          <button
-                            type="button"
-                            class="btn btn-round"
-                            (click)="downloadNotes()"
-                          >
-                            Download Notes
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </ng-template>
-              </ngb-panel> -->
         </ngb-accordion>
       </div>
     </div>

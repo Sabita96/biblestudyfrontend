@@ -1,28 +1,40 @@
 <app-landing-page-banner></app-landing-page-banner>
 <div class="main pt-5">
   <div class="container">
-    <div class="text-center">
-      <h2 class="title fs-2">{{ this.topicObj.name }}</h2>
-    </div>
-    <div
-      class="row mt-3"
-      *ngFor="let subTopic of topicObj.subTopics; index as i"
-    >
-      <div
-        class="col-md-6 no-trans"
-        [ngClass]="{ 'order-2': i % 2 !== 0 && !detectMob() }"
-      >
-        <div class="mini-spacer">
-          {{ isMobile }}
-          <img src="{{ subTopic.img }}" alt="truth study" class="img-fluid" />
-        </div>
+    <ngx-skeleton-loader
+      *ngIf="isLoading"
+      count="4"
+      [theme]="{ 'border-radius': '0', height: '165px' }"
+    ></ngx-skeleton-loader>
+    <ng-container *ngIf="!isLoading">
+      <div class="text-center">
+        <h2 class="title fs-2">{{ this.topicObj.name }}</h2>
       </div>
-      <div class="col-md-6" style="background: azure">
-        <h3 class="title font-light">{{ subTopic.name }}</h3>
-        <p style="line-height: 1.8em !important">
-          {{ subTopic.description }}
-        </p>
-        <!-- <p class="m-t-30 m-b-30">
+
+      <div
+        class="row mt-3"
+        *ngFor="let subTopic of topicObj.subTopics; index as i"
+      >
+        <div
+          class="col-md-6 no-trans"
+          [ngClass]="{ 'order-2': i % 2 !== 0 && !detectMob() }"
+        >
+          <div class="mini-spacer">
+            {{ isMobile }}
+            <img
+              src="{{ subTopic.img }}"
+              alt="spiritual truth study"
+              class="img-fluid"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="col-md-6" style="background: azure">
+          <h3 class="title font-light">{{ subTopic.name }}</h3>
+          <p style="line-height: 1.8em !important">
+            {{ subTopic.description }}
+          </p>
+          <!-- <p class="m-t-30 m-b-30">
           Adipisicing sit minim occaecat nulla proident exercitation do laboris.
         </p>
         <p class="m-t-30 m-b-30">
@@ -30,28 +42,29 @@
           incididunt ex Lorem. Minim sint cupidatat magna esse labore id.
         </p> -->
 
-        <div class="m-t-30 mb-2 pt-5">
-          <button
-            type="button"
-            class="btn btn-outline-danger btn-round mr-md-3 mr-lg-3"
-            (click)="watchVideo(subTopic)"
-          >
-            <i class="fa fa-play"></i>Watch Video
-          </button>
-          <!-- <button
+          <div class="m-t-30 mb-2 pt-5">
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-round mr-md-3 mr-lg-3"
+              (click)="watchVideo(subTopic)"
+            >
+              <i class="fa fa-play"></i>Watch Video
+            </button>
+            <!-- <button
             type="button"
             class="btn btn-outline-neutral btn-round"
             (click)="downloadNotes()"
           >
             Download Notes
           </button> -->
-          <a (click)="downloadNotes(subTopic)" class="cursor">
-            <i class="fa fa-download" aria-hidden="true"></i>
-            Download Notes
-          </a>
+            <a (click)="downloadNotes(subTopic)" class="cursor">
+              <i class="fa fa-download" aria-hidden="true"></i>
+              Download Notes
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </ng-container>
   </div>
 </div>
 <!-- 
@@ -84,7 +97,7 @@
 </button> -->
 
 <!-- Modal -->
-<div
+<!-- <div
   class="modal fade"
   id="exampleModal"
   tabindex="-1"
@@ -93,12 +106,6 @@
 >
   <div class="modal-dialog mw-100 w-75">
     <div class="modal-content">
-      <!-- <div class="modal-header d-flex" style="display: flex !important"> -->
-      <!-- <h5 class="modal-title" id="exampleModalLabel">
-          Ark of Covenant Part I
-        </h5> -->
-
-      <!-- </div> -->
       <button
         type="button"
         class="btn-close"
@@ -116,8 +123,7 @@
       </div>
     </div>
   </div>
-</div>
-<div style="margin: 20px 10px"></div>
+</div> -->
 <!-- <button (click)="previous()" class="btn btn-default">
   <i class="fa fa-chevron-left"></i>
 </button>

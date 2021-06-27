@@ -1,4 +1,3 @@
-import { HttpClient } from "@angular/common/http";
 import {
   ChangeDetectorRef,
   Component,
@@ -6,9 +5,8 @@ import {
   OnInit,
   ViewChild,
 } from "@angular/core";
-import { HttpService } from "app/http.service";
 import { ToastrService } from "ngx-toastr";
-import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
+import { DomSanitizer } from "@angular/platform-browser";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { NgbdModalContent } from "app/components/modal/modal.component";
 import { TopicService } from "app/services/topic-service/topic.service";
@@ -28,20 +26,20 @@ export class LandingComponent implements OnInit {
   constructor(
     private topicService: TopicService,
     private downloadService: DownloadService,
-    private http: HttpClient,
     private cd: ChangeDetectorRef,
     public sanitizer: DomSanitizer,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
     console.log("ssssssssssssssssss");
     let imgList = [
-      "../../../assets//img/Offering.jpg",
-      "../../../assets//img/Dress Of Priest.jpg",
-      "../../../assets//img/Ark Of Covenant.jpg",
+      "../../../assets/img/topics/topic4/Offering.jpg",
+      "../../../assets/img/topics/topic3/Dress Of Priest.jpg",
+      "../../../assets/img/topics/topic2/Ark Of Covenant.jpg",
 
-      "../../../assets//img/Tabernacle.jpg",
+      "../../../assets/img/topics/topic1/Tabernacle.jpg",
     ];
     this.topicService.getTopics().subscribe(
       (res) => {
@@ -57,23 +55,6 @@ export class LandingComponent implements OnInit {
         console.log("err", err);
       }
     );
-    // this.apiService.get('')
-  }
-  downloadNotes1(pdfUrl) {
-    window.open(
-      "http://51.143.20.126:4005/file-upload/files/T3_P41624534484960.pdf",
-      "_blank"
-    );
-    //
-  }
-  stopVideo(id) {
-    let a = document.getElementById(id);
-    console.log("a", a);
-    document.getElementById(id).setAttribute("src", "");
-    this.cd.markForCheck();
-    // var src = $j("iframe." + id).attr("src");
-    // $j("iframe." + id).attr("src", "");
-    // $j("iframe." + id).attr("src", src);
   }
   watchVideo(subTopic) {
     console.log("url", "subTopic", subTopic.youtubeLink);
@@ -87,15 +68,31 @@ export class LandingComponent implements OnInit {
       size: "lg",
     });
     modalRef.componentInstance.subTopic = subTopic;
-    // document
-    //   .getElementById("embed-video")
-    //   .setAttribute("src", "https://www.youtube.com/embed/IvWlF-XM7pk");
-
     this.selectedTopic = subTopic;
   }
   downloadNotes(subTopic) {
     console.log("inside...............", subTopic.name);
-    this.downloadService.downloadNotes(subTopic);
+    this.downloadService.downloadNotes(subTopic).subscribe(
+      (res) => {
+        this.toastr.info(
+          "Download success!! Please check inside your downloads in browser",
+          "Success",
+          {
+            timeOut: 3000,
+          }
+        );
+        let blob = new Blob([res]);
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", subTopic.name + ".pdf");
+        document.body.appendChild(link);
+        link.click();
+      },
+      (err) => {
+        this.toastr.error("Error While downloading pdf!!!");
+      }
+    );
     // this.externalServicefileLink
     //   .getInvestorAttachments(formID)
     //   .toPromise()
@@ -155,49 +152,5 @@ export class LandingComponent implements OnInit {
   handleEvent(t) {
     console.log("t", t);
     t.isClicked = true;
-  }
-  // public beforeChange($event: NgbPanelChangeEvent) {
-  // if ($event.panelId === "preventchange-2") {
-  //   $event.preventDefault();
-  // }
-  // if ($event.panelId === "preventchange-3" && $event.nextState === false) {
-  //   $event.preventDefault();
-  // }
-  // }
-
-  toggleVideo(event: any) {
-    this.videoplayer.nativeElement.play();
-  }
-  playPause() {
-    var myVideo: any = document.getElementById(
-      "ytp-large-play-button ytp-button"
-    );
-    if (myVideo.paused) myVideo.play();
-    else myVideo.pause();
-  }
-
-  makeBig() {
-    var myVideo: any = document.getElementById("my_video_1");
-    myVideo.width = 560;
-  }
-
-  makeSmall() {
-    var myVideo: any = document.getElementById("my_video_1");
-    myVideo.width = 320;
-  }
-
-  makeNormal() {
-    var myVideo: any = document.getElementById("my_video_1");
-    myVideo.width = 420;
-  }
-
-  skip(value) {
-    let video: any = document.getElementById("my_video_1");
-    video.currentTime += value;
-  }
-
-  restart() {
-    let video: any = document.getElementById("my_video_1");
-    video.currentTime = 0;
   }
 }

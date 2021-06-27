@@ -1,4 +1,4 @@
-<app-loader></app-loader>
+<!-- <app-loader></app-loader> -->
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
 <app-contact-page></app-contact-page>
@@ -30,6 +30,7 @@
   href="#"
   class="btn btn-light btn-lg back-to-top float-right"
   id="back-to-top"
+  (click)="scrollToTop()"
 >
   <i class="fa fa-chevron-up"></i>
 </button>

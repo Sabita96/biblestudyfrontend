@@ -36,6 +36,7 @@
             src="./assets/img/profile-img.jpg"
             alt="Circle Image"
             class="img-circle img-no-padding img-responsive"
+            loading="lazy"
           />
         </div>
         <div class="name">
@@ -117,10 +118,12 @@
             <div class="col-sm-6 col-md-3" *ngFor="let img of engImgArr">
               <a class="lightbox">
                 <img
-                  [src]="'../../../assets/img/gallery/eng/' + img"
                   loading="lazy"
                   height="329"
+                  [lazyLoad]="'../../../assets/img/gallery/eng/' + img"
                   alt="spiritual truth study"
+                  defaultImage="../../../assets/img/shimmer-2.gif"
+                  laoding="lazy"
                 />
               </a>
             </div>
@@ -133,7 +136,8 @@
             <div class="col-sm-6 col-md-3" *ngFor="let img of tamilImgArr">
               <a class="lightbox">
                 <img
-                  [src]="'../../../assets/img/gallery/tamil/' + img"
+                  [lazyLoad]="'../../../assets/img/gallery/tamil/' + img"
+                  defaultImage="../../../assets/img/shimmer-2.gif"
                   loading="lazy"
                   height="329"
                   alt="spiritual truth study"
@@ -149,7 +153,8 @@
             <div class="col-sm-6 col-md-3" *ngFor="let img of hindiImgArr">
               <a class="lightbox">
                 <img
-                  [src]="'../../../assets/img/gallery/hindi/' + img"
+                  [lazyLoad]="'../../../assets/img/gallery/hindi/' + img"
+                  defaultImage="../../../assets/img/shimmer-2.gif"
                   loading="lazy"
                   height="329"
                   alt="spiritual truth study"
@@ -165,7 +170,8 @@
             <div class="col-sm-6 col-md-3" *ngFor="let img of marathiImgArr">
               <a class="lightbox">
                 <img
-                  [src]="'../../../assets/img/gallery/marathi/' + img"
+                  [lazyLoad]="'../../../assets/img/gallery/marathi/' + img"
+                  defaultImage="../../../assets/img/shimmer-2.gif"
                   loading="lazy"
                   height="329"
                   alt="spiritual truth study"
