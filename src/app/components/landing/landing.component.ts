@@ -74,13 +74,9 @@ export class LandingComponent implements OnInit {
     console.log("inside...............", subTopic.name);
     this.downloadService.downloadNotes(subTopic).subscribe(
       (res) => {
-        this.toastr.info(
-          "Download success!! Please check inside your downloads in browser",
-          "Success",
-          {
-            timeOut: 3000,
-          }
-        );
+        this.toastr.info("Please check pdf inside your downloads", "Success", {
+          timeOut: 3000,
+        });
         let blob = new Blob([res]);
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement("a");
@@ -90,7 +86,10 @@ export class LandingComponent implements OnInit {
         link.click();
       },
       (err) => {
-        this.toastr.error("Error While downloading pdf!!!");
+        this.toastr.error("Error While downloading pdf!!!", "Error"),
+          {
+            timeOut: 3000,
+          };
       }
     );
     // this.externalServicefileLink

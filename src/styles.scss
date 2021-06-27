@@ -8,35 +8,37 @@
 // * {
 //   font-family: "Nuptial BT";
 // }
-
+@import "~ngx-toastr/toastr.css";
 html {
   scroll-behavior: smooth;
 }
-.title:after {
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
-  position: absolute;
-  border-bottom: 3px solid #8c4040;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
-  color: white;
-}
-.title:hover:after {
-  width: 100%;
-  left: 0;
-  color: white;
-}
-.title:hover::before {
-  color: white;
-}
+// .title:after {
+//   background: none repeat scroll 0 0 transparent;
+//   bottom: 0;
+//   content: "";
+//   display: block;
+//   height: 2px;
+//   left: 50%;
+//   position: absolute;
+//   border-bottom: 3px solid #8c4040;
+//   transition: width 0.3s ease 0s, left 0.3s ease 0s;
+//   width: 0;
+//   color: white;
+// }
+// .title:hover:after {
+//   width: 100%;
+//   left: 0;
+//   color: white;
+// }
+// .title:hover::before {
+//   color: white;
+// }
 #back-to-top {
   position: fixed;
-  bottom: 20px;
+  bottom: 9%;
   right: 20px;
+  border-radius: 50%;
+  height: 7%;
   display: none;
   // position: relative;
   // top: -20px;

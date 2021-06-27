@@ -4,6 +4,7 @@ import { NgbdModalContent } from "../modal/modal.component";
 import { ActivatedRoute } from "@angular/router";
 import { TopicService } from "app/services/topic-service/topic.service";
 import { DownloadService } from "app/services/download-service/download.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-topic-detail",
@@ -19,7 +20,8 @@ export class TopicDetailComponent implements OnInit {
     private modalService: NgbModal,
     private topicService: TopicService,
     private route: ActivatedRoute,
-    private downloadService: DownloadService
+    private downloadService: DownloadService,
+    private toastr: ToastrService
   ) {
     console.log("this.route.snapshot.params", this.route.snapshot.params.id);
 
@@ -92,7 +94,26 @@ export class TopicDetailComponent implements OnInit {
     modalRef.componentInstance.name = "World";
   }
   downloadNotes(subTopic) {
-    this.downloadService.downloadNotes(subTopic);
+    this.downloadService.downloadNotes(subTopic).subscribe(
+      (res) => {
+        this.toastr.info("Please check pdf inside your downloads", "Success", {
+          timeOut: 3000,
+        });
+        let blob = new Blob([res]);
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", subTopic.name + ".pdf");
+        document.body.appendChild(link);
+        link.click();
+      },
+      (err) => {
+        this.toastr.error("Error While downloading pdf!!!", "Error"),
+          {
+            timeOut: 3000,
+          };
+      }
+    );
 
     // this.httpService
     //   .getPdf("http://www.africau.edu/images/default/sample.pdf")

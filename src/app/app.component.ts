@@ -16,6 +16,7 @@ import { LocationStrategy, PlatformLocation, Location } from "@angular/common";
 import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { ContactPageComponent } from "./shared/contact-page/contact-page.component";
 import { FooterComponent } from "./shared/footer/footer.component";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-root",
@@ -41,7 +42,8 @@ export class AppComponent implements OnInit {
     @Inject(DOCUMENT) private document: any,
     private element: ElementRef,
     public location: Location,
-    private cfr: ComponentFactoryResolver
+    private cfr: ComponentFactoryResolver,
+    private toast: ToastrService
   ) {}
   ngOnInit() {
     this.mybutton = document.getElementById("back-to-top");
@@ -143,5 +145,8 @@ export class AppComponent implements OnInit {
 
   scrollToTop() {
     window.scroll(0, 0);
+  }
+  test() {
+    this.toast.success("I'm a toast!", "Success!");
   }
 }

@@ -42,7 +42,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     LandingPageBannerComponent,
   ],
   imports: [
-    BrowserModule,
     NgbModule,
     FormsModule,
     RouterModule,
