@@ -45,3 +45,8 @@ html {
   background: #3030d3;
   border-color: #3030d3;
 }
+@media (max-width: 768px) {
+  .title {
+    font-size: 27px !important;
+  }
+}
