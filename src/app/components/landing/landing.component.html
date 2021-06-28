@@ -13,12 +13,26 @@
     </p>
     <div class="embed-responsive embed-responsive-16by9">
       <iframe
-        src="https://www.youtube.com/embed/4UaFJcz_Rlk?autoplay=0&mute=1&loop=0"
+        width="640"
+        height="360"
+        src="//www.youtube.com/embed/4UaFJcz_Rlk?rel=0&html5=1&vq=hd720&autoplay=1&mute=1&loop=1"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+      <!-- <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/4UaFJcz_Rlk?rel=0&vq=large"
+        frameborder="0"
+        allowfullscreen
+      ></iframe> -->
+      <!-- <iframe
+        src="https://www.youtube.com/embed/4UaFJcz_Rlk?autoplay=1&mute=1&loop=1&controls=1&showinfo=0&rel=0&vq=large"
         title="Spiritual Truth Study Introduction"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
-      ></iframe>
+      ></iframe> -->
       <!-- <iframe
         class="embed-responsive-item"
         src="https://www.youtube.com/embed/4UaFJcz_Rlk"
@@ -120,7 +134,7 @@
     </div> -->
 <div class="main" style="background: #f7fbfe">
   <div class="container">
-    <div class="text-center">
+    <div class="text-center" id="overview">
       <h1 class="title">Overview</h1>
     </div>
     <div class="item">
@@ -136,14 +150,15 @@
           <div class="card-img-body">
             <img
               class="card-img"
-              [lazyLoad]="topic.img"
+              [src]="topic.img"
               alt="Card image cap"
               loading="lazy"
-              defaultImage="../../../assets/img/shimmer-2.gif"
             />
           </div>
           <div class="card-body">
-            <h4 class="card-title">{{ topic.name }}</h4>
+            <h4 class="card-title" style="font-weight: 500">
+              {{ topic.name }}
+            </h4>
             <p class="card-text">
               {{ topic.description }}
             </p>
@@ -314,7 +329,7 @@
                               mt-2 mt-sm-0
                               col-md-5
                             "
-                            [disabled]="!subTopic.fileLink.includes('pdf')"
+                            [disabled]="!subTopic.fileLink"
                             (click)="downloadNotes(subTopic)"
                           >
                             <i class="fa fa-download" aria-hidden="true"></i>

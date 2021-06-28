@@ -20,9 +20,8 @@
           [ngClass]="{ 'order-2': i % 2 !== 0 && !detectMob() }"
         >
           <div class="mini-spacer">
-            {{ isMobile }}
             <img
-              src="{{ subTopic.img }}"
+              [src]="subTopic.img"
               alt="spiritual truth study"
               class="img-fluid"
               loading="lazy"
@@ -30,7 +29,7 @@
           </div>
         </div>
         <div class="col-md-6" style="background: azure">
-          <h3 class="title font-light">{{ subTopic.name }}</h3>
+          <h3 class="title" style="font-weight: 500">{{ subTopic.name }}</h3>
           <p style="line-height: 1.8em !important">
             {{ subTopic.description }}
           </p>
@@ -57,7 +56,11 @@
           >
             Download Notes
           </button> -->
-            <a (click)="downloadNotes(subTopic)" class="cursor">
+            <a
+              (click)="downloadNotes(subTopic)"
+              class="cursor"
+              *ngIf="subTopic.fileLink"
+            >
               <i class="fa fa-download" aria-hidden="true"></i>
               Download Notes
             </a>

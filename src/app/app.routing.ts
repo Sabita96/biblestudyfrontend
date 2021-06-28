@@ -15,7 +15,7 @@ const routes: Routes = [
   // { path: "signup", component: SignupComponent },
   { path: "home", component: LandingComponent },
   { path: "topic-detail/:id", component: TopicDetailComponent },
-
+  { path: "**", redirectTo: "" },
   // { path: "nucleoicons", component: NucleoiconsComponent },
 ];
 

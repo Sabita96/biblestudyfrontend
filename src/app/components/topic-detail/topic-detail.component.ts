@@ -32,18 +32,20 @@ export class TopicDetailComponent implements OnInit {
     let isMobile = this.detectMob();
     console.log("isMobile", isMobile);
 
-    let imgList = [
-      "../../../assets//img/Offering.jpg",
-      "../../../assets//img/Tabernacle.jpg",
-      "../../../assets//img/Dress Of Priest.jpg",
+    // let imgList = [
+    //   "../../../assets/img/Offering.jpg",
+    //   "../../../assets/img/Tabernacle.jpg",
+    //   "../../../assets/img/Dress Of Priest.jpg",
 
-      "../../../assets//img/Ark Of Covenant.jpg",
-    ];
+    //   "../../../assets/img/Ark Of Covenant.jpg",
+    // ];
     this.topicService.getTopicById(this.id).subscribe(
       (res) => {
         console.log("res", res);
 
         this.topicObj = res;
+        let imgList = this.getImageList();
+
         this.topicObj.subTopics.forEach((topic, i) => {
           console.log("topic", topic);
           topic.img = imgList[i];
@@ -75,6 +77,8 @@ export class TopicDetailComponent implements OnInit {
   detectMob() {
     var check = false;
     (function (a) {
+      // console.log("a", a);
+
       if (
         /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
           a
@@ -160,6 +164,60 @@ export class TopicDetailComponent implements OnInit {
         block: "start",
         inline: "nearest",
       });
+    }
+  }
+  getImageList() {
+    if (this.topicObj && this.topicObj.name.includes("பலிகள்")) {
+      console.log("inside.................");
+      let imgList = [
+        "../../../assets/img/topics/topic4/Offering.jpg",
+        "../../../assets/img/topics/topic4/Burnt Offering 01.jpg",
+        "../../../assets/img/topics/topic4/Burnt Offering 02.jpg",
+        "../../../assets/img/topics/topic4/Burnt Offering 03.jpg",
+        "../../../assets/img/topics/topic4/Burnt Offering 04.jpg",
+        "../../../assets/img/topics/topic4/Burnt Offering 05.jpg",
+        "../../../assets/img/topics/topic4/Burnt Offering 06.jpg",
+        "../../../assets/img/topics/topic4/Burnt Offering 07.jpg",
+      ];
+      return imgList;
+    } else if (this.topicObj && this.topicObj.name.includes("ஆசாரியனின் உடை")) {
+      console.log("inside.................");
+      let imgList = [
+        "../../../assets/img/topics/topic3/Ephod 01.jpg",
+        "../../../assets/img/topics/topic3/Ephod 02.jpg",
+        "../../../assets/img/topics/topic3/Breastplate.jpg",
+        "../../../assets/img/topics/topic3/Robe.jpg",
+        "../../../assets/img/topics/topic3/Turban.jpg",
+        "../../../assets/img/topics/topic3/Undergarments.jpg",
+      ];
+      return imgList;
+    } else if (
+      this.topicObj &&
+      this.topicObj.name.includes("உடன்படிக்கைப்பெட்டி")
+    ) {
+      console.log("inside.................");
+      let imgList = [
+        "../../../assets/img/topics/topic2/Ark Of Covenant 01.jpg",
+        "../../../assets/img/topics/topic2/Cherubim.jpg",
+        "../../../assets/img/topics/topic2/Covenant Life.jpg",
+        "../../../assets/img/topics/topic2/Manna.jpg",
+        "../../../assets/img/topics/topic2/Rod.jpg",
+        "../../../assets/img/topics/topic2/Stone Tablets.jpg",
+      ];
+      return imgList;
+    } else if (
+      this.topicObj &&
+      this.topicObj.name.includes("ஆசரிப்பு கூடாரம்")
+    ) {
+      console.log("inside.................");
+      let imgList = [
+        "../../../assets/img/topics/topic1/Lampstand.jpg",
+        "../../../assets/img/topics/topic1/Showbread.jpg",
+        "../../../assets/img/topics/topic1/Incense Altar.jpg",
+        "../../../assets/img/topics/topic1/Incenses.jpg",
+        "../../../assets/img/topics/topic1/Incense.jpg",
+      ];
+      return imgList;
     }
   }
 }

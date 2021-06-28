@@ -34,6 +34,7 @@ export class LandingComponent implements OnInit {
 
   ngOnInit() {
     console.log("ssssssssssssssssss");
+
     let imgList = [
       "../../../assets/img/topics/topic4/Offering.jpg",
       "../../../assets/img/topics/topic3/Dress Of Priest.jpg",
@@ -48,7 +49,12 @@ export class LandingComponent implements OnInit {
           console.log("topic", topic);
           topic.img = imgList[i];
         });
+
         this.isLoading = false;
+        this.cd.markForCheck();
+        console.log("this.topicsList[0]._id", this.topicsList[0]._id);
+
+        document.getElementById(this.topicsList[0]._id).click();
         console.log("res", this.topicsList);
       },
       (err) => {
