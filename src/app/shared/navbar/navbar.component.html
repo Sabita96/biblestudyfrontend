@@ -5,7 +5,7 @@
 >
   <div class="container">
     <div class="navbar-translate">
-      <a class="navbar-brand" routerLink="home">
+      <a class="navbar-brand" routerLink="">
         <img
           src="../../../assets/img/logo/ST Logo New 02.png"
           alt=""
@@ -78,7 +78,7 @@
             rel="tooltip"
             title="Follow us on Instagram"
             data-placement="bottom"
-            routerLink="home"
+            routerLink=""
           >
             <span>
               <!-- <i class="fa fa-home"></i> -->
@@ -87,7 +87,7 @@
           </a>
         </li>
         <li class="nav-item" *ngIf="!isDocumentation()">
-          <a routerLink="user-profile" class="nav-link"
+          <a routerLink="aboutus" class="nav-link"
             ><span>
               <!-- <i class="fa fa-users"></i> -->
               About Us</span
@@ -138,6 +138,7 @@
         <li class="nav-item" *ngIf="isDocumentation()">
           <a
             href="https://github.com/creativetimofficial/paper-kit-2-angular/issues?ref=pk2-free-local"
+            rel="noopener"
             target="_blank"
             class="nav-link"
             >Have an issue</a

@@ -1,6 +1,6 @@
 # [Paper Kit 2 Angular - Free Bootstrap 4 UI Kit](https://demos.creative-tim.com/paper-kit-2-angular/)
 
-![version](https://img.shields.io/badge/version-1.4.0-blue.svg) [![license][license-badge]][LICENSE] [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/paper-kit-2-angular.svg?maxAge=2592000)](https://github.com/creativetimofficial/paper-kit-2-angular/issues?q=is%3Aopen+is%3Aissue) [![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/creativetimofficial/paper-kit-2-angular.svg?maxAge=259200)](https://github.com/creativetimofficial/paper-kit-2-angular/issues?q=is%3Aissue+is%3Aclosed) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
+![version](https://img.shields.io/badge/version-1.4.0-blue.svg) [![license][license-badge]][license] [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/paper-kit-2-angular.svg?maxAge=2592000)](https://github.com/creativetimofficial/paper-kit-2-angular/issues?q=is%3Aopen+is%3Aissue) [![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/creativetimofficial/paper-kit-2-angular.svg?maxAge=259200)](https://github.com/creativetimofficial/paper-kit-2-angular/issues?q=is%3Aissue+is%3Aclosed) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
 ![Paper Kit 2 Angular](https://s3.amazonaws.com/creativetim_bucket/products/65/original/opt_pk2_angular_thumbnail.jpg "Paper Kit 2 Angular Free")
 
 Paper Kit 2 Angular is a free Bootstrap 4 UI Kit with pale colors, beautiful typography built for Angular 7.
@@ -17,38 +17,35 @@ Paper Kit 2 Angular is built on top of Bootstrap 4, so it fully supports it. Mos
 
 ## Table of Contents
 
-* [Versions](#versions)
-* [Demo](#demo)
-* [Quick Start](#quick-start)
-* [Documentation](#documentation)
-* [File Structure](#file-structure)
-* [Browser Support](#browser-support)
-* [Resources](#resources)
-* [Reporting Issues](#reporting-issues)
-* [Technical Support or Questions](#technical-support-or-questions)
-* [Licensing](#licensing)
-* [Useful Links](#useful-links)
-
+- [Versions](#versions)
+- [Demo](#demo)
+- [Quick Start](#quick-start)
+- [Documentation](#documentation)
+- [File Structure](#file-structure)
+- [Browser Support](#browser-support)
+- [Resources](#resources)
+- [Reporting Issues](#reporting-issues)
+- [Technical Support or Questions](#technical-support-or-questions)
+- [Licensing](#licensing)
+- [Useful Links](#useful-links)
 
 ## Versions
 
 [<img src="https://s3.amazonaws.com/creativetim_bucket/github/html.png" width="60" height="60" />](https://www.creative-tim.com/product/paper-kit-2)
 [<img src="https://s3.amazonaws.com/creativetim_bucket/github/angular.png" width="60" height="60" />](https://www.creative-tim.com/product/paper-kit-2-angular)
 
-
-| HTML | Angular |
-| --- | --- |
-| ![Paper Kit 2 HTML](https://s3.amazonaws.com/creativetim_bucket/products/61/opt_pk2_thumbnail.jpg) | ![Paper Kit 2 Angular](https://s3.amazonaws.com/creativetim_bucket/products/65/opt_pk2_angular_thumbnail.jpg)
+| HTML                                                                                               | Angular                                                                                                       |
+| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| ![Paper Kit 2 HTML](https://s3.amazonaws.com/creativetim_bucket/products/61/opt_pk2_thumbnail.jpg) | ![Paper Kit 2 Angular](https://s3.amazonaws.com/creativetim_bucket/products/65/opt_pk2_angular_thumbnail.jpg) |
 
 ## Demo
 
 - [Start page](https://demos.creative-tim.com/paper-kit-2-angular/home)
 - [Landing Page](https://demos.creative-tim.com/paper-kit-2-angular/landing)
 - [Register Page](https://demos.creative-tim.com/paper-kit-2-angular/signup)
-- [Profile Page](https://demos.creative-tim.com/paper-kit-2-angular/user-profile)
+- [Profile Page](https://demos.creative-tim.com/paper-kit-2-angular/aboutus)
 
 [View More](https://demos.creative-tim.com/paper-kit-2-angular/).
-
 
 ## Quick start
 
@@ -57,7 +54,6 @@ Quick start options:
 - [Download from Github](https://github.com/creativetimofficial/pk2-angular.git).
 - [Download from Creative Tim](https://www.creative-tim.com/product/paper-kit-2-angular).
 - Clone the repo: `git clone https://github.com/creativetimofficial/pk2-angular.git`.
-
 
 ## Documentation
 
@@ -178,14 +174,15 @@ paper-kit-2-angular
 └── tslint.json
 
 ```
+
 ## Browser Support
 
 At present, we officially aim to support the last two versions of the following browsers:
 
 <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
 
-
 ## Resources
+
 - [Live Preview](https://demos.creative-tim.com/paper-kit-2-angular/)
 - Download Page: https://www.creative-tim.com/product/paper-kit-2-angular
 - Documentation is [here](https://demos.creative-tim.com/paper-kit-2-angular/documentation/tutorial)
@@ -194,6 +191,7 @@ At present, we officially aim to support the last two versions of the following 
 - Issues: [Github Issues Page](https://github.com/creativetimofficial/paper-kit-2-angular/issues)
 
 ## Reporting Issues
+
 We use GitHub Issues as the official bug tracker for the Paper Kit 2 Angular. Here are some advices for our users that want to report an issue:
 
 1. Make sure that you are using the latest version of the Paper Kit 2 Angular. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/).
@@ -231,6 +229,6 @@ Google+: <https://plus.google.com/+CreativetimPage>
 
 Instagram: <https://instagram.com/creativetimofficial>
 
-[CHANGELOG]: ./CHANGELOG.md
-[LICENSE]: ./LICENSE.md
+[changelog]: ./CHANGELOG.md
+[license]: ./LICENSE.md
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
