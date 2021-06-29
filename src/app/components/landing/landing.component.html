@@ -187,7 +187,8 @@
         ></ngx-skeleton-loader>
       </div>
       <div class="pt-4" *ngIf="!isLoading">
-        <ngb-accordion class="range-accordion" activeIds="ngb-panel-0">
+        <ngb-accordion class="range-accordion">
+          <!-- activeIds="ngb-panel-0" -->
           <ngb-panel
             *ngFor="let topic of topicsList; let index = index"
             id="ngb-panel-{{ index }}"

@@ -50,9 +50,9 @@ export class LandingComponent implements OnInit {
         this.topicsList.forEach((topic, i) => {
           console.log("topic", topic);
           topic.img = imgList[i];
-          if (i == 0) {
-            topic.isOpen = true;
-          }
+          // if (i == 0) {
+          //   topic.isOpen = true;
+          // }
         });
 
         this.isLoading = false;
