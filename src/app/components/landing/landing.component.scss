@@ -30,7 +30,7 @@
 //   font-family: "FontAwesome";
 // }
 .range-accordion .btn-link {
-  width: 100%;
+  // width: 100%;
   text-decoration-line: none;
 }
 
@@ -87,7 +87,9 @@
   body {
     padding: 0;
   }
-
+  // .title {
+  //   font-size: 23px !important;
+  // }
   .container.gallery-container {
     border-radius: 0;
   }

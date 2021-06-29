@@ -36,6 +36,8 @@ export class LandingComponent implements OnInit {
     console.log("ssssssssssssssssss");
 
     let imgList = [
+      "../../../assets/img/topics/topic5/Grain Offering 01.jpg",
+
       "../../../assets/img/topics/topic4/Offering.jpg",
       "../../../assets/img/topics/topic3/Dress Of Priest.jpg",
       "../../../assets/img/topics/topic2/Ark Of Covenant.jpg",
@@ -48,13 +50,16 @@ export class LandingComponent implements OnInit {
         this.topicsList.forEach((topic, i) => {
           console.log("topic", topic);
           topic.img = imgList[i];
+          if (i == 0) {
+            topic.isOpen = true;
+          }
         });
 
         this.isLoading = false;
         this.cd.markForCheck();
         console.log("this.topicsList[0]._id", this.topicsList[0]._id);
 
-        document.getElementById(this.topicsList[0]._id).click();
+        // document.getElementById(this.topicsList[0]._id).click();
         console.log("res", this.topicsList);
       },
       (err) => {

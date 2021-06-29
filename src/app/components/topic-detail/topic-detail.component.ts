@@ -218,6 +218,10 @@ export class TopicDetailComponent implements OnInit {
         "../../../assets/img/topics/topic1/Incense.jpg",
       ];
       return imgList;
+    } else if (this.topicObj && this.topicObj.name.includes("போஜனபலி")) {
+      console.log("inside.................");
+      let imgList = ["../../../assets/img/topics/topic5/Grain Offering 01.jpg"];
+      return imgList;
     }
   }
 }
