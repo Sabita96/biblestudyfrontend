@@ -14,11 +14,30 @@ export class NgbdModalContent implements OnInit {
     public sanitizer: DomSanitizer
   ) {}
   ngOnInit() {
-    console.log("subTopic", this.subTopic);
+    // console.log("subTopic", this.subTopic);
+    // console.log(
+    //   'this.subTopic.youtubeLink.toString().replace("https:", "")',
+    //   this.subTopic.youtubeLink.toString().replace("https:", "")
+    // );
+
     if (this.subTopic) {
-      this.subTopic.youtubeLink = this.sanitizer.bypassSecurityTrustResourceUrl(
-        this.subTopic.youtubeLink
-      );
+      console.log("this.subTopic", this.subTopic);
+
+      console.log("this.subTopic.youtubeLink", this.subTopic.youtubeLink);
+
+      if (
+        typeof this.subTopic.youtubeLink === "string" &&
+        this.subTopic.youtubeLink.includes("https:")
+      ) {
+        this.subTopic.youtubeLink = this.subTopic.youtubeLink
+          .toString()
+          .replace("https:", "");
+        this.subTopic.youtubeLink =
+          this.sanitizer.bypassSecurityTrustResourceUrl(
+            this.subTopic.youtubeLink.toString().replace("https:", "")
+          );
+        console.log("this.subTopic.youtubeLink ", this.subTopic.youtubeLink);
+      }
     }
   }
 }
