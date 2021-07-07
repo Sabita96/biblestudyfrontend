@@ -65,7 +65,7 @@ export class TopicDetailComponent implements OnInit {
     const modalRef = this.modalService.open(NgbdModalContent, {
       windowClass: "modal-holder",
       centered: true,
-      backdrop: "static",
+      backdrop: false,
       keyboard: false,
       size: "lg",
     });
@@ -220,7 +220,15 @@ export class TopicDetailComponent implements OnInit {
       return imgList;
     } else if (this.topicObj && this.topicObj.name.includes("போஜனபலி")) {
       console.log("inside.................");
-      let imgList = ["../../../assets/img/topics/topic5/Grain Offering 01.jpg"];
+      let imgList = [];
+      this.topicObj.subTopics.forEach((ele, i) => {
+        imgList.push(
+          "../../../assets/img/topics/topic5/Grain Offering 0" +
+            (i + 1) +
+            ".jpg"
+        );
+      });
+      // let imgList = ["../../../assets/img/topics/topic5/Grain Offering 01.jpg"];
       return imgList;
     }
   }
