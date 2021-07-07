@@ -17,6 +17,95 @@
   (inViewportAction)="loadComponent($event, 'app-footer')"
   #footer
 ></div> -->
+<!-- <div class="container">
+  <aside
+    class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5"
+    style="background: #291212"
+  >
+    <div
+      class="
+        d-flex
+        align-items-center
+        justify-content-between
+        flex-column flex-xl-row
+        text-center text-xl-start
+      "
+    >
+      <div class="mb-4 mb-xl-0">
+        <div class="fs-3 fw-bold text-white">
+          New products, delivered to you.
+        </div>
+        <div class="text-white-50">
+          Sign up for our newsletter for the latest updates.
+        </div>
+      </div>
+      <div class="ms-xl-4">
+        <div class="input-group mb-2">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Email address..."
+            aria-label="Email address..."
+            aria-describedby="button-newsletter"
+          />
+          <button
+            class="btn btn-outline-light"
+            id="button-newsletter"
+            type="button"
+          >
+            Sign up
+          </button>
+        </div>
+        <div class="small text-white-50">
+          We care about privacy, and will never share your data.
+        </div>
+      </div>
+    </div>
+  </aside>
+</div> -->
+<div class="section pt-10 pb-5 mt-auto" *ngIf="isHome">
+  <div class="container subscription" style="max-width: 1293px">
+    <div
+      class="card p-sm-3 p-md-4 signup-form overflow-hidden"
+      style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%)"
+    >
+      <div class="card-body" style="overflow: hidden !important">
+        <h3 class="title">Want more Spiritual Truth Bible Study topics?</h3>
+        <p class="lead" style="font-size: 1rem">
+          Subscribe to stay updated when new Bible study related topics arrive!
+        </p>
+        <form novalidate="">
+          <div class="input-group">
+            <input
+              type="email"
+              name="EMAIL"
+              placeholder="Email address..."
+              aria-label="Your email address..."
+              class="form-control"
+            /><button
+              type="submit"
+              class="btn-signup btn fw-500 btn-primary"
+              style="
+                background: rgb(23 13 13) !important;
+                border-radius: 0% 9% 9% 0%;
+                opacity: unset;
+              "
+            >
+              Subscribe!
+            </button>
+            <!-- <div class="invalid-feedback mt-2">Email required.</div> -->
+          </div>
+        </form>
+      </div>
+      <img
+        src="https://startbootstrap.com/assets/img/freepik/wall-post-pana.svg"
+        alt="Man standing with tablet SVG"
+        class="signup-form-img d-none d-md-block"
+        style="position: absolute; right: 3rem; top: 2rem; width: 11rem"
+      />
+    </div>
+  </div>
+</div>
 <app-footer *ngIf="removeFooter()"></app-footer>
 <!-- <a
     id="back-to-top"
@@ -33,5 +122,5 @@
   id="back-to-top"
   (click)="scrollToTop()"
 >
-  <i class="fa fa-chevron-up"></i>
+  <i class="fa fa-chevron-up" style="color: white"></i>
 </button>

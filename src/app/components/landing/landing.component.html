@@ -1,138 +1,38 @@
 <!-- <app-loader *ngIf="isLoading">{{ isLoading }}</app-loader> -->
+
 <app-landing-page-banner></app-landing-page-banner>
 <div class="section" id="video-section">
   <div class="container">
     <div class="text-center t1">
       <h1 class="title">What is Spritual Truth Study ?</h1>
     </div>
-    <p>
-      Spiritual Truth Study is all about the spiritual truth of Bible. The
-      spiritual truths are being deeply explained by a Servant Of God Bro.
-      Charles Paul. Preaching videos and notes of the spiritual topics are being
-      published here.
+    <p class="mb-4" style="line-height: 2rem">
+      Spiritual Truth Study is all about the spiritual truths of Bible. Through
+      the inspiration of the Holy Spirit and His revelation that was given to me
+      through His grace, this page reveals the truth behind every word of God.
+      As the scriptures say
+      <strong
+        >"He will give you the treasures of darkness and hidden riches of secret
+        places. "</strong
+      >
+      . It is for propagating the Gospel of Jesus Christ and the truth across
+      the globe through Holy Spirit inspired writings and videos. Let's get
+      transformed and empowered through the word of God by mediating and
+      unveiling the truth in the Holy scripture.
     </p>
     <div class="embed-responsive embed-responsive-16by9">
       <iframe
         width="640"
         height="360"
-        src="//www.youtube.com/embed/4UaFJcz_Rlk?rel=0&html5=1&vq=hd720&autoplay=1&mute=1&loop=1"
+        src="//www.youtube.com/embed/nnJOo4R-VqE?rel=0&html5=1&vq=hd720&autoplay=0&mute=1&loop=1"
         frameborder="0"
         allowfullscreen
       ></iframe>
-      <!-- <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/4UaFJcz_Rlk?rel=0&vq=large"
-        frameborder="0"
-        allowfullscreen
-      ></iframe> -->
-      <!-- <iframe
-        src="https://www.youtube.com/embed/4UaFJcz_Rlk?autoplay=1&mute=1&loop=1&controls=1&showinfo=0&rel=0&vq=large"
-        title="Spiritual Truth Study Introduction"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe> -->
-      <!-- <iframe
-        class="embed-responsive-item"
-        src="https://www.youtube.com/embed/4UaFJcz_Rlk"
-        allowfullscreen
-      ></iframe> -->
     </div>
   </div>
 </div>
-<!-- Button trigger modal -->
-<!-- <button
-      type="button"
-      class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#staticBackdrop"
-    >
-      Launch static backdrop modal
-    </button> -->
 
-<!-- Modal -->
-<!-- <div
-      class="modal fade"
-      id="exampleModal"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">...</div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Understood</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-<!-- <div [ngClass]="{ loader: isLoading }"></div> -->
-<!-- 
-    <div class="spinner-border" style="width: 3rem; height: 3rem" role="status">
-      <span class="sr-only">Loading...</span>
-    </div> -->
-
-<!-- <div class="page-header container-fluid" id="carousel">
-      <div class="">
-        <div class="row">
-          <div class="col-md-12 mr-auto ml-auto">
-            <div class="card page-carousel">
-              <ngb-carousel>
-                <ng-template ngbSlide>
-                  <img
-                    src="https://img2.shaadi.com/assests/2019/assets/img/test/60-lakh-home-banner-v3.jpg"
-                    alt="Random first slide"
-                  />
-                  <div class="carousel-caption">
-                    <p>Somewhere</p>
-                  </div>
-                </ng-template>
-                <ng-template ngbSlide>
-                  <img
-                    src="https://img2.shaadi.com/assests/2019/images/60-lakh-home-banner-v3.jpg"
-                    alt="Random second slide"
-                  />
-                  <div class="carousel-caption">
-                    <p>Somewhere else</p>
-                  </div>
-                </ng-template>
-                <ng-template ngbSlide>
-                  <img
-                    src="https://img2.shaadi.com/assests/2019/images/60-lakh-home-banner-v3.jpg"
-                    alt="Random third slide"
-                  />
-                  <div class="carousel-caption">
-                    <p>Here it is</p>
-                  </div>
-                </ng-template>
-              </ngb-carousel>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-<div class="main" style="background: #f7fbfe">
+<div class="main" style="background: #f8f9fa">
   <div class="container">
     <div class="text-center" id="overview">
       <h1 class="title">Overview</h1>
@@ -151,7 +51,8 @@
             <img
               class="card-img"
               [src]="topic.img"
-              alt="Card image cap"
+              alt="spiritual truths"
+              title="spiritual truth"
               loading="lazy"
             />
           </div>
@@ -223,9 +124,15 @@
                   ngbPanelToggle
                   class="btn btn-link p-0"
                   (click)="topic.isOpen = !topic.isOpen"
+                  style="color: black !important"
                 >
-                  <i class="nc-icon nc-minimal-up" *ngIf="topic.isOpen"></i>
-                  <i class="nc-icon nc-minimal-down" *ngIf="!topic.isOpen"></i>
+                  <span>
+                    <i class="nc-icon nc-minimal-up" *ngIf="topic.isOpen"></i>
+                    <i
+                      class="nc-icon nc-minimal-down"
+                      *ngIf="!topic.isOpen"
+                    ></i>
+                  </span>
                 </button>
 
                 <!-- <div class="float-right">
@@ -261,11 +168,10 @@
                       <div class="motto row my-3">
                         <div class="col-md-5"></div>
                         <div class="col-md-7 col-sm-10">
-                          <a
-                            href="javascript::void(0)"
+                          <span
                             class="btn btn-round col-sm-12 col-md-5"
                             (click)="watchVideo(subTopic)"
-                            ><i class="fa fa-play"></i>Watch Video</a
+                            ><i class="fa fa-play"></i>Watch Video</span
                           >
 
                           <button
@@ -296,3 +202,7 @@
     </div>
   </div>
 </div>
+
+<!-- 
+<app-spiritual-thoughts></app-spiritual-thoughts>
+<app-profile></app-profile> -->

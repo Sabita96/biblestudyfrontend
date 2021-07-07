@@ -17,5 +17,38 @@ body {
   -ms-text-size-adjust: none;
 }
 .btn {
-  font-size: 18px !important;
+  // font-size: 18px !important;
+}
+// .d-md-block {
+//   display: block !important;
+// }
+@media (min-width: 1500px) {
+  .subscription .container {
+    max-width: 1440px;
+  }
+}
+@media (min-width: 1200px) {
+  .subscription .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 992px) {
+  .subscription .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 768px) {
+  .subscription .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 576px) {
+  .subscription .container {
+    max-width: 540px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .signup-form .card-body {
+    padding-right: 15rem;
+  }
 }

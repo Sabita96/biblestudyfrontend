@@ -8,7 +8,9 @@
     ></ngx-skeleton-loader>
     <ng-container *ngIf="!isLoading">
       <div class="text-center">
-        <h2 class="title fs-2">{{ this.topicObj.name }}</h2>
+        <h2 class="title fs-2">
+          {{ this.topicObj.name }}
+        </h2>
       </div>
 
       <div
@@ -19,13 +21,26 @@
           class="col-md-6 no-trans"
           [ngClass]="{ 'order-2': i % 2 !== 0 && !detectMob() }"
         >
-          <div class="mini-spacer">
+          <div
+            class="mini-spacer"
+            style="
+              overflow: hidden;
+              margin: 0 auto;
+              width: 100%;
+              transition: 0.5s all ease-in-out;
+            "
+          >
             <img
               [src]="subTopic.img"
               alt="spiritual truth study"
+              title="spiritual truth"
               class="img-fluid"
               loading="lazy"
-              style="min-height: 100%"
+              style="
+                min-height: 100%;
+                width: 100%;
+                transition: 0.5s all ease-in-out;
+              "
             />
           </div>
         </div>

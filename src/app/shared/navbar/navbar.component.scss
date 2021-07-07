@@ -1,3 +1,33 @@
 .nav-item:hover {
   color: rgb(39 23 23) !important;
 }
+a.nav-link:hover {
+  // color: rgb(39 23 23) !important;
+  text-decoration: underline;
+  // border-bottom: 1px solid white;
+  // left: 50%;
+  // bottom: 0;
+  // width: 50%;
+
+  // color: rgb(32, 5, 5);
+}
+.title:after {
+  background: none repeat scroll 0 0 transparent;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  border-bottom: 3px solid #8c4040;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+  color: white;
+}
+.title:hover:after {
+  width: 100%;
+  left: 0;
+  color: white;
+}
+.title:hover::before {
+  color: white;
+}

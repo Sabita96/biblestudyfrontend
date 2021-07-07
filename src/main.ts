@@ -21,5 +21,5 @@ import { environment } from "./environments/environment";
 if (environment.production) {
   enableProdMode();
 }
-console.log = function () {};
+// console.log = function () {};
 platformBrowserDynamic().bootstrapModule(AppModule);

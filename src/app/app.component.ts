@@ -17,7 +17,6 @@ import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { ContactPageComponent } from "./shared/contact-page/contact-page.component";
 import { FooterComponent } from "./shared/footer/footer.component";
 import { ToastrService } from "ngx-toastr";
-
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -36,6 +35,8 @@ export class AppComponent implements OnInit {
   @ViewChild("contact", { read: ViewContainerRef, static: true })
   contact: ViewContainerRef;
   mybutton: HTMLElement;
+  showContact = false;
+  isHome = false;
   constructor(
     private renderer: Renderer2,
     private router: Router,
@@ -46,6 +47,22 @@ export class AppComponent implements OnInit {
     private toast: ToastrService
   ) {}
   ngOnInit() {
+    console.log("this.location.path()", this.location.path());
+
+    this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationEnd) {
+        if (event.url === "/") {
+          this.isHome = true;
+          console.log("this.isHome", this.isHome);
+        } else {
+          this.isHome = false;
+        }
+        // if (routerUrl.includes("spiritual-thoughts")) {
+        //   this.showContact = false;
+        // }
+        console.log("this.router.url 1", event.url, this.isHome);
+      }
+    });
     this.mybutton = document.getElementById("back-to-top");
     window.onscroll = () => {
       this.scrollFunction();

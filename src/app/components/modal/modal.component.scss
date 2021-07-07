@@ -12,6 +12,7 @@
   /* 100% = dialog height, 120px = header + footer */
   max-height: calc(100vh - 210px) !important;
   overflow-y: auto !important;
+  padding: 0rem !important;
 }
 .close-btn {
   position: absolute;
@@ -63,4 +64,16 @@
   color: red;
   transition: 0.9s;
   transform: rotateY(180deg);
+}
+.fade-scale {
+  transform: scale(0);
+  opacity: 0;
+  -webkit-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+
+.fade-scale.in {
+  opacity: 1;
+  transform: scale(1);
 }

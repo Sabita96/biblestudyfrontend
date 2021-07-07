@@ -1,4 +1,7 @@
-<div class="section landing-section">
+<div
+  class="section landing-section mt-3"
+  style="background: #f8f9fa !important"
+>
   <div class="container">
     <div class="row" id="contact-section">
       <div class="col-md-8 mr-auto ml-auto">
@@ -28,7 +31,7 @@
                 "
               ></i>
               <a
-                href="https://mail.google.com/mail/u/0/?tab=wm#inbox?compose=new"
+                href="mailto:spiritualtruthbs@gmail.com?subject=Prayer Request!&body=Hi."
                 rel="noopener"
                 target="_blank"
                 style="text-decoration: underline; color: rgb(39 23 23)"
@@ -42,8 +45,106 @@
             ><span class="pl-md-1"> 9967258462</span></a
           > -->
         </div>
-        <div class="text-center mt-5">( OR )</div>
-        <form class="contact-form">
+        <!-- <div class="text-center mt-5">( OR )</div> -->
+        <form
+          [formGroup]="contactForm"
+          (ngSubmit)="onSubmit()"
+          class="contact-form"
+        >
+          <div class="form-row">
+            <!-- <div class="form-group col">
+              <label>Title</label>
+              <select
+                formControlName="title"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
+              >
+                <option value=""></option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+                <option value="Ms">Ms</option>
+              </select>
+              <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                <div *ngIf="f.title.errors.required">Title is required</div>
+              </div>
+            </div> -->
+
+            <div class="form-group col-6">
+              <label>Full Name</label>
+              <input
+                type="text"
+                formControlName="fullName"
+                class="form-control"
+                (keyup)="trimValue($event)"
+                [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"
+              />
+              <div
+                *ngIf="submitted && f.fullName.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.fullName.errors.required">
+                  Full Name is required
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-6">
+              <label>Phone</label>
+              <input
+                type="number"
+                formControlName="phone"
+                class="form-control"
+                (keyup)="trimValue($event)"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label>Email</label>
+              <input
+                type="text"
+                formControlName="email"
+                (keyup)="trimValue($event)"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+              />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email">
+                  Email must be a valid email address
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-6">
+              <label>Message</label>
+              <textarea
+                type="text"
+                formControlName="message"
+                class="form-control"
+                (keyup)="trimValue($event)"
+                [ngClass]="{ 'is-invalid': submitted && f.message.errors }"
+              ></textarea>
+              <div
+                *ngIf="submitted && f.message.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.message.errors.required">Message is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 mr-auto ml-auto">
+              <button class="btn btn-danger btn-lg btn-fill">
+                Send Message
+              </button>
+            </div>
+          </div>
+          <!-- <div class="text-center">
+            <button class="btn btn-primary mr-1">Register</button>
+          </div> -->
+        </form>
+        <!-- <form class="contact-form">
           <div class="row">
             <div class="col-md-6">
               <label>Name</label>
@@ -99,7 +200,7 @@
               </button>
             </div>
           </div>
-        </form>
+        </form> -->
       </div>
     </div>
   </div>

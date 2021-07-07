@@ -74,7 +74,7 @@ export class LandingComponent implements OnInit {
     const modalRef = this.modalService.open(NgbdModalContent, {
       windowClass: "modal-holder",
       centered: true,
-      backdrop: "static",
+      // backdrop: "static",
       keyboard: false,
       size: "lg",
     });

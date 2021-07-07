@@ -76,18 +76,29 @@
           <a
             class="nav-link"
             rel="tooltip"
-            title="Follow us on Instagram"
+            title="Spiritual Truth Study"
             data-placement="bottom"
             routerLink=""
           >
-            <span>
+            <span class="span-text">
               <!-- <i class="fa fa-home"></i> -->
               Home</span
             >
           </a>
         </li>
-        <li class="nav-item" *ngIf="!isDocumentation()">
-          <a routerLink="about-us" class="nav-link"
+        <li class="nav-item">
+          <a
+            routerLink="spiritual-thoughts"
+            class="nav-link"
+            style="cursor: pointer"
+            ><span>
+              <!-- <i class="fa fa-users"></i> -->
+              Spiritual Thoughts</span
+            ></a
+          >
+        </li>
+        <li class="nav-item">
+          <a routerLink="about-us" class="nav-link" style="cursor: pointer"
             ><span>
               <!-- <i class="fa fa-users"></i> -->
               About Us</span

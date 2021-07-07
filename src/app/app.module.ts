@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app.routing";
@@ -24,6 +24,7 @@ import { TopicDetailComponent } from "./components/topic-detail/topic-detail.com
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { LazyLoadImageModule } from "ng-lazyload-image";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { SpiritualThoughtsComponent } from "./components/spiritual-thoughts/spiritual-thoughts.component";
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     NgbdModalContent,
     TopicDetailComponent,
     LandingPageBannerComponent,
+    SpiritualThoughtsComponent,
   ],
   imports: [
     NgbModule,
@@ -53,8 +55,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     // InViewportModule,
     ToastrModule.forRoot(),
     NgxSkeletonLoaderModule,
-    LazyLoadImageModule,
+    // LazyLoadImageModule,
+    ReactiveFormsModule,
   ],
+  entryComponents: [NgbdModalContent],
+
   providers: [],
   bootstrap: [AppComponent],
 })
