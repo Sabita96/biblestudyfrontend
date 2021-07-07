@@ -65,8 +65,9 @@ export class TopicDetailComponent implements OnInit {
     const modalRef = this.modalService.open(NgbdModalContent, {
       windowClass: "modal-holder",
       centered: true,
-      backdrop: false,
       keyboard: false,
+      backdrop: true,
+
       size: "lg",
     });
     modalRef.componentInstance.subTopic = subTopic;
