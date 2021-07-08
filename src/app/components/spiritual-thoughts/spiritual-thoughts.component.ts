@@ -7,6 +7,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class SpiritualThoughtsComponent implements OnInit {
   engImgArr = [
+    "Church Success EN.jpg",
     "Cross EN.jpg",
     "Deva vasanam 01.jpg",
     "Devasamugam.jpg",
@@ -37,6 +38,7 @@ export class SpiritualThoughtsComponent implements OnInit {
     "Vasanam EN.jpg",
   ];
   tamilImgArr = [
+    "Church Success TN.jpg",
     "Arathanai TN.jpg",
     "Cross TN.jpg",
     "Deva vasanam.jpg",
@@ -73,6 +75,7 @@ export class SpiritualThoughtsComponent implements OnInit {
     "Vasanam TN.jpg",
   ];
   hindiImgArr = [
+    "Church Success HN.jpg",
     "Arathanai HN.jpg",
     "Cross HN.jpg",
     "Eluputhal 01 HN.jpg",
@@ -100,6 +103,7 @@ export class SpiritualThoughtsComponent implements OnInit {
     "Vasanam HN.jpg",
   ];
   marathiImgArr = [
+    "Church Success MN.jpg",
     "Arathanai MN.jpg",
     "Eluputhal 01 MN.jpg",
     "Grace MN.jpg",
