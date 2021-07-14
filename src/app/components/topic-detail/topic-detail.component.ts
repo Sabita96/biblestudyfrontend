@@ -29,8 +29,8 @@ export class TopicDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let isMobile = this.detectMob();
-    console.log("isMobile", isMobile);
+    // let isMobile = this.detectMob();
+    // console.log("isMobile", isMobile);
 
     // let imgList = [
     //   "../../../assets/img/Offering.jpg",
@@ -219,7 +219,7 @@ export class TopicDetailComponent implements OnInit {
         "../../../assets/img/topics/topic1/Incense.jpg",
       ];
       return imgList;
-    } else if (this.topicObj && this.topicObj.name.includes("போஜனபலி")) {
+    } else if (this.topicObj && this.topicObj.name.includes("போஜன பலி")) {
       console.log("inside.................");
       let imgList = [];
       this.topicObj.subTopics.forEach((ele, i) => {
