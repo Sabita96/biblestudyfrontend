@@ -22,10 +22,28 @@ import { LandingPageBannerComponent } from "./components/landing-page-banner/lan
 import { NgbdModalContent } from "./components/modal/modal.component";
 import { TopicDetailComponent } from "./components/topic-detail/topic-detail.component";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
-import { LazyLoadImageModule } from "ng-lazyload-image";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SpiritualThoughtsComponent } from "./components/spiritual-thoughts/spiritual-thoughts.component";
+import { NgxLoaderModule } from "@tusharghoshbd/ngx-loader";
+import { CreateTopicComponent } from "./create-topic/create-topic.component";
+import { NgSelectModule } from "@ng-select/ng-select";
+import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER } from 'ngx-ui-loader';
+import { LoaderNgxComponent } from './loader-ngx/loader-ngx.component';
 
+const ngxUiLoaderConfig: NgxUiLoaderConfig = {
+  // bgsColor: 'red',
+  // bgsPosition: POSITION.bottomCenter,
+  // bgsSize: 40,
+  // bgsType: SPINNER.rectangleBounce, // background spinner type
+  // fgsType: SPINNER.chasingDots, // foreground spinner type
+  // pbDirection: PB_DIRECTION.leftToRight, // progress bar direction
+  // pbThickness: 5 // progress bar thickness
+  
+  bgsType: SPINNER.threeStrings,
+  fgsType: SPINNER.threeStrings,
+  hasProgressBar: false,
+  overlayColor: '#0c1227'
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +60,8 @@ import { SpiritualThoughtsComponent } from "./components/spiritual-thoughts/spir
     TopicDetailComponent,
     LandingPageBannerComponent,
     SpiritualThoughtsComponent,
+    // CreateTopicComponent,
+    LoaderNgxComponent,
   ],
   imports: [
     NgbModule,
@@ -57,10 +77,14 @@ import { SpiritualThoughtsComponent } from "./components/spiritual-thoughts/spir
     NgxSkeletonLoaderModule,
     // LazyLoadImageModule,
     ReactiveFormsModule,
+    NgxLoaderModule,
+    // NgSelectModule,
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+    // NgxUiLoaderHttpModule.forRoot({showForeground:true})
   ],
   entryComponents: [NgbdModalContent],
 
-  providers: [],
+  providers: [NgxLoaderModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

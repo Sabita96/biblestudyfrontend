@@ -5,6 +5,7 @@ import { ActivatedRoute } from "@angular/router";
 import { TopicService } from "app/services/topic-service/topic.service";
 import { DownloadService } from "app/services/download-service/download.service";
 import { ToastrService } from "ngx-toastr";
+import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
   selector: "app-topic-detail",
@@ -21,7 +22,8 @@ export class TopicDetailComponent implements OnInit {
     private topicService: TopicService,
     private route: ActivatedRoute,
     private downloadService: DownloadService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private ngxLoaderService: NgxUiLoaderService
   ) {
     console.log("this.route.snapshot.params", this.route.snapshot.params.id);
 
@@ -99,8 +101,11 @@ export class TopicDetailComponent implements OnInit {
     modalRef.componentInstance.name = "World";
   }
   downloadNotes(subTopic) {
-    this.downloadService.downloadNotes(subTopic).subscribe(
+    this.ngxLoaderService.start(subTopic._id)
+    this.downloadService.downloadPdf(subTopic).subscribe(
       (res) => {
+    this.ngxLoaderService.stop(subTopic._id)
+
         this.toastr.info("Please check pdf inside your downloads", "Success", {
           timeOut: 3000,
         });
@@ -113,6 +118,8 @@ export class TopicDetailComponent implements OnInit {
         link.click();
       },
       (err) => {
+    this.ngxLoaderService.stop(subTopic._id)
+
         this.toastr.error("Error While downloading pdf!!!", "Error"),
           {
             timeOut: 3000,

@@ -11,6 +11,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { NgbdModalContent } from "app/components/modal/modal.component";
 import { TopicService } from "app/services/topic-service/topic.service";
 import { DownloadService } from "app/services/download-service/download.service";
+import { NgxUiLoaderService } from "ngx-ui-loader";
 @Component({
   selector: "app-landing",
   templateUrl: "./landing.component.html",
@@ -29,7 +30,8 @@ export class LandingComponent implements OnInit {
     private cd: ChangeDetectorRef,
     public sanitizer: DomSanitizer,
     private modalService: NgbModal,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private ngxLoaderService:NgxUiLoaderService
   ) {}
 
   ngOnInit() {
@@ -82,9 +84,12 @@ export class LandingComponent implements OnInit {
     this.selectedTopic = subTopic;
   }
   downloadNotes(subTopic) {
+    this.ngxLoaderService.start(subTopic._id)
     console.log("inside...............", subTopic.name);
-    this.downloadService.downloadNotes(subTopic).subscribe(
+    this.downloadService.downloadPdf(subTopic).subscribe(
       (res) => {
+    this.ngxLoaderService.stop(subTopic._id)
+
         this.toastr.info("Please check pdf inside your downloads", "Success", {
           timeOut: 3000,
         });
@@ -97,7 +102,9 @@ export class LandingComponent implements OnInit {
         link.click();
       },
       (err) => {
-        this.toastr.error("Error While downloading pdf!!!", "Error"),
+    this.ngxLoaderService.stop(subTopic._id)
+
+        this.toastr.error("Error While downloading pdf!!!", "Server Error"),
           {
             timeOut: 3000,
           };

@@ -16,6 +16,7 @@
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
   },
   "dependencies": {
+    "@angular-devkit/architect": "^0.1201.1",
     "@angular/animations": "11.0.4",
     "@angular/common": "11.0.4",
     "@angular/compiler": "11.0.4",
@@ -27,6 +28,7 @@
     "@angular/platform-browser-dynamic": "11.0.4",
     "@angular/router": "11.0.4",
     "@ng-bootstrap/ng-bootstrap": "^9.0.0",
+    "@ng-select/ng-select": "^7.1.1",
     "animate.css": "^4.1.1",
     "bootstrap": "4.5.3",
     "core-js": "3.8.1",
@@ -39,7 +41,8 @@
     "ng-lazyload-image": "^9.1.0",
     "ng2-nouislider": "1.8.2",
     "ngx-skeleton-loader": "^2.10.0",
-    "ngx-toastr": "^9.1.1",
+    "ngx-toastr": "^9.2.0",
+    "ngx-ui-loader": "^11.0.0",
     "node-recursive-directory": "^1.2.0",
     "nouislider": "14.6.3",
     "popper.js": "1.16.1",
