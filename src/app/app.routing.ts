@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
 
-import { ComponentsComponent } from "./components/components.component";
+// import { ComponentsComponent } from "./components/components.component";
 import { LandingComponent } from "./components/landing/landing.component";
 import { TopicDetailComponent } from "./components/topic-detail/topic-detail.component";
 import { ProfileComponent } from "./components/profile/profile.component";
@@ -12,7 +12,7 @@ import { SignupComponent } from "./components/signup/signup.component";
 // import { CreateTopicComponent } from "./create-topic/create-topic.component";
 
 const routes: Routes = [
-  { path: "home1", component: ComponentsComponent },
+  // { path: "home1", component: ComponentsComponent },
   { path: "about-us", component: ProfileComponent },
   { path: "signup", component: SignupComponent },
   { path: "spiritual-thoughts", component: SpiritualThoughtsComponent },
