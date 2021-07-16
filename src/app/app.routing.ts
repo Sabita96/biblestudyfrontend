@@ -8,13 +8,12 @@ import { LandingComponent } from "./components/landing/landing.component";
 import { TopicDetailComponent } from "./components/topic-detail/topic-detail.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { SpiritualThoughtsComponent } from "./components/spiritual-thoughts/spiritual-thoughts.component";
-import { SignupComponent } from "./components/signup/signup.component";
+// import { SignupComponent } from "./components/signup/signup.component";
 // import { CreateTopicComponent } from "./create-topic/create-topic.component";
-
 const routes: Routes = [
   // { path: "home1", component: ComponentsComponent },
   { path: "about-us", component: ProfileComponent },
-  { path: "signup", component: SignupComponent },
+  // { path: "signup", component: SignupComponent },
   { path: "spiritual-thoughts", component: SpiritualThoughtsComponent },
 
   { path: "", component: LandingComponent },
