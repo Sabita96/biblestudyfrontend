@@ -38,8 +38,8 @@ export class LandingComponent implements OnInit {
     console.log("ssssssssssssssssss");
 
     let imgList = [
+      "../../../assets/img/topics/topic6/Peace Offering.jpg",
       "../../../assets/img/topics/topic5/Grain Offering 01.jpg",
-
       "../../../assets/img/topics/topic4/Offering.jpg",
       "../../../assets/img/topics/topic3/Dress Of Priest.jpg",
       "../../../assets/img/topics/topic2/Ark Of Covenant.jpg",

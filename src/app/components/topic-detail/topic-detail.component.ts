@@ -101,10 +101,10 @@ export class TopicDetailComponent implements OnInit {
     modalRef.componentInstance.name = "World";
   }
   downloadNotes(subTopic) {
-    this.ngxLoaderService.start(subTopic._id)
+    this.ngxLoaderService.start(subTopic._id);
     this.downloadService.downloadPdf(subTopic).subscribe(
       (res) => {
-    this.ngxLoaderService.stop(subTopic._id)
+        this.ngxLoaderService.stop(subTopic._id);
 
         this.toastr.info("Please check pdf inside your downloads", "Success", {
           timeOut: 3000,
@@ -118,7 +118,7 @@ export class TopicDetailComponent implements OnInit {
         link.click();
       },
       (err) => {
-    this.ngxLoaderService.stop(subTopic._id)
+        this.ngxLoaderService.stop(subTopic._id);
 
         this.toastr.error("Error While downloading pdf!!!", "Error"),
           {
@@ -232,6 +232,18 @@ export class TopicDetailComponent implements OnInit {
       this.topicObj.subTopics.forEach((ele, i) => {
         imgList.push(
           "../../../assets/img/topics/topic5/Grain Offering 0" +
+            (i + 1) +
+            ".jpg"
+        );
+      });
+      // let imgList = ["../../../assets/img/topics/topic5/Grain Offering 01.jpg"];
+      return imgList;
+    } else if (this.topicObj && this.topicObj.name.includes("சமாதான பலி")) {
+      console.log("inside.................");
+      let imgList = [];
+      this.topicObj.subTopics.forEach((ele, i) => {
+        imgList.push(
+          "../../../assets/img/topics/topic6/Peace Offering 0" +
             (i + 1) +
             ".jpg"
         );
