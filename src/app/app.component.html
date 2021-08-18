@@ -1,8 +1,8 @@
 <!-- <app-loader></app-loader> -->
 
-<app-navbar></app-navbar>
+<app-navbar *ngIf="userView"></app-navbar>
 <router-outlet></router-outlet>
-<app-contact-page></app-contact-page>
+<app-contact-page *ngIf="userView"></app-contact-page>
 
 <!-- <div
   inViewport
@@ -17,7 +17,7 @@
   (inViewportAction)="loadComponent($event, 'app-footer')"
   #footer
 ></div> -->
-<!-- <div class="container">
+<!-- <div class="container" *ngIf="userView">
   <aside
     class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5"
     style="background: #291212"
@@ -74,15 +74,22 @@
         <p class="lead" style="font-size: 1rem">
           Subscribe to stay updated when new Bible study related topics arrive!
         </p>
-        <form novalidate="">
+        <form novalidate="" [formGroup]="subscriptionForm">
           <div class="input-group">
             <input
+              [class.is-invalid]="
+                subscriptionForm.get('email').invalid &&
+                subscriptionForm.get('email').touched
+              "
               type="email"
               name="EMAIL"
               placeholder="Email address..."
               aria-label="Your email address..."
               class="form-control"
-            /><button
+              formControlName="email"
+            />
+
+            <button
               type="submit"
               class="btn-signup btn fw-500 btn-primary"
               style="
@@ -90,10 +97,28 @@
                 border-radius: 0% 9% 9% 0%;
                 opacity: unset;
               "
+              (click)="subscribeEmail()"
             >
               Subscribe!
             </button>
-            <!-- <div class="invalid-feedback mt-2">Email required.</div> -->
+          </div>
+          <div
+            *ngIf="
+              (subscriptionForm.get('email').invalid &&
+                subscriptionForm.get('email').touched) ||
+              subscriptionForm.get('email').dirty
+            "
+          >
+            <small
+              class="text-danger mt-2"
+              *ngIf="subscriptionForm.get('email').errors?.required"
+              >Email address is required</small
+            >
+            <small
+              class="text-danger mt-2"
+              *ngIf="subscriptionForm.get('email').errors?.email"
+              >Email address is invalid</small
+            >
           </div>
         </form>
       </div>
@@ -109,14 +134,14 @@
 <!-- <button type="button" (click)="onClickDefault()" class="btn btn-primary">
   Default Loader
 </button> -->
-<app-footer *ngIf="removeFooter()"></app-footer>
+<app-footer *ngIf="removeFooter() && this.userView"></app-footer>
 <!-- <a
-    id="back-to-top"
-    href="#"
-    class="btn btn-light btn-lg back-to-top float-right"
-    role="button"
-    ><i class="fa fa-chevron-up"></i
-  ></a> -->
+  id="back-to-top"
+  href="#"
+  class="btn btn-light btn-lg back-to-top float-right"
+  role="button"
+  ><i class="fa fa-chevron-up"></i
+></a> -->
 <!-- Back to top button -->
 <button
   role="button"

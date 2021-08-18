@@ -17,6 +17,9 @@ import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { ContactPageComponent } from "./shared/contact-page/contact-page.component";
 import { FooterComponent } from "./shared/footer/footer.component";
 import { ToastrService } from "ngx-toastr";
+import { NgxUiLoaderService } from "ngx-ui-loader";
+import { ApiService } from "./services/api-service/api.service";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -35,8 +38,14 @@ export class AppComponent implements OnInit {
   @ViewChild("contact", { read: ViewContainerRef, static: true })
   contact: ViewContainerRef;
   mybutton: HTMLElement;
+  subscriptionForm: FormGroup;
   showContact = false;
   isHome = false;
+  userView = false;
+  email;
+  // show: boolean;
+  // fullScreen: boolean = true;
+  // template: string;
   constructor(
     private renderer: Renderer2,
     private router: Router,
@@ -44,9 +53,27 @@ export class AppComponent implements OnInit {
     private element: ElementRef,
     public location: Location,
     private cfr: ComponentFactoryResolver,
-    private toast: ToastrService
+    private toastr: ToastrService,
+    private ngxLoaderService: NgxUiLoaderService,
+    private apiService: ApiService,
+    private formBuilder: FormBuilder
   ) {}
   ngOnInit() {
+    this.subscriptionForm = this.formBuilder.group({
+      email: [
+        "",
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"),
+        ],
+      ],
+    });
+    this.ngxLoaderService.start(); // start foreground spinner of the master loader with 'default' taskId
+    // Stop the foreground loading after 5s
+    setTimeout(() => {
+      this.ngxLoaderService.stop(); // stop foreground spinner of the master loader with 'default' taskId
+    }, 300);
     console.log("this.location.path()", this.location.path());
 
     this.router.events.subscribe((event: any) => {
@@ -54,13 +81,15 @@ export class AppComponent implements OnInit {
         if (event.url === "/") {
           this.isHome = true;
           console.log("this.isHome", this.isHome);
-        } else {
-          this.isHome = false;
-        }
+        } else this.isHome = false;
+
+        if (event.url.includes("/verifyEmail")) this.userView = false;
+        else this.userView = true;
+
         // if (routerUrl.includes("spiritual-thoughts")) {
         //   this.showContact = false;
         // }
-        console.log("this.router.url 1", event.url, this.isHome);
+        console.log("this.router.url 1", event.url, this.isHome, this.userView);
       }
     });
     this.mybutton = document.getElementById("back-to-top");
@@ -150,20 +179,62 @@ export class AppComponent implements OnInit {
   // When the user scrolls down 20px from the top of the document, show the button
 
   scrollFunction() {
-    if (
-      document.body.scrollTop > 20 ||
-      document.documentElement.scrollTop > 20
-    ) {
-      this.mybutton.style.display = "block";
-    } else {
-      this.mybutton.style.display = "none";
-    }
+    // if (
+    //   document.body.scrollTop > 20 ||
+    //   document.documentElement.scrollTop > 20
+    // ) {
+    //   this.mybutton.style.display = "block";
+    // } else {
+    //   this.mybutton.style.display = "none";
+    // }
   }
 
   scrollToTop() {
     window.scroll(0, 0);
   }
   test() {
-    this.toast.success("I'm a toast!", "Success!");
+    this.toastr.success("I'm a toast!", "Success!");
   }
+  subscribeEmail() {
+    console.log(
+      "inside subscribeEmail",
+      this.subscriptionForm.get("email").value
+    );
+
+    if (this.subscriptionForm.valid) {
+      this.ngxLoaderService.start(this.subscriptionForm.get("email").value);
+      let payload = {
+        email: this.subscriptionForm.get("email").value,
+      };
+      this.apiService.post("subscriber/subscribeUser", payload).subscribe(
+        (res) => {
+          console.log("res///////////////", res);
+          this.ngxLoaderService.stop(this.subscriptionForm.get("email").value);
+
+          if (res.message === "Email Already Subscribed")
+            this.toastr.info("This Email is already subscribed");
+          else
+            this.toastr.success(
+              "Verification Email has been sent to your email id",
+              "Success"
+            );
+          // this.apiService.get
+        },
+        (err) => {
+          console.log("err///////////////", err);
+          this.ngxLoaderService.stop(this.subscriptionForm.get("email").value);
+
+          this.toastr.error("Internal Server Error!!");
+        }
+      );
+    }
+  }
+  // onClickDefault() {
+  //   this.show = true;
+  //   this.fullScreen = true;
+  //   this.template = ``;
+  //   setTimeout(() => {
+  //     this.show = false;
+  //   }, 2000);
+  // }
 }

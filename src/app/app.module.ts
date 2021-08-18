@@ -25,6 +25,7 @@ import { SpiritualThoughtsComponent } from "./components/spiritual-thoughts/spir
 // import { CreateTopicComponent } from "./create-topic/create-topic.component";
 // import { NgSelectModule } from "@ng-select/ng-select";
 import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER } from "ngx-ui-loader";
+import { EmailVerificationComponent } from './email-verification/email-verification.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   // bgsColor: 'red',
@@ -56,6 +57,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     TopicDetailComponent,
     LandingPageBannerComponent,
     SpiritualThoughtsComponent,
+    EmailVerificationComponent,
     // CreateTopicComponent,
     // LoaderNgxComponent,
   ],

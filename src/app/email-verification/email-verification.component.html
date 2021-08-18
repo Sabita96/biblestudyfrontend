@@ -1,0 +1,29 @@
+<div
+  class="container"
+  *ngIf="!loading"
+  style="position: fixed; top: 24%; left: 10%"
+>
+  <div class="text-center">
+    <img
+      src="../../assets/img/verify-email2.jfif"
+      alt=""
+      style="background: WHITE"
+      *ngIf="isVerified"
+    />
+    <img
+      src="../../assets/img/output-onlinepngtools.png"
+      alt=""
+      style="background: WHITE"
+      *ngIf="!isVerified"
+    />
+  </div>
+  <div class="row text-center">
+    <h3 class="mb-4" *ngIf="isVerified">
+      Your Email has been Verified Successfully!!
+    </h3>
+    <h3 class="mb-4" *ngIf="!isVerified">Verification Failed !!!</h3>
+  </div>
+  <div class="text-center">
+    <a href="https://spiritualtruthstudy.com/">< Back to Website</a>
+  </div>
+</div>

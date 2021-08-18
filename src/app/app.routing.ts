@@ -8,6 +8,7 @@ import { LandingComponent } from "./components/landing/landing.component";
 import { TopicDetailComponent } from "./components/topic-detail/topic-detail.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { SpiritualThoughtsComponent } from "./components/spiritual-thoughts/spiritual-thoughts.component";
+import { EmailVerificationComponent } from "./email-verification/email-verification.component";
 // import { SignupComponent } from "./components/signup/signup.component";
 // import { CreateTopicComponent } from "./create-topic/create-topic.component";
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: "", component: LandingComponent },
   { path: "topic-detail/:id", component: TopicDetailComponent },
   // { path: "add-topic", component: CreateTopicComponent },
+  { path: "verifyEmail", component: EmailVerificationComponent },
 
   { path: "**", redirectTo: "" },
   // { path: "nucleoicons", component: NucleoiconsComponent },
