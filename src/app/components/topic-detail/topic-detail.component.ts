@@ -248,6 +248,14 @@ export class TopicDetailComponent implements OnInit {
             ".jpg"
         );
       });
+    } else if (this.topicObj && this.topicObj.name.includes("பாவநிவாரண பலி")) {
+      console.log("inside.................");
+      let imgList = [];
+      this.topicObj.subTopics.forEach((ele, i) => {
+        imgList.push(
+          "../../../assets/img/topics/topic7/Sin Offering 0" + (i + 1) + ".jpg"
+        );
+      });
       // let imgList = ["../../../assets/img/topics/topic5/Grain Offering 01.jpg"];
       return imgList;
     }

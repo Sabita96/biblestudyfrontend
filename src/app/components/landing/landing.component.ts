@@ -31,13 +31,14 @@ export class LandingComponent implements OnInit {
     public sanitizer: DomSanitizer,
     private modalService: NgbModal,
     private toastr: ToastrService,
-    private ngxLoaderService:NgxUiLoaderService
+    private ngxLoaderService: NgxUiLoaderService
   ) {}
 
   ngOnInit() {
     console.log("ssssssssssssssssss");
 
     let imgList = [
+      "../../../assets/img/topics/topic7/Sin Offering.jpg",
       "../../../assets/img/topics/topic6/Peace Offering.jpg",
       "../../../assets/img/topics/topic5/Grain Offering 01.jpg",
       "../../../assets/img/topics/topic4/Offering.jpg",
@@ -84,11 +85,11 @@ export class LandingComponent implements OnInit {
     this.selectedTopic = subTopic;
   }
   downloadNotes(subTopic) {
-    this.ngxLoaderService.start(subTopic._id)
+    this.ngxLoaderService.start(subTopic._id);
     console.log("inside...............", subTopic.name);
     this.downloadService.downloadPdf(subTopic).subscribe(
       (res) => {
-    this.ngxLoaderService.stop(subTopic._id)
+        this.ngxLoaderService.stop(subTopic._id);
 
         this.toastr.info("Please check pdf inside your downloads", "Success", {
           timeOut: 3000,
@@ -102,7 +103,7 @@ export class LandingComponent implements OnInit {
         link.click();
       },
       (err) => {
-    this.ngxLoaderService.stop(subTopic._id)
+        this.ngxLoaderService.stop(subTopic._id);
 
         this.toastr.error("Error While downloading pdf!!!", "Server Error"),
           {
