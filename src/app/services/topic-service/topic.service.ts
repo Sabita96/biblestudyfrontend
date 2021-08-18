@@ -11,14 +11,37 @@ export class TopicService {
   constructor(private apiService: ApiService) {}
 
   getTopics() {
-    return this.apiService
-      .get(`${SharedEnvironment.apiUrl}` + "topic", null)
-      .pipe(
-        map((res: any) => {
-          // return [{}];
-          return res.data;
-        })
-      );
+    return this.apiService.get("topic", null).pipe(
+      map((res: any) => {
+        // return [{}];
+        return res.data;
+      })
+    );
+  }
+
+  createSubTopics(payload, id) {
+    return this.apiService.put("topic/" + `${id}`, payload).pipe(
+      map((res: any) => {
+        // return [{}];
+        return res;
+      })
+    );
+  }
+  createTopic(payload) {
+    return this.apiService.post("topic", payload).pipe(
+      map((res: any) => {
+        // return [{}];
+        return res;
+      })
+    );
+  }
+  updateTopic(payload, id) {
+    return this.apiService.put("topic/" + id, payload).pipe(
+      map((res: any) => {
+        // return [{}];
+        return res;
+      })
+    );
   }
   // loadMore(): void {
 
@@ -42,12 +65,18 @@ export class TopicService {
   //   return true;
   // }
   getTopicById(id) {
-    return this.apiService
-      .get(`${SharedEnvironment.apiUrl}` + "topic/" + id, null)
-      .pipe(
-        map((res: any) => {
-          return res.data;
-        })
-      );
+    return this.apiService.get("topic/" + id, null).pipe(
+      map((res: any) => {
+        return res.data;
+      })
+    );
+  }
+
+  subscribeUser(email) {
+    return this.apiService.get("subscriber/verify?email=" + email, null).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
   }
 }

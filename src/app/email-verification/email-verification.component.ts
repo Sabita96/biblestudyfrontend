@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { ApiService } from "app/services/api-service/api.service";
+import { TopicService } from "../services/topic-service/topic.service";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
@@ -12,7 +12,7 @@ export class EmailVerificationComponent implements OnInit {
   isVerified = false;
   loading = true;
   constructor(
-    private apiService: ApiService,
+    private topicService: TopicService,
     private route: ActivatedRoute,
     private ngxLoaderService: NgxUiLoaderService,
     private cd: ChangeDetectorRef
@@ -23,7 +23,7 @@ export class EmailVerificationComponent implements OnInit {
     let email = this.route.snapshot.queryParams.email;
     this.ngxLoaderService.start();
 
-    this.apiService.get("subscriber/verify?email=" + email, null).subscribe(
+    this.topicService.subscribeUser(email).subscribe(
       (res) => {
         console.log("res", res);
         if (res.message === "User Found") {
