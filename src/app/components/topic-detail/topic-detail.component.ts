@@ -175,9 +175,10 @@ export class TopicDetailComponent implements OnInit {
     }
   }
   getImageList() {
+    let imgList = [];
     if (this.topicObj && this.topicObj.name.includes("பலிகள்")) {
       console.log("inside.................");
-      let imgList = [
+      imgList.push(
         "../../../assets/img/topics/topic4/Offering.jpg",
         "../../../assets/img/topics/topic4/Burnt Offering 01.jpg",
         "../../../assets/img/topics/topic4/Burnt Offering 02.jpg",
@@ -185,50 +186,46 @@ export class TopicDetailComponent implements OnInit {
         "../../../assets/img/topics/topic4/Burnt Offering 04.jpg",
         "../../../assets/img/topics/topic4/Burnt Offering 05.jpg",
         "../../../assets/img/topics/topic4/Burnt Offering 06.jpg",
-        "../../../assets/img/topics/topic4/Burnt Offering 07.jpg",
-      ];
-      return imgList;
+        "../../../assets/img/topics/topic4/Burnt Offering 07.jpg"
+      );
     } else if (this.topicObj && this.topicObj.name.includes("ஆசாரியனின் உடை")) {
       console.log("inside.................");
-      let imgList = [
+      imgList.push(
         "../../../assets/img/topics/topic3/Ephod 01.jpg",
         "../../../assets/img/topics/topic3/Ephod 02.jpg",
         "../../../assets/img/topics/topic3/Breastplate.jpg",
         "../../../assets/img/topics/topic3/Robe.jpg",
         "../../../assets/img/topics/topic3/Turban.jpg",
-        "../../../assets/img/topics/topic3/Undergarments.jpg",
-      ];
-      return imgList;
+        "../../../assets/img/topics/topic3/Undergarments.jpg"
+      );
     } else if (
       this.topicObj &&
       this.topicObj.name.includes("உடன்படிக்கைப்பெட்டி")
     ) {
       console.log("inside.................");
-      let imgList = [
+      imgList.push(
         "../../../assets/img/topics/topic2/Ark Of Covenant 01.jpg",
         "../../../assets/img/topics/topic2/Cherubim.jpg",
         "../../../assets/img/topics/topic2/Covenant Life.jpg",
         "../../../assets/img/topics/topic2/Manna.jpg",
         "../../../assets/img/topics/topic2/Rod.jpg",
-        "../../../assets/img/topics/topic2/Stone Tablets.jpg",
-      ];
-      return imgList;
+        "../../../assets/img/topics/topic2/Stone Tablets.jpg"
+      );
     } else if (
       this.topicObj &&
       this.topicObj.name.includes("ஆசரிப்பு கூடாரம்")
     ) {
       console.log("inside.................");
-      let imgList = [
+      imgList.push(
         "../../../assets/img/topics/topic1/Lampstand.jpg",
         "../../../assets/img/topics/topic1/Showbread.jpg",
         "../../../assets/img/topics/topic1/Incense Altar.jpg",
         "../../../assets/img/topics/topic1/Incenses.jpg",
-        "../../../assets/img/topics/topic1/Incense.jpg",
-      ];
-      return imgList;
+        "../../../assets/img/topics/topic1/Incense.jpg"
+      );
     } else if (this.topicObj && this.topicObj.name.includes("போஜன பலி")) {
       console.log("inside.................");
-      let imgList = [];
+
       this.topicObj.subTopics.forEach((ele, i) => {
         imgList.push(
           "../../../assets/img/topics/topic5/Grain Offering 0" +
@@ -239,8 +236,7 @@ export class TopicDetailComponent implements OnInit {
       // let imgList = ["../../../assets/img/topics/topic5/Grain Offering 01.jpg"];
       return imgList;
     } else if (this.topicObj && this.topicObj.name.includes("சமாதான பலி")) {
-      console.log("inside.................");
-      let imgList = [];
+      console.log("inside.................சமாதான பலி");
       this.topicObj.subTopics.forEach((ele, i) => {
         imgList.push(
           "../../../assets/img/topics/topic6/Peace Offering 0" +
@@ -250,14 +246,13 @@ export class TopicDetailComponent implements OnInit {
       });
     } else if (this.topicObj && this.topicObj.name.includes("பாவநிவாரண பலி")) {
       console.log("inside.................");
-      let imgList = [];
       this.topicObj.subTopics.forEach((ele, i) => {
         imgList.push(
           "../../../assets/img/topics/topic7/Sin Offering 0" + (i + 1) + ".jpg"
         );
       });
       // let imgList = ["../../../assets/img/topics/topic5/Grain Offering 01.jpg"];
-      return imgList;
     }
+    return imgList;
   }
 }
