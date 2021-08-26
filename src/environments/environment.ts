@@ -8,9 +8,9 @@ export const environment = {
 };
 
 export const SharedEnvironment = {
-  apiUrl: "https://tamilbiblestudybackend.herokuapp.com/",
+  apiUrl: "https://tamilbiblestudybackend.herokuapp.com/api/v1/",
 
-  // apiUrl: "http://localhost:3000/",
+  // apiUrl: "http://localhost:3000/api/v1/",
 
   // apiUrl: 'https://test1.upskill.researcher.life/api/',
   // stripeKey: 'pk_test_gsV0xMz9R860Xa8AiOpGjWBg00pj8zeQQf',
