@@ -252,6 +252,19 @@ export class TopicDetailComponent implements OnInit {
         );
       });
       // let imgList = ["../../../assets/img/topics/topic5/Grain Offering 01.jpg"];
+    } else if (
+      this.topicObj &&
+      this.topicObj.name.includes("குற்றநிவாரண பலி")
+    ) {
+      console.log("inside.................");
+      this.topicObj.subTopics.forEach((ele, i) => {
+        imgList.push(
+          "../../../assets/img/topics/topic8/Trespass Offering 0" +
+            (i + 1) +
+            ".jpg"
+        );
+      });
+      // let imgList = ["../../../assets/img/topics/topic5/Grain Offering 01.jpg"];
     }
     return imgList;
   }

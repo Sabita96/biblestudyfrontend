@@ -38,6 +38,7 @@ export class LandingComponent implements OnInit {
     console.log("ssssssssssssssssss");
 
     let imgList = [
+      "../../../assets/img/topics/topic8/Trespass Offering.jpg",
       "../../../assets/img/topics/topic7/Sin Offering.jpg",
       "../../../assets/img/topics/topic6/Peace Offering.jpg",
       "../../../assets/img/topics/topic5/Grain Offering 01.jpg",
@@ -86,7 +87,6 @@ export class LandingComponent implements OnInit {
   }
   downloadNotes(subTopic) {
     this.ngxLoaderService.start(subTopic._id);
-    console.log("inside...............", subTopic.name);
     this.downloadService.downloadPdf(subTopic).subscribe(
       (res) => {
         this.ngxLoaderService.stop(subTopic._id);
