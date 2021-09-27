@@ -13,6 +13,7 @@ export class ContactPageComponent implements OnInit {
   focus: any;
   focus1: any;
   contactForm: FormGroup;
+
   submitted = false;
 
   constructor(
@@ -26,7 +27,14 @@ export class ContactPageComponent implements OnInit {
     this.contactForm = this.formBuilder.group({
       fullName: ["", Validators.required],
       message: ["", Validators.required],
-      email: ["", [Validators.required, Validators.email]],
+      email: [
+        "",
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"),
+        ],
+      ],
       // fullName: [""],
       // message: [""],
       // email: [""],
@@ -64,14 +72,14 @@ export class ContactPageComponent implements OnInit {
     }
     this.ngxLoaderService.start(); // start foreground spinner of the master loader with 'default' taskId
     // Stop the foreground loading after 5s
-   
+
     this.contactService.sendMail(this.contactForm.value).subscribe(
       (res) => {
         console.log("res", res);
         console.log("res.statusCode", res.statusCode, res.status);
-        
+
         if (res.message === "Success") {
-        this.ngxLoaderService.stop();
+          this.ngxLoaderService.stop();
 
           this.toastr.success("Your response has been submitted", "Success", {
             timeOut: 3000,
@@ -79,12 +87,11 @@ export class ContactPageComponent implements OnInit {
           this.onReset();
 
           // alert("success");
-        }
-        else{
-        this.ngxLoaderService.stop();
-        this.toastr.error("Server Error!!!", "Error", {
-          timeOut: 3000,
-        });
+        } else {
+          this.ngxLoaderService.stop();
+          this.toastr.error("Server Error!!!", "Error", {
+            timeOut: 3000,
+          });
         }
       },
       (err) => {

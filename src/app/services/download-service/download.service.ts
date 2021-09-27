@@ -8,22 +8,19 @@ import { HttpService } from "../http-service/http.service";
 export class DownloadService {
   constructor(private httpService: HttpService) {}
   downloadPdf(subTopic) {
-   
     return this.httpService.get(
-      subTopic.fileLink,
+      subTopic.notesLink["tamil"],
 
       { responseType: "arraybuffer" }
     );
-
   }
 
   downloadImage(imageUrl: string) {
-    return this.httpService.get(imageUrl, { responseType: 'blob' });
+    return this.httpService.get(imageUrl, { responseType: "blob" });
     // return this.httpService.get(imageUrl, {observe: 'response', responseType: 'blob'})
-      
   }
   // downloadImage(img) {
-   
+
   //   return this.httpService.get(
   //     img,null
 

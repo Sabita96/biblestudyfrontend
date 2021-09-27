@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { DownloadService } from "app/services/download-service/download.service";
 
 @Component({
   selector: "app-spiritual-thoughts",
@@ -115,7 +116,29 @@ export class SpiritualThoughtsComponent implements OnInit {
     "Spritual Life MN.jpg",
     "Thalmai MN.jpg",
   ];
-  constructor() {}
+  constructor(private downloadService: DownloadService) {}
 
   ngOnInit(): void {}
+  downloadImg(img) {
+    // console.log('img',img,'/assets/img/gallery/eng/Church%20Success%20EN.jpg');
+    // let imgPath='http://localhost:4200/'+img
+    // window.location.href = imgPath;
+    // this.downloadService.downloadImage(imgPath).subscribe(val => {
+    //   console.log(val);
+    //   const url = URL.createObjectURL(val);
+    //   this.downloadUrl(url, "imgPath.jpg");
+    //   URL.revokeObjectURL(url);
+    // },(err)=>{
+    //   console.log('errrrrrrrr',err);
+    // })
+  }
+  downloadUrl(url: string, fileName: string) {
+    // const a: any = document.createElement('a');
+    // a.href = url;
+    // a.download = fileName;
+    // document.body.appendChild(a);
+    // a.style = 'display: none';
+    // a.click();
+    // a.remove();
+  }
 }

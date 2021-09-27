@@ -52,23 +52,46 @@
 
       <div class="slider"><div class="indicator"></div></div>
       <div class="content">
-        <section>
+        <div class="section">
           <h2>English</h2>
           <div class="row mt-2">
             <div class="col-sm-6 col-md-3" *ngFor="let img of engImgArr">
-              <a class="lightbox">
-                <img
-                  loading="lazy"
-                  height="329"
-                  [src]="'../../../assets/img/gallery/eng/' + img"
-                  alt="spiritual truth study"
-                  laoding="lazy"
-                />
-              </a>
+              <div class="card">
+                <a class="lightbox">
+                  <img
+                    loading="lazy"
+                    height="329"
+                    [src]="'../../../assets/img/gallery/eng/' + img"
+                    alt="Spiritual Truth Bible Study"
+                    laoding="lazy"
+                  />
+                </a>
+                <span class="mb-2 ml-2">
+                  <input
+                    id="toggle-heart"
+                    class="toggle-heart-{{ i }}"
+                    type="checkbox"
+                  />
+                  <label for="toggle-heart">❤</label>
+                  <!-- <a  (click)="downloadImg('assets/img/gallery/eng/' + img)">
+                 
+                </a> -->
+                  <a
+                    style="font-size: 21px; color: brown"
+                    class="ml-3"
+                    href="http://localhost:4200/assets/img/gallery/eng/{{
+                      img
+                    }}"
+                    download="download.jpg"
+                  >
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                  </a>
+                </span>
+              </div>
             </div>
           </div>
-        </section>
-        <section>
+        </div>
+        <div class="section">
           <h2>Tamil</h2>
 
           <div class="row mt-2">
@@ -78,13 +101,13 @@
                   [src]="'../../../assets/img/gallery/tamil/' + img"
                   loading="lazy"
                   height="329"
-                  alt="spiritual truth study"
+                  alt="Spiritual Truth Bible Study"
                 />
               </a>
             </div>
           </div>
-        </section>
-        <section>
+        </div>
+        <div class="section">
           <h2>Hindi</h2>
 
           <div class="row mt-2">
@@ -94,13 +117,13 @@
                   [src]="'../../../assets/img/gallery/hindi/' + img"
                   loading="lazy"
                   height="329"
-                  alt="spiritual truth study"
+                  alt="Spiritual Truth Bible Study"
                 />
               </a>
             </div>
           </div>
-        </section>
-        <section>
+        </div>
+        <div class="section">
           <h2>Marathi</h2>
 
           <div class="row mt-2">
@@ -110,12 +133,12 @@
                   [src]="'../../../assets/img/gallery/marathi/' + img"
                   loading="lazy"
                   height="329"
-                  alt="spiritual truth study"
+                  alt="Spiritual Truth Bible Study"
                 />
               </a>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   </div>
