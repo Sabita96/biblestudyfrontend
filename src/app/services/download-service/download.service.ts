@@ -7,9 +7,9 @@ import { HttpService } from "../http-service/http.service";
 })
 export class DownloadService {
   constructor(private httpService: HttpService) {}
-  downloadPdf(subTopic) {
+  downloadPdf(url) {
     return this.httpService.get(
-      subTopic.notesLink["tamil"],
+      url,
 
       { responseType: "arraybuffer" }
     );

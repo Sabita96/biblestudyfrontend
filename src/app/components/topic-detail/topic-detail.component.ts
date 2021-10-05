@@ -100,9 +100,9 @@ export class TopicDetailComponent implements OnInit {
     const modalRef = this.modalService.open(NgbdModalContent);
     modalRef.componentInstance.name = "World";
   }
-  downloadNotes(subTopic) {
+  downloadNotes(subTopic, url) {
     this.ngxLoaderService.start(subTopic._id);
-    this.downloadService.downloadPdf(subTopic).subscribe(
+    this.downloadService.downloadPdf(url).subscribe(
       (res) => {
         this.ngxLoaderService.stop(subTopic._id);
 
@@ -126,22 +126,6 @@ export class TopicDetailComponent implements OnInit {
           };
       }
     );
-
-    // this.httpService
-    //   .getPdf("http://www.africau.edu/images/default/sample.pdf")
-    //   .subscribe((res) => {
-    //     console.log("sssssssssssssssssssss", res);
-    //   });
-    // const link = document.createElement("a");
-    // link.setAttribute("target", "_blank");
-    // link.setAttribute(
-    //   "href",
-    //   "http://www.africau.edu/images/default/sample.pdf"
-    // );
-    // link.setAttribute("download", `products.pdf`);
-    // document.body.appendChild(link);
-    // link.click();
-    // link.remove();
   }
   private _images: string[] = [
     "https://via.placeholder.com/400x400?text=Hello",

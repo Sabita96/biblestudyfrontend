@@ -65,21 +65,35 @@
             >
               <i class="fa fa-play"></i>Watch Video
             </button>
-            <!-- <button
-            type="button"
-            class="btn btn-outline-neutral btn-round"
-            (click)="downloadNotes()"
-          >
-            Download Notes
-          </button> -->
-            <a
-              (click)="downloadNotes(subTopic)"
-              class="cursor"
-              *ngIf="subTopic.notesLink.tamil"
+           
+            <span
+              class="btn mt-2 noHover"
+              *ngIf="subTopic.notesLink.tamil || subTopic.notesLink.english"
             >
               <i class="fa fa-download" aria-hidden="true"></i>
-              Download Notes
-            </a>
+              <span>Download Notes</span>
+
+              <br />
+              <span>
+                (
+
+                <span
+                  class="cursor"
+                  (click)="downloadNotes(subTopic, subTopic.notesLink.tamil)"
+                  >Tamil</span
+                ></span
+              >
+
+              {{ subTopic.notesLink.english ? "&nbsp;| &nbsp;" : "" }}
+              <span
+                (click)="downloadNotes(subTopic, subTopic.notesLink.english)"
+                *ngIf="subTopic.notesLink.english"
+                class="cursor"
+              >
+                English</span
+              >
+              )
+            </span>
           </div>
         </div>
       </div>

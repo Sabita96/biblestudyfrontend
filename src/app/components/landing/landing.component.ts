@@ -85,9 +85,9 @@ export class LandingComponent implements OnInit {
     modalRef.componentInstance.subTopic = subTopic;
     this.selectedTopic = subTopic;
   }
-  downloadNotes(subTopic) {
+  downloadNotes(subTopic, url) {
     this.ngxLoaderService.start(subTopic._id);
-    this.downloadService.downloadPdf(subTopic).subscribe(
+    this.downloadService.downloadPdf(url).subscribe(
       (res) => {
         this.ngxLoaderService.stop(subTopic._id);
 
@@ -105,50 +105,12 @@ export class LandingComponent implements OnInit {
       (err) => {
         this.ngxLoaderService.stop(subTopic._id);
 
-        this.toastr.error("Error While downloading pdf!!!", "Server Error"),
+        this.toastr.error("Error While downloading pdf!!!", "Error"),
           {
             timeOut: 3000,
           };
       }
     );
-    // this.externalServicefileLink
-    //   .getInvestorAttachments(formID)
-    //   .toPromise()
-    // //   .then((res: any) => {
-    //     if (res.Value.length > 0) {
-    //       res.Value.forEach((element) => {
-    // this.http
-    //   .get(
-    //     "http://51.143.20.126:4005/file-upload/files/T3_P41624534484960.pdf",
-
-    //     { responseType: "arraybuffer" }
-    //   )
-    //   .subscribe((response) => {
-    //     console.log("response", response);
-
-    //     // let ext = element.FilePath.split("/");
-    //     // let exten = ext[ext.length - 1].split(".");
-    //     // console.log(exten);
-    //     // let fileName = element.Name + "." + exten[exten.length - 1];
-    //     // console.log(fileName);
-    //     // console.log("elemnt-----", element);
-    //     let blob = new Blob([response]);
-    //     // const data = Buffer.from(response.).toString("base64");
-    //     const url = window.URL.createObjectURL(blob);
-    //     const link = document.createElement("a");
-    //     link.href = url;
-    //     link.setAttribute("download", subTopic.name + ".pdf");
-    //     document.body.appendChild(link);
-    //     link.click();
-    //   });
-    // .catch((err) => {
-    //   console.log(err);
-    // });
-    //     });
-    //   } else {
-    //     this.toastr.error("Error While downloading pdf!!!");
-    //   }
-    // })
   }
   openLink(url) {
     window.open(url, "_blank");

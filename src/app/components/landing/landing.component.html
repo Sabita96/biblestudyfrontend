@@ -166,28 +166,79 @@
                   >
                     <div class="accordion-body">
                       <div class="motto row my-3">
-                        <div class="col-md-5"></div>
-                        <div class="col-md-7 col-sm-10">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-10 col-sm-10">
                           <span
                             class="btn btn-round col-sm-12 col-md-5"
                             (click)="watchVideo(subTopic)"
                             ><i class="fa fa-play"></i>Watch Video</span
                           >
-
-                          <button
-                            type="button"
+                          <span
                             class="
                               btn btn-round
                               col-sm-12
                               mt-2 mt-sm-0
                               col-md-5
+                              noHover
                             "
-                            [disabled]="!subTopic.notesLink.tamil"
-                            (click)="downloadNotes(subTopic)"
+                            *ngIf="
+                              !(
+                                subTopic.notesLink.tamil ||
+                                subTopic.notesLink.english
+                              )
+                            "
                           >
-                            <i class="fa fa-download" aria-hidden="true"></i>
-                            Download Notes
-                          </button>
+                            Notes Unavailable !!
+                          </span>
+                          <span
+                            class="
+                              btn btn-round
+                              col-sm-12
+                              mt-2 mt-sm-0
+                              col-md-5
+                              noHover
+                            "
+                            *ngIf="
+                              subTopic.notesLink.tamil ||
+                              subTopic.notesLink.english
+                            "
+                          >
+                            <i
+                              class="fa fa-download noHover"
+                              aria-hidden="true"
+                            ></i>
+                            <span>Download Notes</span>
+
+                            <br />
+                            <span
+                              (click)="
+                                downloadNotes(
+                                  subTopic,
+                                  subTopic.notesLink.tamil
+                                )
+                              "
+                              >(
+
+                              <span class="cursor">Tamil</span></span
+                            >
+
+                            {{
+                              subTopic.notesLink.english ? "&nbsp;| &nbsp;" : ""
+                            }}
+                            <span
+                              (click)="
+                                downloadNotes(
+                                  subTopic,
+                                  subTopic.notesLink.english
+                                )
+                              "
+                              *ngIf="subTopic.notesLink.english"
+                              class="cursor"
+                            >
+                              English</span
+                            >
+                            )
+                          </span>
                         </div>
                       </div>
                     </div>
