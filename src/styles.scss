@@ -51,3 +51,12 @@ html {
     font-size: 22px !important;
   }
 }
+.accordion-button:focus {
+  box-shadow: none !important;
+}
+.noHover {
+  cursor: auto !important;
+}
+.cursor {
+  cursor: pointer;
+}
