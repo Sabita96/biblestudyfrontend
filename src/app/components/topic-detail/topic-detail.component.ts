@@ -217,7 +217,6 @@ export class TopicDetailComponent implements OnInit {
             ".jpg"
         );
       });
-      // let imgList = ["../../../assets/img/topics/topic5/Grain Offering 01.jpg"];
       return imgList;
     } else if (this.topicObj && this.topicObj.name.includes("சமாதான பலி")) {
       console.log("inside.................சமாதான பலி");
@@ -235,7 +234,6 @@ export class TopicDetailComponent implements OnInit {
           "../../../assets/img/topics/topic7/Sin Offering 0" + (i + 1) + ".jpg"
         );
       });
-      // let imgList = ["../../../assets/img/topics/topic5/Grain Offering 01.jpg"];
     } else if (
       this.topicObj &&
       this.topicObj.name.includes("குற்றநிவாரண பலி")
@@ -248,7 +246,16 @@ export class TopicDetailComponent implements OnInit {
             ".jpg"
         );
       });
-      // let imgList = ["../../../assets/img/topics/topic5/Grain Offering 01.jpg"];
+    } else if (
+      this.topicObj &&
+      this.topicObj.name.includes("இஸ்ரவேல் கோத்திரங்கள்")
+    ) {
+      console.log("inside.................");
+      this.topicObj.subTopics.forEach((ele, i) => {
+        imgList.push(
+          "../../../assets/img/topics/topic9/Tribes 0" + (i + 1) + ".jpg"
+        );
+      });
     }
     return imgList;
   }
