@@ -21,6 +21,7 @@ export class LandingComponent implements OnInit {
   topicsList;
   isLoading = true;
   selectedTopic;
+  revTopic;
   name = "Angular";
   @ViewChild("videoPlayer", { static: false }) videoplayer: ElementRef;
   isPlay = false;
@@ -51,7 +52,12 @@ export class LandingComponent implements OnInit {
     ];
     this.topicService.getTopics().subscribe(
       (res) => {
-        this.topicsList = res;
+        this.topicsList = res.filter((ele: any) => {
+          if (ele.name.includes("Revelation")) this.revTopic = ele;
+          return !ele.name.includes("Revelation");
+        });
+        // console.log("dddddddddd", this.revTopic);
+
         this.topicsList.forEach((topic, i) => {
           console.log("topic", topic);
           topic.img = imgList[i];
@@ -59,6 +65,7 @@ export class LandingComponent implements OnInit {
           //   topic.isOpen = true;
           // }
         });
+        // console.log("this.topicsList", this.topicsList);
 
         this.isLoading = false;
         this.cd.markForCheck();
