@@ -89,13 +89,12 @@
         ></ngx-skeleton-loader>
       </div>
       <ng-container *ngIf="!isLoading">
-        <div class="row">
-          <!-- <div class="col-6">
+        <!-- <div class="col-6">
           <h3 class="mb-3">Revelation Topics</h3>
         </div> -->
-          <!-- <div class="col-6 text-right"> -->
-          <!-- View All -->
-          <!-- <a
+        <!-- <div class="col-6 text-right"> -->
+        <!-- View All -->
+        <!-- <a
             class="btn btn-primary mb-3 mr-1"
             href="#carouselExampleIndicators2"
             role="button"
@@ -111,49 +110,29 @@
           >
             <i class="fa fa-arrow-right"></i>
           </a> -->
-          <!-- </div> -->
-          <div class="col-12">
-            <div
-              id="carouselExampleIndicators2"
-              class="carousel slide"
-              data-ride="carousel"
-            >
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <div class="row">
-                    <div
-                      class="col-md-4 mb-3"
-                      *ngFor="let subTopic of revTopic.subTopics; let i = index"
-                    >
-                      <div class="card mt-3 br-12">
-                        <img
-                          class="img-fluid br-14"
-                          alt="100%x280"
-                          src="../../../assets/img/revelation/Revelation 0{{
-                            i + 1
-                          }}.jpg"
-                        />
-                        <div class="card-body">
-                          <h5 class="card-title">
-                            Revelation Part - {{ i + 1 }}
-                          </h5>
-                          <p class="card-text">
-                            <button
-                              type="button"
-                              class="
-                                btn btn-outline-danger btn-round
-                                mr-md-3 mr-lg-3
-                              "
-                              (click)="watchVideo(subTopic)"
-                            >
-                              <i class="fa fa-play"></i>Watch Video
-                            </button>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        <!-- </div> -->
+        <div class="row">
+          <div
+            class="col-md-4 mb-3"
+            *ngFor="let subTopic of revTopic.subTopics; let i = index"
+          >
+            <div class="card mt-3 br-12">
+              <img
+                class="img-fluid br-14"
+                alt="100%x280"
+                src="../../../assets/img/revelation/Revelation 0{{ i + 1 }}.jpg"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Revelation Part - {{ i + 1 }}</h5>
+                <p class="card-text">
+                  <button
+                    type="button"
+                    class="btn btn-outline-danger btn-round mr-md-3 mr-lg-3"
+                    (click)="watchVideo(subTopic)"
+                  >
+                    <i class="fa fa-play"></i>Watch Video
+                  </button>
+                </p>
               </div>
             </div>
           </div>
