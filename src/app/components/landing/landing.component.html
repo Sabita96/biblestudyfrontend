@@ -125,13 +125,16 @@
               <div class="card-body">
                 <h5 class="card-title">Revelation Part - {{ i + 1 }}</h5>
                 <p class="card-text">
-                  <button
+                  <span (click)="watchVideo(subTopic)" class="cursor"
+                    >View</span
+                  >
+                  <!-- <button
                     type="button"
                     class="btn btn-outline-danger btn-round mr-md-3 mr-lg-3"
                     (click)="watchVideo(subTopic)"
                   >
                     <i class="fa fa-play"></i>Watch Video
-                  </button>
+                  </button> -->
                 </p>
               </div>
             </div>
