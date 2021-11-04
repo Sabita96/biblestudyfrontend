@@ -56,38 +56,15 @@
           <h2>English</h2>
           <div class="row mt-2">
             <div class="col-sm-6 col-md-3" *ngFor="let img of engImgArr">
-              <div class="card">
-                <a class="lightbox">
-                  <img
-                    loading="lazy"
-                    height="329"
-                    [src]="'../../../assets/img/gallery/eng/' + img"
-                    alt="Spiritual Truth Bible Study"
-                    laoding="lazy"
-                  />
-                </a>
-                <span class="mb-2 ml-2">
-                  <input
-                    id="toggle-heart"
-                    class="toggle-heart-{{ i }}"
-                    type="checkbox"
-                  />
-                  <label for="toggle-heart">❤</label>
-                  <!-- <a  (click)="downloadImg('assets/img/gallery/eng/' + img)">
-                 
-                </a> -->
-                  <a
-                    style="font-size: 21px; color: brown"
-                    class="ml-3"
-                    href="http://localhost:4200/assets/img/gallery/eng/{{
-                      img
-                    }}"
-                    download="download.jpg"
-                  >
-                    <i class="fa fa-download" aria-hidden="true"></i>
-                  </a>
-                </span>
-              </div>
+              <a class="lightbox">
+                <img
+                  loading="lazy"
+                  height="329"
+                  [src]="'../../../assets/img/gallery/eng/' + img"
+                  alt="Spiritual Truth Bible Study"
+                  laoding="lazy"
+                />
+              </a>
             </div>
           </div>
         </div>
