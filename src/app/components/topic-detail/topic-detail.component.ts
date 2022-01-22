@@ -207,7 +207,7 @@ export class TopicDetailComponent implements OnInit {
         "../../../assets/img/topics/topic1/Incenses.jpg",
         "../../../assets/img/topics/topic1/Incense.jpg"
       );
-    } else if (this.topicObj && this.topicObj.name.includes("போஜன பலி")) {
+    } else if (this.topicObj && this.topicObj.name.includes("போஜனபலி")) {
       console.log("inside.................");
 
       this.topicObj.subTopics.forEach((ele, i) => {
