@@ -101,31 +101,32 @@ export class TopicDetailComponent implements OnInit {
     modalRef.componentInstance.name = "World";
   }
   downloadNotes(subTopic, url) {
-    this.ngxLoaderService.start(subTopic._id);
-    this.downloadService.downloadPdf(url).subscribe(
-      (res) => {
-        this.ngxLoaderService.stop(subTopic._id);
+    window.open(url, '_blank');
+    // this.ngxLoaderService.start(subTopic._id);
+    // this.downloadService.downloadPdf(url).subscribe(
+    //   (res) => {
+    //     this.ngxLoaderService.stop(subTopic._id);
 
-        this.toastr.info("Please check pdf inside your downloads", "Success", {
-          timeOut: 3000,
-        });
-        let blob = new Blob([res]);
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", subTopic.name + ".pdf");
-        document.body.appendChild(link);
-        link.click();
-      },
-      (err) => {
-        this.ngxLoaderService.stop(subTopic._id);
+    //     this.toastr.info("Please check pdf inside your downloads", "Success", {
+    //       timeOut: 3000,
+    //     });
+    //     let blob = new Blob([res]);
+    //     const url = window.URL.createObjectURL(blob);
+    //     const link = document.createElement("a");
+    //     link.href = url;
+    //     link.setAttribute("download", subTopic.name + ".pdf");
+    //     document.body.appendChild(link);
+    //     link.click();
+    //   },
+    //   (err) => {
+    //     this.ngxLoaderService.stop(subTopic._id);
 
-        this.toastr.error("Error While downloading pdf!!!", "Error"),
-          {
-            timeOut: 3000,
-          };
-      }
-    );
+    //     this.toastr.error("Error While downloading pdf!!!", "Error"),
+    //       {
+    //         timeOut: 3000,
+    //       };
+    //   }
+    // );
   }
   private _images: string[] = [
     "https://via.placeholder.com/400x400?text=Hello",

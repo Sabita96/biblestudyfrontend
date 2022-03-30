@@ -66,3 +66,18 @@ html {
 .underline {
   text-decoration: underline;
 }
+.move-up {
+  // background-color: black;
+  // display: flex;
+  // width: 100px;
+  // height: 40px;
+  // align-items: center;
+  // justify-content: center;
+  // text-align: center;
+  // color: white;
+  transition: transform ease 300ms;
+}
+
+.move-up:hover {
+  transform: translate(0, -20px);
+}

@@ -4,30 +4,24 @@
 <div class="section" id="video-section">
   <div class="container">
     <div class="text-center t1">
-      <h1 class="title">What is Spritual Truth Study ?</h1>
+      <h1 class="title move-up">What is Spritual Truth Study ?</h1>
     </div>
     <p class="mb-4" style="line-height: 2rem">
       Spiritual Truth Bible Study is all about the spiritual truths of Bible.
       Through the inspiration of the Holy Spirit and His revelation that was
       given to a Servant of God Charles Paul through His grace, this page
       reveals the truth behind every word of God. As the scriptures say
-      <strong
-        >"He will give you the treasures of darkness and hidden riches of secret
-        places. "</strong
-      >
+      <strong>"He will give you the treasures of darkness and hidden riches of secret
+        places. "</strong>
       . It is for propagating the Gospel of Jesus Christ and the truth across
       the globe through Holy Spirit inspired writings and videos. Let's get
       transformed and empowered through the word of God by mediating and
       unveiling the truth in the Holy scripture.
     </p>
     <div class="embed-responsive embed-responsive-16by9">
-      <iframe
-        width="640"
-        height="360"
-        src="//www.youtube.com/embed/nnJOo4R-VqE?rel=0&html5=1&vq=hd720&autoplay=1&mute=1&loop=1"
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
+      <iframe width="640" height="360"
+        src="//www.youtube.com/embed/nnJOo4R-VqE?rel=0&html5=1&vq=hd720&autoplay=0&mute=1&loop=1" frameborder="0"
+        allowfullscreen></iframe>
     </div>
   </div>
 </div>
@@ -35,39 +29,36 @@
 <div class="main" style="background: #f8f9fa">
   <div class="container pt-3">
     <div class="text-center" id="overview">
-      <h2 class="title">Overview</h2>
+      <h2 class="title move-up">Overview</h2>
     </div>
     <div class="item">
-      <ngx-skeleton-loader
-        *ngIf="isLoading"
-        count="4"
-        [theme]="{ 'border-radius': '0', height: '150px' }"
-      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader *ngIf="isLoading" count="4" [theme]="{ 'border-radius': '0', height: '150px' }">
+      </ngx-skeleton-loader>
     </div>
     <ng-container *ngIf="!isLoading">
       <div class="card-group vgr-cards">
         <div class="card" *ngFor="let topic of topicsList">
           <div class="card-img-body">
-            <img
-              class="card-img"
-              [src]="topic.img"
-              alt="spiritual truths"
-              title="spiritual truth"
-              loading="lazy"
-            />
+            <img class="card-img" [src]="topic.img" alt="spiritual truths" title="spiritual truth" loading="lazy" />
           </div>
           <div class="card-body">
             <h4 class="card-title" style="font-weight: 500">
               {{ topic.name }}
             </h4>
             <p class="card-text">
-              {{ topic.description }}
+              <!-- {{ topic.description }} -->
+              {{ topic.description.length>205 && !topic.seeMore ?topic.description.slice(0,205)+"...":topic.description }}
+              <!-- {{ topic.description.length>205 && topic.seeMore ?topic.description }} -->
+
+              <span *ngIf="!topic.seeMore && topic.description.length>205" class="cursor seeText" (click)="topic.seeMore=true">
+                See More
+              </span>
+              <span *ngIf="topic.seeMore && topic.description.length>205" class="cursor seeText "  (click)="topic.seeMore=false">
+                ... See Less
+              </span>
             </p>
             <!-- <a class="button arrow">Read More</a> -->
-            <a
-              [routerLink]="['/topic-detail', topic._id]"
-              class="arrow btn btn-outline-primary"
-              >View Detail
+            <a [routerLink]="['/topic-detail', topic._id]" class="arrow btn btn-outline-primary">View Detail
             </a>
           </div>
         </div>
@@ -79,14 +70,11 @@
   <section class="pt-3">
     <div class="container">
       <div class="text-center" id="overview">
-        <h2 class="title">Revelation Topics</h2>
+        <h2 class="title move-up">Revelation Topics</h2>
       </div>
       <div class="item">
-        <ngx-skeleton-loader
-          *ngIf="isLoading"
-          count="4"
-          [theme]="{ 'border-radius': '0', height: '150px' }"
-        ></ngx-skeleton-loader>
+        <ngx-skeleton-loader *ngIf="isLoading" count="4" [theme]="{ 'border-radius': '0', height: '150px' }">
+        </ngx-skeleton-loader>
       </div>
       <ng-container *ngIf="!isLoading">
         <!-- <div class="col-6">
@@ -111,6 +99,7 @@
             <i class="fa fa-arrow-right"></i>
           </a> -->
         <!-- </div> -->
+        
         <div class="row">
           <div
             class="col-md-4 mb-3"
@@ -148,35 +137,22 @@
   <div class="section landing-section" id="topics">
     <div class="container">
       <div class="text-center">
-        <h2 class="title">Bible Study Topics</h2>
+        <h2 class="title move-up">Bible Study Topics</h2>
       </div>
       <div class="item" *ngIf="isLoading">
-        <ngx-skeleton-loader
-          count="4"
-          [theme]="{ 'border-radius': '0', height: '65px' }"
-        ></ngx-skeleton-loader>
+        <ngx-skeleton-loader count="4" [theme]="{ 'border-radius': '0', height: '65px' }"></ngx-skeleton-loader>
       </div>
       <div class="pt-4" *ngIf="!isLoading">
         <ngb-accordion class="range-accordion">
           <!-- activeIds="ngb-panel-0" -->
-          <ngb-panel
-            *ngFor="let topic of topicsList; let index = index"
-            id="ngb-panel-{{ index }}"
-          >
+          <ngb-panel *ngFor="let topic of topicsList; let index = index" id="ngb-panel-{{ index }}">
             <ng-template ngbPanelHeader ngbPanelToggle>
-              <div
-                class="d-flex justify-content-between"
-                [id]="topic._id"
-                (click)="handleEvent(topic)"
-              >
-                <h5
-                  class="m-0"
-                  style="
+              <div class="d-flex justify-content-between" [id]="topic._id" (click)="handleEvent(topic)">
+                <h5 class="m-0" style="
                     font-weight: bold;
                     color: #1c2128;
                     font-size: 15px !important;
-                  "
-                >
+                  ">
                   {{ topic.name }}
                 </h5>
                 <!-- <div
@@ -189,18 +165,11 @@
                 >
                   {{ topic.name }}
                 </div> -->
-                <button
-                  ngbPanelToggle
-                  class="btn btn-link p-0"
-                  (click)="topic.isOpen = !topic.isOpen"
-                  style="color: black !important"
-                >
+                <button ngbPanelToggle class="btn btn-link p-0" (click)="topic.isOpen = !topic.isOpen"
+                  style="color: black !important">
                   <span>
                     <i class="nc-icon nc-minimal-up" *ngIf="topic.isOpen"></i>
-                    <i
-                      class="nc-icon nc-minimal-down"
-                      *ngIf="!topic.isOpen"
-                    ></i>
+                    <i class="nc-icon nc-minimal-down" *ngIf="!topic.isOpen"></i>
                   </span>
                 </button>
 
@@ -211,101 +180,69 @@
             </ng-template>
             <ng-template ngbPanelContent>
               <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div
-                  class="accordion-item"
-                  *ngFor="let subTopic of topic.subTopics"
-                >
+                <div class="accordion-item" *ngFor="let subTopic of topic.subTopics">
                   <h2 class="accordion-header" id="flush-headingOne">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      [attr.data-bs-target]="'#flush-collapse' + subTopic._id"
-                      aria-expanded="false"
-                      [attr.aria-controls]="'flush-collapse' + subTopic._id"
-                    >
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      [attr.data-bs-target]="'#flush-collapse' + subTopic._id" aria-expanded="false"
+                      [attr.aria-controls]="'flush-collapse' + subTopic._id">
                       {{ subTopic.name }}
                     </button>
                   </h2>
-                  <div
-                    [attr.id]="'flush-collapse' + subTopic._id"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-heading"
-                    data-bs-parent="#accordionFlushExample"
-                  >
+                  <div [attr.id]="'flush-collapse' + subTopic._id" class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                       <div class="motto row my-3">
                         <div class="col-md-5"></div>
                         <div class="col-md-7 col-sm-10">
-                          <span
-                            class="btn btn-round col-sm-12 col-md-5"
-                            (click)="watchVideo(subTopic)"
-                            ><i class="fa fa-play"></i>Watch Video</span
-                          >
-                          <span
-                            class="
+                          <span class="btn btn-round col-sm-12 col-md-5" (click)="watchVideo(subTopic)"><i
+                              class="fa fa-play"></i>Watch Video</span>
+                          <span class="
                               btn btn-round
                               col-sm-12
                               mt-2 mt-sm-0
                               col-md-5
                               noHover
-                            "
-                            *ngIf="
+                            " *ngIf="
                               !(
                                 subTopic.notesLink.tamil ||
                                 subTopic.notesLink.english
                               )
-                            "
-                          >
+                            ">
                             Notes Unavailable !!
                           </span>
-                          <span
-                            class="
+                          <span class="
                               btn btn-round
                               col-sm-12
                               mt-2 mt-sm-0
                               col-md-5
                               noHover
-                            "
-                            *ngIf="
+                            " *ngIf="
                               subTopic.notesLink.tamil ||
                               subTopic.notesLink.english
-                            "
-                          >
-                            <i
-                              class="fa fa-download noHover"
-                              aria-hidden="true"
-                            ></i>
+                            ">
+                            <i class="fa fa-download noHover" aria-hidden="true"></i>
                             <span>Download Notes</span>
 
                             <br />
-                            <span
-                              (click)="
+                            <span (click)="
                                 downloadNotes(
                                   subTopic,
                                   subTopic.notesLink.tamil
                                 )
-                              "
-                              >(
+                              ">(
 
-                              <span class="cursor underline">Tamil</span></span
-                            >
+                              <span class="cursor underline">Tamil</span></span>
 
                             {{
-                              subTopic.notesLink.english ? "&nbsp;| &nbsp;" : ""
+                            subTopic.notesLink.english ? "&nbsp;| &nbsp;" : ""
                             }}
-                            <span
-                              (click)="
+                            <span (click)="
                                 downloadNotes(
                                   subTopic,
                                   subTopic.notesLink.english
                                 )
-                              "
-                              *ngIf="subTopic.notesLink.english"
-                              class="cursor underline"
-                            >
-                              English</span
-                            >
+                              " *ngIf="subTopic.notesLink.english" class="cursor underline">
+                              English</span>
                             )
                           </span>
                         </div>
@@ -325,3 +262,37 @@
 <!-- 
 <app-spiritual-thoughts></app-spiritual-thoughts>
 <app-profile></app-profile> -->
+<!-- <div class="row">
+  <div class="carousel-container container" #carousel>
+    <div class="left z-1 cursor" *ngIf="totalPages > 1" (click)="currentPage != 1 && changePage(-1)"
+      [ngClass]="{'disabled':currentPage === 1}">
+      <span>
+
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+      </span>
+    </div>
+    <div class="rev-cards cards" [ngClass]="{'w-100': totalPages === 1}">
+      <div class="overflow" [ngStyle]="{'width': overflowWidth, 'left': pagePosition}">
+        <div class="rev-card my-3 br-12" *ngFor="let subTopic of revTopic.subTopics; let i = index"
+          [ngStyle]="{'width': cardWidth}">
+          <img class="img-fluid br-14" alt="100%x280"
+            src="../../../assets/img/revelation/Revelation 0{{ i + 1 }}.jpg" />
+          <div class="card-body">
+            <h5 class="card-title">Revelation Part - {{ i + 1 }}</h5>
+            <p class="card-text">
+              <span (click)="watchVideo(subTopic)" class="cursor">View</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="right cursor" *ngIf="totalPages > 1" (click)="currentPage != totalPages && changePage(+1)"
+        [ngClass]="{'disabled':currentPage === totalPages}">
+        <span>
+
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </span>
+      </div>
+      
+    </div>
+  </div>
+</div> -->

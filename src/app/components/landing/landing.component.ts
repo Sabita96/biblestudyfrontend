@@ -2,6 +2,7 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
+  HostListener,
   OnInit,
   ViewChild,
 } from "@angular/core";
@@ -25,6 +26,19 @@ export class LandingComponent implements OnInit {
   name = "Angular";
   @ViewChild("videoPlayer", { static: false }) videoplayer: ElementRef;
   isPlay = false;
+  //
+
+  arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  totalCards: number = 30;
+  currentPage: number = 1;
+  pagePosition: string = "0%";
+  cardsPerPage: number;
+  
+  totalPages: number;
+  overflowWidth: string;
+  cardWidth: string;
+  containerWidth: number;
+  //
   constructor(
     private topicService: TopicService,
     private downloadService: DownloadService,
@@ -33,9 +47,27 @@ export class LandingComponent implements OnInit {
     private modalService: NgbModal,
     private toastr: ToastrService,
     private ngxLoaderService: NgxUiLoaderService
-  ) {}
-
+  ) {
+    
+  }
+  @ViewChild("carousel", { static: true, read: ElementRef })
+  container: ElementRef;
+  @HostListener("window:resize") windowResize() {
+    let newCardsPerPage = this.getCardsPerPage();
+    if (newCardsPerPage != this.cardsPerPage) {
+      this.cardsPerPage = newCardsPerPage;
+      this.initializeSlider();
+      if (this.currentPage > this.totalPages) {
+        this.currentPage = this.totalPages;
+        this.populatePagePosition();
+      }
+    }
+  }
   ngOnInit() {
+    //
+    this.cardsPerPage = this.getCardsPerPage();
+    this.initializeSlider();
+    //
     console.log("ssssssssssssssssss");
 
     let imgList = [
@@ -94,31 +126,32 @@ export class LandingComponent implements OnInit {
     this.selectedTopic = subTopic;
   }
   downloadNotes(subTopic, url) {
-    this.ngxLoaderService.start(subTopic._id);
-    this.downloadService.downloadPdf(url).subscribe(
-      (res) => {
-        this.ngxLoaderService.stop(subTopic._id);
+    // this.ngxLoaderService.start(subTopic._id);
+    window.open(url, '_blank');
+    // this.downloadService.downloadPdf(url).subscribe(
+    //   (res) => {
+    //     this.ngxLoaderService.stop(subTopic._id);
 
-        this.toastr.info("Please check pdf inside your downloads", "Success", {
-          timeOut: 3000,
-        });
-        let blob = new Blob([res]);
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", subTopic.name + ".pdf");
-        document.body.appendChild(link);
-        link.click();
-      },
-      (err) => {
-        this.ngxLoaderService.stop(subTopic._id);
+    //     this.toastr.info("Please check pdf inside your downloads", "Success", {
+    //       timeOut: 3000,
+    //     });
+    //     let blob = new Blob([res]);
+    //     const url = window.URL.createObjectURL(blob);
+    //     const link = document.createElement("a");
+    //     link.href = url;
+    //     link.setAttribute("download", subTopic.name + ".pdf");
+    //     document.body.appendChild(link);
+    //     link.click();
+    //   },
+    //   (err) => {
+    //     this.ngxLoaderService.stop(subTopic._id);
 
-        this.toastr.error("Error While downloading pdf!!!", "Error"),
-          {
-            timeOut: 3000,
-          };
-      }
-    );
+    //     this.toastr.error("Error While downloading pdf!!!", "Error"),
+    //       {
+    //         timeOut: 3000,
+    //       };
+    //   }
+    // );
   }
   openLink(url) {
     window.open(url, "_blank");
@@ -140,5 +173,27 @@ export class LandingComponent implements OnInit {
   handleEvent(t) {
     console.log("t", t);
     t.isClicked = true;
+  }
+  initializeSlider() {
+    this.totalPages = Math.ceil(this.totalCards / this.cardsPerPage);
+    this.overflowWidth = `calc(${this.totalPages * 100}% + ${this.totalPages *
+      10}px)`;
+    this.cardWidth = `calc((${100 / this.totalPages}% - ${this.cardsPerPage *
+      10}px) / ${this.cardsPerPage})`;
+  }
+
+  getCardsPerPage() {
+    return 3;
+    // return Math.floor(this.container.nativeElement.offsetWidth / 200);
+  }
+
+  changePage(incrementor) {
+    this.currentPage += incrementor;
+    this.populatePagePosition();
+  }
+
+  populatePagePosition() {
+    this.pagePosition = `calc(${-100 * (this.currentPage - 1)}% - ${10 *
+      (this.currentPage - 1)}px)`;
   }
 }
