@@ -1,0 +1,42 @@
+
+<div class="carousel-container" #carousel>
+    <div class="left z-1 cursor" *ngIf="totalPages > 1" (click)="currentPage != 1 && changePage(-1)"
+      [ngClass]="{'disabled':currentPage === 1}">
+      <span>
+  
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+      </span>
+    </div>
+    <div class="rev-cards cards" [ngClass]="{'w-100': totalPages === 1}">
+      <div class="overflow" [ngStyle]="{'width': overflowWidth, 'left': pagePosition}">
+        <div class="rev-card card my-3 br-12" *ngFor="let subTopic of subTopics; let i = index"
+          [ngStyle]="{'width': cardWidth}">
+          <!-- *ngFor="let subTopic of revTopic.subTopics; let i = index" -->
+          <!-- <span>TEST</span> -->
+          <img class="img-fluid br-14" alt="100%x280"
+            src="../../../assets/img/revelation/Revelation 0{{ i + 1 }}.jpg" />
+          <div class="card-body">
+            <h5 class="card-title">Revelation Part - {{ i + 1 }}</h5>
+            <p class="card-text">
+              <span (click)="watchVideo(subTopic)" class="cursor">View</span>
+              <!-- <button
+                      type="button"
+                      class="btn btn-outline-danger btn-round mr-md-3 mr-lg-3"
+                      (click)="watchVideo(subTopic)"
+                    >
+                      <i class="fa fa-play"></i>Watch Video
+                    </button> -->
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="right cursor" *ngIf="totalPages > 1" (click)="currentPage != totalPages && changePage(+1)"
+        [ngClass]="{'disabled':currentPage === totalPages}">
+        <span>
+  
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </span>
+      </div>
+      
+    </div>
+  </div>
