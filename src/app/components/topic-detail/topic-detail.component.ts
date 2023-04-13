@@ -2177,7 +2177,7 @@ export class TopicDetailComponent implements OnInit {
     // this.topicService.getTopicById(this.id).subscribe(
     //   (res) => {
     // console.log("res", res);
-    this.topicObj = topicsList.find((ele) => {
+    this.topicObj = topicsList.filter((ele) => {
       return ele._id === this.id;
     })[0];
     // this.topicObj = res;
