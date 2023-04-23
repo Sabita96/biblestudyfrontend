@@ -10,6 +10,14 @@
 // }
 @import "~ngx-toastr/toastr.css";
 @import "~@ng-select/ng-select/themes/material.theme.css";
+@font-face {
+  font-family: 'Nuptial BT';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Nuptial BT'), url('https://fonts.cdnfonts.com/s/56455/Nuptial BT.woff') format('woff');
+}
+
+
 html {
   scroll-behavior: smooth;
 }

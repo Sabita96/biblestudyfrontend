@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { SharedEnvironment } from "environments/environment";
 import { map } from "rxjs/operators";
 import { ApiService } from "../api-service/api.service";
 @Injectable({
@@ -11,9 +10,14 @@ export class TopicService {
   constructor(private apiService: ApiService) {}
 
   getTopics() {
-    return this.apiService.get("topic", null).pipe(
+    // return this.apiService.get("topic", null).pipe(
+    //   map((res: any) => {
+    //     // return [{}];
+    //     return res.data;
+    //   })
+    // );
+    return this.apiService.get("/json/topics.json", null).pipe(
       map((res: any) => {
-        // return [{}];
         return res.data;
       })
     );
@@ -65,9 +69,16 @@ export class TopicService {
   //   return true;
   // }
   getTopicById(id) {
-    return this.apiService.get("topic/" + id, null).pipe(
+    // return this.apiService.get("topic/" + id, null).pipe(
+    //   map((res: any) => {
+    //     return res.data;
+    //   })
+    // );
+    return this.apiService.get("/json/topics.json", null).pipe(
       map((res: any) => {
-        return res.data;
+        return res.data.filter((ele) => {
+          return ele._id === id;
+        })[0];
       })
     );
   }
