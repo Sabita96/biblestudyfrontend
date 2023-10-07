@@ -1,16 +1,7 @@
 .nav-item:hover {
   color: rgb(39 23 23) !important;
 }
-a.nav-link:hover {
-  // color: rgb(39 23 23) !important;
-  text-decoration: underline;
-  // border-bottom: 1px solid white;
-  // left: 50%;
-  // bottom: 0;
-  // width: 50%;
 
-  // color: rgb(32, 5, 5);
-}
 .title:after {
   background: none repeat scroll 0 0 transparent;
   content: "";
@@ -23,11 +14,24 @@ a.nav-link:hover {
   width: 0;
   color: white;
 }
+
 .title:hover:after {
   width: 100%;
   left: 0;
   color: white;
 }
+
 .title:hover::before {
   color: white;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #ff9900;
 }
