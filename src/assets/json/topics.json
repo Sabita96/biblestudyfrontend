@@ -149,6 +149,38 @@
                     "createdBy": "{\n  isActive: true,\n  isDeleted: false,\n  name: 'ரோமர் - 8 / Romans - 8',\n  youtubeLink: 'https://www.youtube.com/embed/srBXdRr0fOY',\n  fileLink: 'https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T11_P8.pdf?alt=media',\n  description: 'இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.',\n  notesLink: {\n    tamil: 'https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T11_P8.pdf?alt=media',\n    english: ''\n  },\n  _id: new ObjectId(\"64457297c0ecf73b962cc8e9\"),\n  createdAt: 2023-04-23T18:01:59.839Z,\n  updatedAt: 2023-04-23T18:01:59.839Z\n}",
                     "updatedBy": "{\n  isActive: true,\n  isDeleted: false,\n  name: 'ரோமர் - 8 / Romans - 8',\n  youtubeLink: 'https://www.youtube.com/embed/srBXdRr0fOY',\n  fileLink: 'https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T11_P8.pdf?alt=media',\n  description: 'இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.',\n  notesLink: {\n    tamil: 'https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T11_P8.pdf?alt=media',\n    english: ''\n  },\n  _id: new ObjectId(\"64457297c0ecf73b962cc8e9\"),\n  createdAt: 2023-04-23T18:01:59.839Z,\n  updatedAt: 2023-04-23T18:01:59.839Z,\n  createdBy: '{\\n' +\n    '  isActive: true,\\n' +\n    '  isDeleted: false,\\n' +\n    \"  name: 'ரோமர் - 8 / Romans - 8',\\n\" +\n    \"  youtubeLink: 'https://www.youtube.com/embed/srBXdRr0fOY',\\n\" +\n    \"  fileLink: 'https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T11_P8.pdf?alt=media',\\n\" +\n    \"  description: 'இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.',\\n\" +\n    '  notesLink: {\\n' +\n    \"    tamil: 'https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T11_P8.pdf?alt=media',\\n\" +\n    \"    english: ''\\n\" +\n    '  },\\n' +\n    '  _id: new ObjectId(\"64457297c0ecf73b962cc8e9\"),\\n' +\n    '  createdAt: 2023-04-23T18:01:59.839Z,\\n' +\n    '  updatedAt: 2023-04-23T18:01:59.839Z\\n' +\n    '}'\n}",
                     "__v": 0
+                },
+                {
+                    "_id": "65218e6efc184bd1fdd537ec",
+                    "isActive": true,
+                    "isDeleted": false,
+                    "name": "நம்பிக்கையின் மேன்மை / Superiority of faith",
+                    "youtubeLink": "https://www.youtube.com/embed/du0qQnz11vA?si=DXad8cljOFCHsTos",
+                    "fileLink": "",
+                    "description": "இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.",
+                    "notesLink": {
+                        "tamil": "",
+                        "english": ""
+                    },
+                    "createdAt": "2023-10-07T16:59:26.633Z",
+                    "updatedAt": "2023-10-07T16:59:26.633Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "65218ed8fc184bd1fdd537ef",
+                    "isActive": true,
+                    "isDeleted": false,
+                    "name": "கிருபை பாதுகாப்பானதா? / Is grace safe?",
+                    "youtubeLink": "https://www.youtube.com/embed/Fp3i-W0FT9E?si=VodpOtihCkXkg30Q",
+                    "fileLink": "",
+                    "description": "இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.",
+                    "notesLink": {
+                        "tamil": "",
+                        "english": ""
+                    },
+                    "createdAt": "2023-10-07T17:01:12.990Z",
+                    "updatedAt": "2023-10-07T17:01:12.990Z",
+                    "__v": 0
                 }
             ],
             "description": "இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.",
@@ -2523,4 +2555,4 @@
             "__v": 0
         }
     ]
-}   
+}
