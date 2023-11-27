@@ -197,6 +197,38 @@
                     "createdAt": "2023-10-20T19:28:26.456Z",
                     "updatedAt": "2023-10-20T19:28:26.456Z",
                     "__v": 0
+                },
+                {
+                    "_id": "656442c3ae3513d11760a365",
+                    "isActive": true,
+                    "isDeleted": false,
+                    "name": "ரோமர் - 12 / Romans - 12",
+                    "youtubeLink": "https://www.youtube.com/embed/jq5rt7KEtUQ?si=FGs7HkpFRQBTjudx",
+                    "fileLink": "",
+                    "description": "இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.",
+                    "notesLink": {
+                        "tamil": "https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T11_P12.pdf?alt=media",
+                        "english": ""
+                    },
+                    "createdAt": "2023-11-27T07:18:27.866Z",
+                    "updatedAt": "2023-11-27T07:18:27.866Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "6564434cae3513d11760a36a",
+                    "isActive": true,
+                    "isDeleted": false,
+                    "name": "ரோமர் - 13 / Romans - 13",
+                    "youtubeLink": "https://www.youtube.com/embed/4pMPxwz9nd4?si=uytHp4_Ya23ppNn-",
+                    "fileLink": "",
+                    "description": "இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.",
+                    "notesLink": {
+                        "tamil": "https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T11_P13.pdf?alt=media",
+                        "english": ""
+                    },
+                    "createdAt": "2023-11-27T07:20:44.203Z",
+                    "updatedAt": "2023-11-27T07:20:44.203Z",
+                    "__v": 0
                 }
             ],
             "description": "இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.",
@@ -761,7 +793,7 @@
                     "fileLink": "",
                     "description": "உன்னதப்பாட்டு புஸ்தகம் கவிதை வடிவில் எழுதப்பட்ட தீர்க்கதரிசன புஸ்தகமாகும். மணவாட்டியாகிய சபை மணவாளனாம் இயேசுவின் நேசத்தை பெற்று, அவருடைய நேசத்திற்குள் வாழ்ந்து, அவரோடு பரலோகில் வாழ்வதற்குரிய வழிமுறைகளை, ஆவிக்குரிய சிந்தையோடு தியானிக்கலாம்.",
                     "notesLink": {
-                        "tamil": "https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T10_P32.pdf?alt=media",
+                        "tamil": "",
                         "english": ""
                     },
                     "createdAt": "2023-10-20T19:16:37.756Z",
@@ -926,6 +958,54 @@
                     },
                     "createdAt": "2023-10-20T19:25:31.831Z",
                     "updatedAt": "2023-10-20T19:25:31.831Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "656447b1ae3513d11760a37d",
+                    "isActive": true,
+                    "isDeleted": false,
+                    "name": "உன்னதப்பாட்டு - 43 / Songs Of Solomon - 43",
+                    "youtubeLink": "https://www.youtube.com/embed/gSXA_fE7hus?si=J6BRr98vgHfjni6i",
+                    "fileLink": "",
+                    "description": "உன்னதப்பாட்டு புஸ்தகம் கவிதை வடிவில் எழுதப்பட்ட தீர்க்கதரிசன புஸ்தகமாகும். மணவாட்டியாகிய சபை மணவாளனாம் இயேசுவின் நேசத்தை பெற்று, அவருடைய நேசத்திற்குள் வாழ்ந்து, அவரோடு பரலோகில் வாழ்வதற்குரிய வழிமுறைகளை, ஆவிக்குரிய சிந்தையோடு தியானிக்கலாம்.",
+                    "notesLink": {
+                        "tamil": "https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T10_P43.pdf?alt=media",
+                        "english": ""
+                    },
+                    "createdAt": "2023-11-27T07:39:29.471Z",
+                    "updatedAt": "2023-11-27T07:39:29.471Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "656447f8ae3513d11760a380",
+                    "isActive": true,
+                    "isDeleted": false,
+                    "name": "உன்னதப்பாட்டு - 44 / Songs Of Solomon - 44",
+                    "youtubeLink": "https://www.youtube.com/embed/Rs1nRsukyCE?si=ysoTDZe_1rWfbX4-",
+                    "fileLink": "",
+                    "description": "உன்னதப்பாட்டு புஸ்தகம் கவிதை வடிவில் எழுதப்பட்ட தீர்க்கதரிசன புஸ்தகமாகும். மணவாட்டியாகிய சபை மணவாளனாம் இயேசுவின் நேசத்தை பெற்று, அவருடைய நேசத்திற்குள் வாழ்ந்து, அவரோடு பரலோகில் வாழ்வதற்குரிய வழிமுறைகளை, ஆவிக்குரிய சிந்தையோடு தியானிக்கலாம்.",
+                    "notesLink": {
+                        "tamil": "https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T10_P44.pdf?alt=media",
+                        "english": ""
+                    },
+                    "createdAt": "2023-11-27T07:40:40.411Z",
+                    "updatedAt": "2023-11-27T07:40:40.411Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "65644834ae3513d11760a383",
+                    "isActive": true,
+                    "isDeleted": false,
+                    "name": "உன்னதப்பாட்டு - 45 / Songs Of Solomon - 45",
+                    "youtubeLink": "https://www.youtube.com/embed/L06aoLPVk58?si=gpWmrEhtxLfWcso6",
+                    "fileLink": "",
+                    "description": "உன்னதப்பாட்டு புஸ்தகம் கவிதை வடிவில் எழுதப்பட்ட தீர்க்கதரிசன புஸ்தகமாகும். மணவாட்டியாகிய சபை மணவாளனாம் இயேசுவின் நேசத்தை பெற்று, அவருடைய நேசத்திற்குள் வாழ்ந்து, அவரோடு பரலோகில் வாழ்வதற்குரிய வழிமுறைகளை, ஆவிக்குரிய சிந்தையோடு தியானிக்கலாம்.",
+                    "notesLink": {
+                        "tamil": "https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T10_P45.pdf?alt=media",
+                        "english": ""
+                    },
+                    "createdAt": "2023-11-27T07:41:40.007Z",
+                    "updatedAt": "2023-11-27T07:41:40.007Z",
                     "__v": 0
                 }
             ],
