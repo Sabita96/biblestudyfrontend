@@ -78,6 +78,12 @@ export class AppComponent implements OnInit {
 
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
+        gtag('event', 'page_view', {
+          page_title: 'home',
+          page_path: event.urlAfterRedirects,
+          page_location: this.document.location.href
+        })
+
         if (event.url === "/") {
           this.isHome = true;
           console.log("this.isHome", this.isHome);
