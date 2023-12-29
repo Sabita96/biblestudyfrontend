@@ -229,13 +229,29 @@
                     "createdAt": "2023-11-27T07:20:44.203Z",
                     "updatedAt": "2023-11-27T07:20:44.203Z",
                     "__v": 0
+                },
+                {
+                    "_id": "658da04c8d5ca3adc575e884",
+                    "isActive": true,
+                    "isDeleted": false,
+                    "name": "ரோமர் - 14 / Romans - 14",
+                    "youtubeLink": "https://www.youtube.com/embed/ijZKBWepJ08?si=VCc6PUn9l1hgvcyC",
+                    "fileLink": "",
+                    "description": "இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.",
+                    "notesLink": {
+                        "tamil": "https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T11_P14.pdf?alt=media",
+                        "english": ""
+                    },
+                    "createdAt": "2023-12-28T16:20:28.284Z",
+                    "updatedAt": "2023-12-28T16:20:28.284Z",
+                    "__v": 0
                 }
             ],
             "description": "இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.",
             "createdAt": "2023-04-23T18:01:59.910Z",
             "updatedAt": "2023-04-23T18:01:59.910Z",
-            "createdBy": "{\n  isActive: true,\n  isDeleted: false,\n  name: 'ரோமர் / Romans',\n  subTopics: [\n    new ObjectId(\"64457297c0ecf73b962cc8db\"),\n    new ObjectId(\"64457297c0ecf73b962cc8dd\"),\n    new ObjectId(\"64457297c0ecf73b962cc8df\"),\n    new ObjectId(\"64457297c0ecf73b962cc8e1\"),\n    new ObjectId(\"64457297c0ecf73b962cc8e3\"),\n    new ObjectId(\"64457297c0ecf73b962cc8e5\"),\n    new ObjectId(\"64457297c0ecf73b962cc8e7\"),\n    new ObjectId(\"64457297c0ecf73b962cc8e9\")\n  ],\n  description: 'இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.',\n  _id: new ObjectId(\"64457297c0ecf73b962cc8eb\"),\n  createdAt: 2023-04-23T18:01:59.910Z,\n  updatedAt: 2023-04-23T18:01:59.910Z\n}",
-            "updatedBy": "{\n  isActive: true,\n  isDeleted: false,\n  name: 'ரோமர் / Romans',\n  subTopics: [\n    new ObjectId(\"64457297c0ecf73b962cc8db\"),\n    new ObjectId(\"64457297c0ecf73b962cc8dd\"),\n    new ObjectId(\"64457297c0ecf73b962cc8df\"),\n    new ObjectId(\"64457297c0ecf73b962cc8e1\"),\n    new ObjectId(\"64457297c0ecf73b962cc8e3\"),\n    new ObjectId(\"64457297c0ecf73b962cc8e5\"),\n    new ObjectId(\"64457297c0ecf73b962cc8e7\"),\n    new ObjectId(\"64457297c0ecf73b962cc8e9\")\n  ],\n  description: 'இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.',\n  _id: new ObjectId(\"64457297c0ecf73b962cc8eb\"),\n  createdAt: 2023-04-23T18:01:59.910Z,\n  updatedAt: 2023-04-23T18:01:59.910Z,\n  createdBy: '{\\n' +\n    '  isActive: true,\\n' +\n    '  isDeleted: false,\\n' +\n    \"  name: 'ரோமர் / Romans',\\n\" +\n    '  subTopics: [\\n' +\n    '    new ObjectId(\"64457297c0ecf73b962cc8db\"),\\n' +\n    '    new ObjectId(\"64457297c0ecf73b962cc8dd\"),\\n' +\n    '    new ObjectId(\"64457297c0ecf73b962cc8df\"),\\n' +\n    '    new ObjectId(\"64457297c0ecf73b962cc8e1\"),\\n' +\n    '    new ObjectId(\"64457297c0ecf73b962cc8e3\"),\\n' +\n    '    new ObjectId(\"64457297c0ecf73b962cc8e5\"),\\n' +\n    '    new ObjectId(\"64457297c0ecf73b962cc8e7\"),\\n' +\n    '    new ObjectId(\"64457297c0ecf73b962cc8e9\")\\n' +\n    '  ],\\n' +\n    \"  description: 'இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.',\\n\" +\n    '  _id: new ObjectId(\"64457297c0ecf73b962cc8eb\"),\\n' +\n    '  createdAt: 2023-04-23T18:01:59.910Z,\\n' +\n    '  updatedAt: 2023-04-23T18:01:59.910Z\\n' +\n    '}'\n}",
+            "createdBy": "",
+            "updatedBy": "",
             "__v": 0
         },
         {
@@ -1039,13 +1055,45 @@
                     "createdAt": "2023-12-10T19:24:43.233Z",
                     "updatedAt": "2023-12-10T19:24:43.233Z",
                     "__v": 0
+                },
+                {
+                    "_id": "658dbad7500b7d6f5cf0c455",
+                    "isActive": true,
+                    "isDeleted": false,
+                    "name": "உன்னதப்பாட்டு - 48 / Songs Of Solomon - 48",
+                    "youtubeLink": "https://www.youtube.com/embed/QsQt84nZvDc?si=LWJvpLpP527IASeK",
+                    "fileLink": "",
+                    "description": "உன்னதப்பாட்டு புஸ்தகம் கவிதை வடிவில் எழுதப்பட்ட தீர்க்கதரிசன புஸ்தகமாகும். மணவாட்டியாகிய சபை மணவாளனாம் இயேசுவின் நேசத்தை பெற்று, அவருடைய நேசத்திற்குள் வாழ்ந்து, அவரோடு பரலோகில் வாழ்வதற்குரிய வழிமுறைகளை, ஆவிக்குரிய சிந்தையோடு தியானிக்கலாம்.",
+                    "notesLink": {
+                        "tamil": "https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T10_P48.pdf?alt=media",
+                        "english": ""
+                    },
+                    "createdAt": "2023-12-28T18:13:43.506Z",
+                    "updatedAt": "2023-12-28T18:13:43.506Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "658dbb1b500b7d6f5cf0c458",
+                    "isActive": true,
+                    "isDeleted": false,
+                    "name": "உன்னதப்பாட்டு - 49 / Songs Of Solomon - 49",
+                    "youtubeLink": "https://www.youtube.com/embed/IXqOklj6v6s?si=t-FeZ4wDLY4MtM4p",
+                    "fileLink": "",
+                    "description": "உன்னதப்பாட்டு புஸ்தகம் கவிதை வடிவில் எழுதப்பட்ட தீர்க்கதரிசன புஸ்தகமாகும். மணவாட்டியாகிய சபை மணவாளனாம் இயேசுவின் நேசத்தை பெற்று, அவருடைய நேசத்திற்குள் வாழ்ந்து, அவரோடு பரலோகில் வாழ்வதற்குரிய வழிமுறைகளை, ஆவிக்குரிய சிந்தையோடு தியானிக்கலாம்.",
+                    "notesLink": {
+                        "tamil": "https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T10_P49.pdf?alt=media",
+                        "english": ""
+                    },
+                    "createdAt": "2023-12-28T18:14:51.272Z",
+                    "updatedAt": "2023-12-28T18:14:51.272Z",
+                    "__v": 0
                 }
             ],
             "description": "உன்னதப்பாட்டு புஸ்தகம் கவிதை வடிவில் எழுதப்பட்ட தீர்க்கதரிசன புஸ்தகமாகும். மணவாட்டியாகிய சபை மணவாளனாம் இயேசுவின் நேசத்தை பெற்று, அவருடைய நேசத்திற்குள் வாழ்ந்து, அவரோடு பரலோகில் வாழ்வதற்குரிய வழிமுறைகளை, ஆவிக்குரிய சிந்தையோடு தியானிக்கலாம்.",
             "createdAt": "2023-04-23T17:19:27.176Z",
             "updatedAt": "2023-04-23T17:19:27.176Z",
-            "createdBy": "{\n  isActive: true,\n  isDeleted: false,\n  name: 'உன்னதப்பாட்டு / Songs Of Solomon',\n  subTopics: [\n    new ObjectId(\"6445689e06e23a30065019b8\"),\n    new ObjectId(\"6445689e06e23a30065019ba\"),\n    new ObjectId(\"6445689e06e23a30065019bc\"),\n    new ObjectId(\"6445689e06e23a30065019be\"),\n    new ObjectId(\"6445689e06e23a30065019c0\"),\n    new ObjectId(\"6445689e06e23a30065019c2\"),\n    new ObjectId(\"6445689e06e23a30065019c4\"),\n    new ObjectId(\"6445689e06e23a30065019c6\"),\n    new ObjectId(\"6445689e06e23a30065019c8\"),\n    new ObjectId(\"6445689f06e23a30065019ca\")\n  ],\n  description: 'உன்னதப்பாட்டு புஸ்தகம் கவிதை வடிவில் எழுதப்பட்ட தீர்க்கதரிசன புஸ்தகமாகும். மணவாட்டியாகிய சபை மணவாளனாம் இயேசுவின் நேசத்தை பெற்று, அவருடைய நேசத்திற்குள் வாழ்ந்து, அவரோடு பரலோகில் வாழ்வதற்குரிய வழிமுறைகளை, ஆவிக்குரிய சிந்தையோடு தியானிக்கலாம்.',\n  _id: new ObjectId(\"6445689f06e23a30065019cc\"),\n  createdAt: 2023-04-23T17:19:27.176Z,\n  updatedAt: 2023-04-23T17:19:27.176Z\n}",
-            "updatedBy": "{\n  isActive: true,\n  isDeleted: false,\n  name: 'உன்னதப்பாட்டு / Songs Of Solomon',\n  subTopics: [\n    new ObjectId(\"6445689e06e23a30065019b8\"),\n    new ObjectId(\"6445689e06e23a30065019ba\"),\n    new ObjectId(\"6445689e06e23a30065019bc\"),\n    new ObjectId(\"6445689e06e23a30065019be\"),\n    new ObjectId(\"6445689e06e23a30065019c0\"),\n    new ObjectId(\"6445689e06e23a30065019c2\"),\n    new ObjectId(\"6445689e06e23a30065019c4\"),\n    new ObjectId(\"6445689e06e23a30065019c6\"),\n    new ObjectId(\"6445689e06e23a30065019c8\"),\n    new ObjectId(\"6445689f06e23a30065019ca\")\n  ],\n  description: 'உன்னதப்பாட்டு புஸ்தகம் கவிதை வடிவில் எழுதப்பட்ட தீர்க்கதரிசன புஸ்தகமாகும். மணவாட்டியாகிய சபை மணவாளனாம் இயேசுவின் நேசத்தை பெற்று, அவருடைய நேசத்திற்குள் வாழ்ந்து, அவரோடு பரலோகில் வாழ்வதற்குரிய வழிமுறைகளை, ஆவிக்குரிய சிந்தையோடு தியானிக்கலாம்.',\n  _id: new ObjectId(\"6445689f06e23a30065019cc\"),\n  createdAt: 2023-04-23T17:19:27.176Z,\n  updatedAt: 2023-04-23T17:19:27.176Z,\n  createdBy: '{\\n' +\n    '  isActive: true,\\n' +\n    '  isDeleted: false,\\n' +\n    \"  name: 'உன்னதப்பாட்டு / Songs Of Solomon',\\n\" +\n    '  subTopics: [\\n' +\n    '    new ObjectId(\"6445689e06e23a30065019b8\"),\\n' +\n    '    new ObjectId(\"6445689e06e23a30065019ba\"),\\n' +\n    '    new ObjectId(\"6445689e06e23a30065019bc\"),\\n' +\n    '    new ObjectId(\"6445689e06e23a30065019be\"),\\n' +\n    '    new ObjectId(\"6445689e06e23a30065019c0\"),\\n' +\n    '    new ObjectId(\"6445689e06e23a30065019c2\"),\\n' +\n    '    new ObjectId(\"6445689e06e23a30065019c4\"),\\n' +\n    '    new ObjectId(\"6445689e06e23a30065019c6\"),\\n' +\n    '    new ObjectId(\"6445689e06e23a30065019c8\"),\\n' +\n    '    new ObjectId(\"6445689f06e23a30065019ca\")\\n' +\n    '  ],\\n' +\n    \"  description: 'உன்னதப்பாட்டு புஸ்தகம் கவிதை வடிவில் எழுதப்பட்ட தீர்க்கதரிசன புஸ்தகமாகும். மணவாட்டியாகிய சபை மணவாளனாம் இயேசுவின் நேசத்தை பெற்று, அவருடைய நேசத்திற்குள் வாழ்ந்து, அவரோடு பரலோகில் வாழ்வதற்குரிய வழிமுறைகளை, ஆவிக்குரிய சிந்தையோடு தியானிக்கலாம்.',\\n\" +\n    '  _id: new ObjectId(\"6445689f06e23a30065019cc\"),\\n' +\n    '  createdAt: 2023-04-23T17:19:27.176Z,\\n' +\n    '  updatedAt: 2023-04-23T17:19:27.176Z\\n' +\n    '}'\n}",
+            "createdBy": "",
+            "updatedBy": "",
             "__v": 0
         },
         {
