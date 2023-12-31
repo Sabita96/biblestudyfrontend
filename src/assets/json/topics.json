@@ -245,6 +245,22 @@
                     "createdAt": "2023-12-28T16:20:28.284Z",
                     "updatedAt": "2023-12-28T16:20:28.284Z",
                     "__v": 0
+                },
+                {
+                    "_id": "6591559e1d053566d6acea67",
+                    "isActive": true,
+                    "isDeleted": false,
+                    "name": "ரோமர் - 15 / Romans - 15",
+                    "youtubeLink": "https://www.youtube.com/embed/elGu-2bQEwk?si=4N6LxyAZ5LFf7vh8",
+                    "fileLink": "",
+                    "description": "உன்னதப்பாட்டு புஸ்தகம் கவிதை வடிவில் எழுதப்பட்ட தீர்க்கதரிசன புஸ்தகமாகும். மணவாட்டியாகிய சபை மணவாளனாம் இயேசுவின் நேசத்தை பெற்று, அவருடைய நேசத்திற்குள் வாழ்ந்து, அவரோடு பரலோகில் வாழ்வதற்குரிய வழிமுறைகளை, ஆவிக்குரிய சிந்தையோடு தியானிக்கலாம்.",
+                    "notesLink": {
+                        "tamil": "https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T11_P15.pdf?alt=media",
+                        "english": ""
+                    },
+                    "createdAt": "2023-12-31T11:50:54.292Z",
+                    "updatedAt": "2023-12-31T11:50:54.292Z",
+                    "__v": 0
                 }
             ],
             "description": "இயேசுகிறிஸ்துவினால் உண்டான புற ஜாதிகளின் இரட்சிப்பை யூதர்கள் புரிந்து கொள்ளவேண்டும், யூதர்களின் வழியாகவே இரட்சிப்பு வெளிப்படுகின்றது, அந்த இரட்சிப்பின் நிமித்தமாக தேவனுடைய அனாதி திட்டம் நிறைவேறுகிறது என்பதை ரோமர் புஸ்தகத்தில் தியானிக்கலாம்.",
@@ -1086,6 +1102,22 @@
                     },
                     "createdAt": "2023-12-28T18:14:51.272Z",
                     "updatedAt": "2023-12-28T18:14:51.272Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "6591553a1d053566d6acea64",
+                    "isActive": true,
+                    "isDeleted": false,
+                    "name": "உன்னதப்பாட்டு - 50 / Songs Of Solomon - 50",
+                    "youtubeLink": "https://www.youtube.com/embed/o2RkRtLx4mo?si=TnCatO9EW_sZYqRd",
+                    "fileLink": "",
+                    "description": "உன்னதப்பாட்டு புஸ்தகம் கவிதை வடிவில் எழுதப்பட்ட தீர்க்கதரிசன புஸ்தகமாகும். மணவாட்டியாகிய சபை மணவாளனாம் இயேசுவின் நேசத்தை பெற்று, அவருடைய நேசத்திற்குள் வாழ்ந்து, அவரோடு பரலோகில் வாழ்வதற்குரிய வழிமுறைகளை, ஆவிக்குரிய சிந்தையோடு தியானிக்கலாம்.",
+                    "notesLink": {
+                        "tamil": "https://firebasestorage.googleapis.com/v0/b/spiritual-truth-study-backend.appspot.com/o/T10_P50.pdf?alt=media",
+                        "english": ""
+                    },
+                    "createdAt": "2023-12-31T11:49:14.588Z",
+                    "updatedAt": "2023-12-31T11:49:14.588Z",
                     "__v": 0
                 }
             ],
