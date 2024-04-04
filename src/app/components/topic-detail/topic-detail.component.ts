@@ -273,6 +273,13 @@ export class TopicDetailComponent implements OnInit {
         );
       });
     }
+    else if (this.topicObj && this.topicObj.name.includes("யோவான் எழுதின சுவிசேஷம்")) {
+      this.topicObj.subTopics.forEach((ele, i) => {
+        imgList.push(
+          "../../../assets/img/topics/topic12/GospelOfJohn " + (i + 1) + ".jpg"
+        );
+      });
+    }
     return imgList;
   }
 }

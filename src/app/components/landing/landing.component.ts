@@ -69,6 +69,7 @@ export class LandingComponent implements OnInit {
     console.log("ssssssssssssssssss");
 
     let imgList = [
+      "../../../assets/img/topics/topic12/GospelOfJohn.jpg",
       "../../../assets/img/topics/topic11/Romans.jpg",
       "../../../assets/img/topics/topic10/SongsOfSolomon.jpg",
       "../../../assets/img/topics/topic9/Tribes.jpg",
