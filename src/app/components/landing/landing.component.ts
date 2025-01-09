@@ -33,7 +33,7 @@ export class LandingComponent implements OnInit {
   currentPage: number = 1;
   pagePosition: string = "0%";
   cardsPerPage: number;
-  
+
   totalPages: number;
   overflowWidth: string;
   cardWidth: string;
@@ -47,9 +47,7 @@ export class LandingComponent implements OnInit {
     private modalService: NgbModal,
     private toastr: ToastrService,
     private ngxLoaderService: NgxUiLoaderService
-  ) {
-    
-  }
+  ) {}
   @ViewChild("carousel", { static: true, read: ElementRef })
   container: ElementRef;
   @HostListener("window:resize") windowResize() {
@@ -71,6 +69,9 @@ export class LandingComponent implements OnInit {
     console.log("ssssssssssssssssss");
 
     let imgList = [
+      "../../../assets/img/topics/topic12/GospelOfJohn.jpg",
+      "../../../assets/img/topics/topic11/Romans.jpg",
+      "../../../assets/img/topics/topic10/SongsOfSolomon.jpg",
       "../../../assets/img/topics/topic9/Tribes.jpg",
       "../../../assets/img/topics/topic8/Trespass Offering.jpg",
       "../../../assets/img/topics/topic7/Sin Offering.jpg",
@@ -83,7 +84,7 @@ export class LandingComponent implements OnInit {
       "../../../assets/img/topics/topic1/Tabernacle.jpg",
     ];
     this.topicService.getTopics().subscribe(
-      (res) => {
+      (res: any) => {
         this.topicsList = res.filter((ele: any) => {
           if (ele.name.includes("Revelation")) this.revTopic = ele;
           return !ele.name.includes("Revelation");
@@ -104,7 +105,7 @@ export class LandingComponent implements OnInit {
         console.log("this.topicsList[0]._id", this.topicsList[0]._id);
 
         // document.getElementById(this.topicsList[0]._id).click();
-        console.log("res", this.topicsList);
+        console.log("this.topicsList", this.topicsList);
       },
       (err) => {
         console.log("err", err);
@@ -127,7 +128,7 @@ export class LandingComponent implements OnInit {
   }
   downloadNotes(subTopic, url) {
     // this.ngxLoaderService.start(subTopic._id);
-    window.open(url, '_blank');
+    window.open(url, "_blank");
     // this.downloadService.downloadPdf(url).subscribe(
     //   (res) => {
     //     this.ngxLoaderService.stop(subTopic._id);
@@ -176,10 +177,12 @@ export class LandingComponent implements OnInit {
   }
   initializeSlider() {
     this.totalPages = Math.ceil(this.totalCards / this.cardsPerPage);
-    this.overflowWidth = `calc(${this.totalPages * 100}% + ${this.totalPages *
-      10}px)`;
-    this.cardWidth = `calc((${100 / this.totalPages}% - ${this.cardsPerPage *
-      10}px) / ${this.cardsPerPage})`;
+    this.overflowWidth = `calc(${this.totalPages * 100}% + ${
+      this.totalPages * 10
+    }px)`;
+    this.cardWidth = `calc((${100 / this.totalPages}% - ${
+      this.cardsPerPage * 10
+    }px) / ${this.cardsPerPage})`;
   }
 
   getCardsPerPage() {
@@ -193,7 +196,8 @@ export class LandingComponent implements OnInit {
   }
 
   populatePagePosition() {
-    this.pagePosition = `calc(${-100 * (this.currentPage - 1)}% - ${10 *
-      (this.currentPage - 1)}px)`;
+    this.pagePosition = `calc(${-100 * (this.currentPage - 1)}% - ${
+      10 * (this.currentPage - 1)
+    }px)`;
   }
 }

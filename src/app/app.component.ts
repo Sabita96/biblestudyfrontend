@@ -69,15 +69,21 @@ export class AppComponent implements OnInit {
         ],
       ],
     });
-    this.ngxLoaderService.start(); // start foreground spinner of the master loader with 'default' taskId
-    // Stop the foreground loading after 5s
-    setTimeout(() => {
-      this.ngxLoaderService.stop(); // stop foreground spinner of the master loader with 'default' taskId
-    }, 300);
+    // this.ngxLoaderService.start(); // start foreground spinner of the master loader with 'default' taskId
+    // // Stop the foreground loading after 5s
+    // setTimeout(() => {
+    //   this.ngxLoaderService.stop(); // stop foreground spinner of the master loader with 'default' taskId
+    // }, 300);
     console.log("this.location.path()", this.location.path());
 
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
+        gtag('event', 'page_view', {
+          page_title: 'home',
+          page_path: event.urlAfterRedirects,
+          page_location: this.document.location.href
+        })
+
         if (event.url === "/") {
           this.isHome = true;
           console.log("this.isHome", this.isHome);

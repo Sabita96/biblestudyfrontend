@@ -44,8 +44,9 @@ export class TopicDetailComponent implements OnInit {
     this.topicService.getTopicById(this.id).subscribe(
       (res) => {
         console.log("res", res);
-
         this.topicObj = res;
+        console.log(this.topicObj, "this.topicObj");
+
         let imgList = this.getImageList();
 
         this.topicObj.subTopics.forEach((topic, i) => {
@@ -101,7 +102,7 @@ export class TopicDetailComponent implements OnInit {
     modalRef.componentInstance.name = "World";
   }
   downloadNotes(subTopic, url) {
-    window.open(url, '_blank');
+    window.open(url, "_blank");
     // this.ngxLoaderService.start(subTopic._id);
     // this.downloadService.downloadPdf(url).subscribe(
     //   (res) => {
@@ -255,6 +256,27 @@ export class TopicDetailComponent implements OnInit {
       this.topicObj.subTopics.forEach((ele, i) => {
         imgList.push(
           "../../../assets/img/topics/topic9/Tribes 0" + (i + 1) + ".jpg"
+        );
+      });
+    } else if (this.topicObj && this.topicObj.name.includes("உன்னதப்பாட்டு")) {
+      this.topicObj.subTopics.forEach((ele, i) => {
+        imgList.push(
+          "../../../assets/img/topics/topic10/SongsOfSolomon " +
+            (i + 1) +
+            ".jpg"
+        );
+      });
+    } else if (this.topicObj && this.topicObj.name.includes("ரோமர்")) {
+      this.topicObj.subTopics.forEach((ele, i) => {
+        imgList.push(
+          "../../../assets/img/topics/topic11/Romans " + (i + 1) + ".jpg"
+        );
+      });
+    }
+    else if (this.topicObj && this.topicObj.name.includes("யோவான் எழுதின சுவிசேஷம்")) {
+      this.topicObj.subTopics.forEach((ele, i) => {
+        imgList.push(
+          "../../../assets/img/topics/topic12/GospelOfJohn" + (i + 1) + ".jpg"
         );
       });
     }
