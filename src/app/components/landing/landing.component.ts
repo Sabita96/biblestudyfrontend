@@ -7,7 +7,7 @@ import {
   ViewChild,
   ChangeDetectionStrategy
 } from "@angular/core";
-import { ToastrService } from "ngx-toastr";
+import { ToastService } from "../../shared/toast/toast.service";
 import { DomSanitizer } from "@angular/platform-browser";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { NgbdModalContent } from "app/components/modal/modal.component";
@@ -48,7 +48,7 @@ export class LandingComponent implements OnInit {
     private cd: ChangeDetectorRef,
     public sanitizer: DomSanitizer,
     private modalService: NgbModal,
-    private toastr: ToastrService,
+    private toastr: ToastService,
     private ngxLoaderService: NgxUiLoaderService
   ) {}
   @ViewChild("carousel", { static: true, read: ElementRef })

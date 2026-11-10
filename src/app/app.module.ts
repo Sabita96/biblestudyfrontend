@@ -14,7 +14,7 @@ import { provideHttpClient, withInterceptorsFromDi, withXhr } from "@angular/com
 import { ContactPageComponent } from "./shared/contact-page/contact-page.component";
 // import { LoaderComponent } from "./shared/loader/loader.component";
 import { LandingComponent } from "./components/landing/landing.component";
-import { ToastrModule } from "ngx-toastr";
+import { ToastContainerComponent } from "./shared/toast/toast-container.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { LandingPageBannerComponent } from "./components/landing-page-banner/landing-page-banner.component";
 import { NgbdModalContent } from "./components/modal/modal.component";
@@ -59,6 +59,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
         SpiritualThoughtsComponent,
         EmailVerificationComponent,
         SliderComponent,
+        ToastContainerComponent,
         // CreateTopicComponent,
         // LoaderNgxComponent,
     ],
@@ -69,7 +70,6 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
         // ExamplesModule,
         AppRoutingModule,
         // InViewportModule,
-        ToastrModule.forRoot(),
         NgxSkeletonLoaderModule,
         // LazyLoadImageModule,
         ReactiveFormsModule,

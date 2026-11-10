@@ -17,7 +17,7 @@ import { LocationStrategy, PlatformLocation, Location } from "@angular/common";
 import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { ContactPageComponent } from "./shared/contact-page/contact-page.component";
 import { FooterComponent } from "./shared/footer/footer.component";
-import { ToastrService } from "ngx-toastr";
+import { ToastService } from "./shared/toast/toast.service";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 import { ApiService } from "./services/api-service/api.service";
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
     @Inject(DOCUMENT) private document: any,
     private element: ElementRef,
     public location: Location,
-    private toastr: ToastrService,
+    private toastr: ToastService,
     private ngxLoaderService: NgxUiLoaderService,
     private apiService: ApiService,
     private formBuilder: UntypedFormBuilder
