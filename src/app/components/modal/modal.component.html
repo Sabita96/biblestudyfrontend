@@ -1,0 +1,56 @@
+<!-- <div class="modal-dialog modal-xl modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="embed-responsive embed-responsive-16by9"> -->
+<!-- <iframe
+          #videoPlayer
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/IvWlF-XM7pk"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          id="embed-video"
+        ></iframe> -->
+<!-- </div>
+  </div>
+</div> -->
+<span class="close-btn"></span>
+<div class="modal-content fade-scale" data-easein="bounceUpIn">
+  <!-- <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  > -->
+  <!-- <span class="close-btn"></span>
+    <span aria-hidden="true" class="cross">&times;</span>
+  </button> -->
+  <!-- <div class="modal-header">
+    <h5 class="modal-title" id="staticBackdropLabel">{{ subTopic.name }}</h5>
+
+  
+  </div> -->
+  <div class="modal-body" style="padding: 0rem">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe
+        width="560"
+        height="315"
+        [src]="subTopic.youtubeLink"
+        title="YouTube video player"
+        frameborder="0"
+        allowfullscreen
+        id="embed-video"
+      ></iframe>
+    </div>
+  </div>
+</div>

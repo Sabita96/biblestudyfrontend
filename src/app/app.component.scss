@@ -1,0 +1,54 @@
+.grid-tile {
+  background-color: rgb(158, 158, 158);
+  font-size: 2em;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.87);
+  transition: background-color 0.25s ease-in, color 0.25s ease-in;
+
+  &.active {
+    background-color: #00c853;
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
+body {
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+}
+.btn {
+  // font-size: 18px !important;
+}
+// .d-md-block {
+//   display: block !important;
+// }
+@media (min-width: 1500px) {
+  .subscription .container {
+    max-width: 1440px;
+  }
+}
+@media (min-width: 1200px) {
+  .subscription .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 992px) {
+  .subscription .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 768px) {
+  .subscription .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 576px) {
+  .subscription .container {
+    max-width: 540px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .signup-form .card-body {
+    padding-right: 15rem;
+  }
+}

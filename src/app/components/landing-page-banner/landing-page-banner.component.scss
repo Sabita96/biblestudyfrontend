@@ -1,0 +1,88 @@
+/* .motto:hover {
+  animation-name: slideInUp;
+} */
+
+.mt {
+  margin-top: 5% !important;
+}
+.eng-title {
+  font-size: calc(2.3em + 1vw);
+  font-family: 'Nuptial BT'; 
+  font-style: italic
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+} 
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.banner {
+  // background-color: #3498db;
+  // color: #fff;
+  // padding: 20px;
+  // border-radius: 10px;
+  // text-align: center;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+.tamil-title .eng-title{
+  animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-20px);
+      }
+      60% {
+        transform: translateY(-10px);
+      }
+    }
+@media (max-width: 768px) {
+  .mt {
+    margin-top: 12% !important;
+  }
+  .eng-title {
+    font-size: calc(2em + 1vw);
+  }
+  .page-header {
+    min-height: 43vh !important;
+  }
+
+  .tamil-title {
+    font-size: 1.3em !important;
+    line-height: 2em !important;
+  }
+}
