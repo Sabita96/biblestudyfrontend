@@ -1,29 +1,36 @@
-<div
-  class="container"
-  *ngIf="!loading"
-  style="position: fixed; top: 24%; left: 10%"
->
-  <div class="text-center">
-    <img
-      src="../../assets/img/verify-email2.jfif"
-      alt=""
-      style="background: WHITE"
-      *ngIf="isVerified"
-    />
-    <img
-      src="../../assets/img/verification-failed.png"
-      alt=""
-      style="background: WHITE"
-      *ngIf="!isVerified"
-    />
+@if (!loading) {
+  <div
+    class="container"
+    style="position: fixed; top: 24%; left: 10%"
+    >
+    <div class="text-center">
+      @if (isVerified) {
+        <img
+          src="../../assets/img/verify-email2.jfif"
+          alt=""
+          style="background: WHITE"
+          />
+      }
+      @if (!isVerified) {
+        <img
+          src="../../assets/img/verification-failed.png"
+          alt=""
+          style="background: WHITE"
+          />
+      }
+    </div>
+    <div class="row text-center">
+      @if (isVerified) {
+        <h3 class="mb-4">
+          Your Email has been Successfully verified!!
+        </h3>
+      }
+      @if (!isVerified) {
+        <h3 class="mb-4">Verification Failed !!!</h3>
+      }
+    </div>
+    <div class="text-center">
+      <a href="https://spiritualtruthstudy.com/">< Back to Website</a>
+    </div>
   </div>
-  <div class="row text-center">
-    <h3 class="mb-4" *ngIf="isVerified">
-      Your Email has been Successfully verified!!
-    </h3>
-    <h3 class="mb-4" *ngIf="!isVerified">Verification Failed !!!</h3>
-  </div>
-  <div class="text-center">
-    <a href="https://spiritualtruthstudy.com/">< Back to Website</a>
-  </div>
-</div>
+}
