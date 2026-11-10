@@ -1,0 +1,91 @@
+/* You can add global styles to this file, and also import other style files */
+// @font-face {
+//   font-family: "Nuptial BT";
+//   font-style: normal;
+//   font-weight: normal;
+//   src: local("Nuptial BT"), url("Nuptial-BT.woff") format("woff");
+// }
+// * {
+//   font-family: "Nuptial BT";
+// }
+@import "~ngx-toastr/toastr.css";
+@import "~@ng-select/ng-select/themes/material.theme.css";
+@font-face {
+  font-family: 'Nuptial BT';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Nuptial BT'), url('https://fonts.cdnfonts.com/s/56455/Nuptial BT.woff') format('woff');
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+// .title:after {
+//   background: none repeat scroll 0 0 transparent;
+//   bottom: 0;
+//   content: "";
+//   display: block;
+//   height: 2px;
+//   left: 50%;
+//   position: absolute;
+//   border-bottom: 3px solid #8c4040;
+//   transition: width 0.3s ease 0s, left 0.3s ease 0s;
+//   width: 0;
+//   color: white;
+// }
+// .title:hover:after {
+//   width: 100%;
+//   left: 0;
+//   color: white;
+// }
+// .title:hover::before {
+//   color: white;
+// }
+.z-1 {
+  z-index: 1 !important;
+}
+#back-to-top {
+  position: fixed;
+  bottom: 9%;
+  right: 20px;
+  border-radius: 50%;
+  display: none;
+  // position: relative;
+  // top: -20px;
+  background: rgb(39 23 23) !important;
+  border-color: rgb(39 23 23) !important;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 24px !important;
+  }
+}
+.accordion-button:focus {
+  box-shadow: none !important;
+}
+.noHover {
+  cursor: auto !important;
+}
+.cursor {
+  cursor: pointer;
+}
+.underline {
+  text-decoration: underline;
+}
+.move-up {
+  // background-color: black;
+  // display: flex;
+  // width: 100px;
+  // height: 40px;
+  // align-items: center;
+  // justify-content: center;
+  // text-align: center;
+  // color: white;
+  transition: transform ease 300ms;
+}
+
+.move-up:hover {
+  transform: translate(0, -20px);
+}

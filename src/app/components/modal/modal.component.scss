@@ -1,0 +1,79 @@
+.modal-content {
+  animation-name: example;
+  animation-duration: 0.5s;
+}
+.modal-dialog,
+.modal-content {
+  /* 80% of window height */
+  height: 80% !important;
+}
+
+.modal-body {
+  /* 100% = dialog height, 120px = header + footer */
+  max-height: calc(100vh - 210px) !important;
+  overflow-y: auto !important;
+  padding: 0rem !important;
+}
+.close-btn {
+  position: absolute;
+  transition: transform 0.25s, opacity 0.25s;
+  opacity: 0.7;
+  cursor: pointer;
+  font-size: 3em;
+  font-family: serif;
+  line-height: 1;
+}
+.close-btn:before {
+  content: "\d7";
+}
+.close-btn:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+@keyframes example {
+  0% {
+    transform: scale(0.5);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+}
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 900px;
+  }
+}
+@media (min-width: 768px) {
+  .modal-xl {
+    // width: 90%;
+    max-width: 1200px;
+  }
+}
+
+.wrapper:hover .fa-stack {
+  color: red;
+  transition: 0.9s;
+  transform: rotateY(180deg);
+}
+.fade-scale {
+  transform: scale(0);
+  opacity: 0;
+  -webkit-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+
+.fade-scale.in {
+  opacity: 1;
+  transform: scale(1);
+}

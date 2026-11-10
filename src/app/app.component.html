@@ -1,0 +1,156 @@
+<!-- <app-loader></app-loader> -->
+
+<app-navbar *ngIf="userView"></app-navbar>
+<router-outlet></router-outlet>
+<app-contact-page *ngIf="userView"></app-contact-page>
+
+<!-- <div
+  inViewport
+  [inViewportOptions]="{ threshold: [1] }"
+  (inViewportAction)="loadComponent($event, 'app-contact')"
+  #contact
+></div>
+<div
+  *ngIf="removeFooter()"
+  inViewport
+  [inViewportOptions]="{ threshold: [1] }"
+  (inViewportAction)="loadComponent($event, 'app-footer')"
+  #footer
+></div> -->
+<!-- <div class="container" *ngIf="userView">
+  <aside
+    class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5"
+    style="background: #291212"
+  >
+    <div
+      class="
+        d-flex
+        align-items-center
+        justify-content-between
+        flex-column flex-xl-row
+        text-center text-xl-start
+      "
+    >
+      <div class="mb-4 mb-xl-0">
+        <div class="fs-3 fw-bold text-white">
+          New products, delivered to you.
+        </div>
+        <div class="text-white-50">
+          Sign up for our newsletter for the latest updates.
+        </div>
+      </div>
+      <div class="ms-xl-4">
+        <div class="input-group mb-2">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Email address..."
+            aria-label="Email address..."
+            aria-describedby="button-newsletter"
+          />
+          <button
+            class="btn btn-outline-light"
+            id="button-newsletter"
+            type="button"
+          >
+            Sign up
+          </button>
+        </div>
+        <div class="small text-white-50">
+          We care about privacy, and will never share your data.
+        </div>
+      </div>
+    </div>
+  </aside>
+</div> -->
+<div class="section pt-10 pb-5 mt-auto" *ngIf="isHome">
+  <div class="container subscription" style="max-width: 1293px">
+    <div
+      class="card p-sm-3 p-md-4 signup-form overflow-hidden"
+      style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%)"
+    >
+      <div class="card-body" style="overflow: hidden !important">
+        <h3 class="title">Want more Spiritual Truth Bible Study topics?</h3>
+        <p class="lead" style="font-size: 1rem">
+          Subscribe to stay updated when new Bible study related topics arrive!
+        </p>
+        <form novalidate="" [formGroup]="subscriptionForm">
+          <div class="input-group">
+            <input
+              [class.is-invalid]="
+                subscriptionForm.get('email').invalid &&
+                subscriptionForm.get('email').touched
+              "
+              type="email"
+              name="EMAIL"
+              placeholder="Email address..."
+              aria-label="Your email address..."
+              class="form-control"
+              formControlName="email"
+            />
+
+            <button
+              type="submit"
+              class="btn-signup btn fw-500 btn-primary"
+              style="
+                background: rgb(23 13 13) !important;
+                border-radius: 0% 9% 9% 0%;
+                opacity: unset;
+              "
+              (click)="subscribeEmail()"
+            >
+              Subscribe!
+            </button>
+          </div>
+          <div
+            *ngIf="
+              (subscriptionForm.get('email').invalid &&
+                subscriptionForm.get('email').touched) ||
+              subscriptionForm.get('email').dirty
+            "
+          >
+            <small
+              class="text-danger mt-2"
+              *ngIf="subscriptionForm.get('email').errors?.required"
+              >Email address is required</small
+            >
+            <small
+              class="text-danger mt-2"
+              *ngIf="subscriptionForm.get('email').errors?.email"
+              >Email address is invalid</small
+            >
+          </div>
+        </form>
+      </div>
+      <img
+        src="https://startbootstrap.com/assets/img/freepik/wall-post-pana.svg"
+        alt="Man standing with tablet SVG"
+        class="signup-form-img d-none d-md-block"
+        style="position: absolute; right: 3rem; top: 2rem; width: 11rem"
+      />
+    </div>
+  </div>
+</div>
+<!-- <button type="button" (click)="onClickDefault()" class="btn btn-primary">
+  Default Loader
+</button> -->
+<app-footer *ngIf="removeFooter() && this.userView"></app-footer>
+<!-- <a
+  id="back-to-top"
+  href="#"
+  class="btn btn-light btn-lg back-to-top float-right"
+  role="button"
+  ><i class="fa fa-chevron-up"></i
+></a> -->
+<!-- Back to top button -->
+<button
+  role="button"
+  href="#"
+  class="btn btn-light back-to-top float-right z-1"
+  id="back-to-top"
+  (click)="scrollToTop()"
+>
+<span>
+  <i class="fa fa-chevron-up" style="color: white"></i>
+</span>
+</button>

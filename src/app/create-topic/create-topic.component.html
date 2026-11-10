@@ -1,0 +1,209 @@
+<div class="main mt-5" style="padding: 5% 8%">sdsdsds</div>
+{{showTopicForm}}
+<div class="container" >
+  <ng-container *ngIf="!showTopicForm">
+  <div class="row">
+    <h3 class="text-center">Topics</h3>
+  </div>
+
+  <button
+    (click)="showTopicForm = true"
+    class="btn btn-primary float-right mb-3"
+  >
+    Add Topic
+  </button>
+
+  <table class="table table-hover ">
+    <!-- <caption>List of Topics</caption> -->
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let topic of topicsList; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ topic.name }}</td>
+        <td>{{ topic.description }}</td>
+        <td>
+          <span class="cursor" (click)="editTopic(i)">
+            <i class="fa fa-edit"></i>
+          </span>
+          <span class="cursor ml-2">
+            <i class="fa fa-times"></i>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+  <ng-container *ngIf="showTopicForm">
+    <h3 class="title text-center">Add Topic</h3>
+
+    <form [formGroup]="topicForm" >
+      <div class="row">
+      <div class="mb-3 col-md-6 col-6">
+        <label for="name" class="form-label">Name</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="name"
+          formControlName="name"
+        >
+        </textarea>
+      </div>
+      <div class="mb-3 col-md-6 col-6">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="description"
+          formControlName="description"
+        >
+        </textarea>
+
+      </div>
+    </div>
+
+<!-- 
+  <button
+    (click)="showSubtopicForm = true"
+    class="btn btn-primary float-right mb-3"
+  >
+    Add Subtopic
+  </button> -->
+  
+    <button class=" btn btn-primary" (click)="addNewSubTopic()">Add SubTopic</button>
+    <div *ngFor="let addressGroup of topicForm.get('subTopics').controls;let i = index" [formGroup]="addressGroup" >
+      <!-- <ng-select
+        [items]="topicsList"
+        [virtualScroll]="true"
+        bindLabel="name"
+        bindValue="_id"
+        placeholder="Select Topic"
+        formControlName="selectedTopic"
+      >
+      </ng-select> -->
+      <div class="row">
+        <div class="col-md-6">
+          <h3>SubTopic {{i+1}}</h3> 
+        </div>
+        <div class="col-md-6">
+          <span class="cursor float-right" style="font-size: 16px;" (click)="removeSubTopic(i)">X</span>
+          
+        </div>
+      </div>
+      <div class="row">
+      <div class="mb-3 col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="name"
+          formControlName="name"
+        >
+        </textarea>
+      </div>
+      <div class="mb-3 col-md-6">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="description"
+          formControlName="description"
+        >
+        </textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mb-3 col-md-6">
+        <label for="youtubeLink" class="form-label">Youtube Link</label>
+        <input
+          type="text"
+          class="form-control"
+          id="youtubeLink"
+          formControlName="youtubeLink"
+        />
+      </div>
+      <div class="mb-3 col-md-6">
+        <label for="fileLink" class="form-label">File Link</label>
+        <input
+          type="text"
+          class="form-control"
+          id="fileLink"
+          formControlName="fileLink"
+        />
+      </div>
+    </div>
+      
+
+  </div>
+  <!-- <table class="table mt-5" *ngIf="showTopicForm">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="topicsList.subTopics && topicsList.subTopics.length > 0">
+      <tr *ngFor="let subTopic of topicsList.subTopics; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ subTopic.name }}</td>
+        <td>{{ subTopic.description }}</td>
+        <td>
+          <span class="cursor">
+            <i class="fa fa-edit"></i>
+          </span>
+          <span class="cursor ml-2">
+            <i class="fa fa-times"></i>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary" (click)="onTopicSubmit()">Submit</button>
+    <button type="cancel" class="btn btn-danger ml-2" (click)="cancelForm()">Cancel</button>
+  </div>
+</form>
+
+</ng-container>
+<!-- <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    
+  <p>
+    <label for="name">Product Name:</label>
+    <input type="text" id="name" name="name" formControlName="name" class="form-control">
+  </p>
+
+  <table class="table table-bordered" formArrayName="quantities">
+    <tr>
+      <th colspan="2">Add Multiple Quantity:</th>
+      <th width="150px"><button (click)="addQuantity()" class="btn btn-primary" style="background-color: blue">Add More</button></th>
+    </tr>
+    <tr *ngFor="let quantity of quantities().controls; let i=index" [formGroupName]="i">
+      <td>
+          Quantity :
+          <input type="text" formControlName="qty" class="form-control">
+      </td>
+      <td>
+          Price:
+          <input type="text" formControlName="price" class="form-control">
+      </td>
+      <td>
+          <button type="cancel" (click)="removeQuantity(i)" class="btn btn-danger" style="background-color: red;">Remove</button>
+      </td>
+    </tr>
+  </table>
+ 
+  <button class="btn btn-success">Submit</button>
+  
+</form>
+  
+<br/>
+{{this.productForm.value | json}}
+</div> -->
