@@ -4,9 +4,10 @@ import { TopicService } from "app/services/topic-service/topic.service";
 import { ToastrService } from "ngx-toastr";
 
 @Component({
-  selector: "app-create-topic",
-  templateUrl: "./create-topic.component.html",
-  styleUrls: ["./create-topic.component.scss"],
+    selector: "app-create-topic",
+    templateUrl: "./create-topic.component.html",
+    styleUrls: ["./create-topic.component.scss"],
+    standalone: false
 })
 export class CreateTopicComponent implements OnInit {
   cities2 = [

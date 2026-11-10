@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-topic-listing',
-  templateUrl: './topic-listing.component.html',
-  styleUrls: ['./topic-listing.component.css']
+    selector: 'app-topic-listing',
+    templateUrl: './topic-listing.component.html',
+    styleUrls: ['./topic-listing.component.css'],
+    standalone: false
 })
 export class TopicListingComponent implements OnInit {
 

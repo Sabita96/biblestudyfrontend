@@ -14,9 +14,10 @@ import { TopicService } from "app/services/topic-service/topic.service";
 import { DownloadService } from "app/services/download-service/download.service";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 @Component({
-  selector: "app-landing",
-  templateUrl: "./landing.component.html",
-  styleUrls: ["./landing.component.scss"],
+    selector: "app-landing",
+    templateUrl: "./landing.component.html",
+    styleUrls: ["./landing.component.scss"],
+    standalone: false
 })
 export class LandingComponent implements OnInit {
   topicsList;

@@ -5,9 +5,10 @@ import { ToastrService } from "ngx-toastr";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
-  selector: "app-contact-page",
-  templateUrl: "./contact-page.component.html",
-  styleUrls: ["./contact-page.component.scss"],
+    selector: "app-contact-page",
+    templateUrl: "./contact-page.component.html",
+    styleUrls: ["./contact-page.component.scss"],
+    standalone: false
 })
 export class ContactPageComponent implements OnInit {
   focus: any;

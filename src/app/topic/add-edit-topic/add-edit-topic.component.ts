@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-add-edit-topic',
-  templateUrl: './add-edit-topic.component.html',
-  styleUrls: ['./add-edit-topic.component.css']
+    selector: 'app-add-edit-topic',
+    templateUrl: './add-edit-topic.component.html',
+    styleUrls: ['./add-edit-topic.component.css'],
+    standalone: false
 })
 export class AddEditTopicComponent implements OnInit {
 

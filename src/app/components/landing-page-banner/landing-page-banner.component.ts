@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: "app-landing-page-banner",
-  templateUrl: "./landing-page-banner.component.html",
-  styleUrls: ["./landing-page-banner.component.scss"],
+    selector: "app-landing-page-banner",
+    templateUrl: "./landing-page-banner.component.html",
+    styleUrls: ["./landing-page-banner.component.scss"],
+    standalone: false
 })
 export class LandingPageBannerComponent implements OnInit {
   constructor() {}

@@ -2,9 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import { DownloadService } from "app/services/download-service/download.service";
 
 @Component({
-  selector: "app-spiritual-thoughts",
-  templateUrl: "./spiritual-thoughts.component.html",
-  styleUrls: ["./spiritual-thoughts.component.scss"],
+    selector: "app-spiritual-thoughts",
+    templateUrl: "./spiritual-thoughts.component.html",
+    styleUrls: ["./spiritual-thoughts.component.scss"],
+    standalone: false
 })
 export class SpiritualThoughtsComponent implements OnInit {
   engImgArr = [
