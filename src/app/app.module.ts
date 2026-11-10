@@ -10,7 +10,7 @@ import { FooterComponent } from "./shared/footer/footer.component";
 
 // import { StudyContentComponent } from "./study-content/study-content.component";
 // import { SliderComponent } from "./shared/slider/slider.component";
-import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from "@angular/common/http";
 import { ContactPageComponent } from "./shared/contact-page/contact-page.component";
 // import { LoaderComponent } from "./shared/loader/loader.component";
 import { LandingComponent } from "./components/landing/landing.component";
@@ -74,5 +74,5 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
         // LazyLoadImageModule,
         ReactiveFormsModule,
         // NgSelectModule,
-        NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)], providers: [provideHttpClient(withXhr(), withInterceptorsFromDi())] })
 export class AppModule {}

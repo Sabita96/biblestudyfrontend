@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { NgbdModalContent } from "../modal/modal.component";
 import { ActivatedRoute } from "@angular/router";
@@ -11,6 +11,7 @@ import { NgxUiLoaderService } from "ngx-ui-loader";
     selector: "app-topic-detail",
     templateUrl: "./topic-detail.component.html",
     styleUrls: ["./topic-detail.component.scss"],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class TopicDetailComponent implements OnInit {

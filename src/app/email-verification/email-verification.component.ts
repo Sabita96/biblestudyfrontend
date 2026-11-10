@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { TopicService } from "../services/topic-service/topic.service";
 import { NgxUiLoaderService } from "ngx-ui-loader";
@@ -7,6 +7,7 @@ import { NgxUiLoaderService } from "ngx-ui-loader";
     selector: "app-email-verification",
     templateUrl: "./email-verification.component.html",
     styleUrls: ["./email-verification.component.css"],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class EmailVerificationComponent implements OnInit {

@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
 import { NgbModal, NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 // <h5 class="modal-title text-center">Modal title</h5>
 @Component({
     selector: "app-modal-content",
     templateUrl: "./modal.component.html",
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class NgbdModalContent implements OnInit {
