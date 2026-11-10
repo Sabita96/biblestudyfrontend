@@ -12,9 +12,10 @@ import {
 import { NavigationEnd, Router } from "@angular/router";
 
 @Component({
-  selector: "app-navbar",
-  templateUrl: "./navbar.component.html",
-  styleUrls: ["./navbar.component.scss"],
+    selector: "app-navbar",
+    templateUrl: "./navbar.component.html",
+    styleUrls: ["./navbar.component.scss"],
+    standalone: false
 })
 export class NavbarComponent implements OnInit {
   private toggleButton: any;

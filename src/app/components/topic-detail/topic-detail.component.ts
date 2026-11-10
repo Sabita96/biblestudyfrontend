@@ -8,10 +8,10 @@ import { ToastrService } from "ngx-toastr";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
-  selector: "app-topic-detail",
-  templateUrl: "./topic-detail.component.html",
-
-  styleUrls: ["./topic-detail.component.scss"],
+    selector: "app-topic-detail",
+    templateUrl: "./topic-detail.component.html",
+    styleUrls: ["./topic-detail.component.scss"],
+    standalone: false
 })
 export class TopicDetailComponent implements OnInit {
   topicObj;

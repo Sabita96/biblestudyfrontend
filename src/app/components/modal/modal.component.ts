@@ -3,8 +3,9 @@ import { DomSanitizer } from "@angular/platform-browser";
 import { NgbModal, NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 // <h5 class="modal-title text-center">Modal title</h5>
 @Component({
-  selector: "app-modal-content",
-  templateUrl: "./modal.component.html",
+    selector: "app-modal-content",
+    templateUrl: "./modal.component.html",
+    standalone: false
 })
 export class NgbdModalContent implements OnInit {
   @Input() subTopic;

@@ -4,9 +4,10 @@ import { NgbdModalContent } from "app/components/modal/modal.component";
 
 
 @Component({
-  selector: 'app-slider',
-  templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.scss']
+    selector: 'app-slider',
+    templateUrl: './slider.component.html',
+    styleUrls: ['./slider.component.scss'],
+    standalone: false
 })
 export class SliderComponent implements OnInit {
 
