@@ -10,7 +10,7 @@ import { FooterComponent } from "./shared/footer/footer.component";
 
 // import { StudyContentComponent } from "./study-content/study-content.component";
 // import { SliderComponent } from "./shared/slider/slider.component";
-import { HttpClientModule } from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { ContactPageComponent } from "./shared/contact-page/contact-page.component";
 // import { LoaderComponent } from "./shared/loader/loader.component";
 import { LandingComponent } from "./components/landing/landing.component";
@@ -42,8 +42,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   hasProgressBar: false,
   overlayColor: "#0c1227",
 };
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         AppComponent,
         NavbarComponent,
         FooterComponent,
@@ -63,24 +62,17 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
         // CreateTopicComponent,
         // LoaderNgxComponent,
     ],
-    imports: [
-        NgbModule,
+    bootstrap: [AppComponent], imports: [NgbModule,
         FormsModule,
         RouterModule,
         BrowserAnimationsModule,
         // ExamplesModule,
         AppRoutingModule,
-        HttpClientModule,
         // InViewportModule,
         ToastrModule.forRoot(),
         NgxSkeletonLoaderModule,
         // LazyLoadImageModule,
         ReactiveFormsModule,
         // NgSelectModule,
-        NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
-        // NgxUiLoaderHttpModule.forRoot({showForeground:true})
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
-})
+        NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
