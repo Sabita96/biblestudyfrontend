@@ -60,6 +60,21 @@
   text-align: center;
 }
 
+.footer-cta {
+  color: #ffffff;
+  margin-bottom: 1rem;
+
+  a {
+    color: #ff6b6b;
+    text-decoration: underline;
+    margin-left: 0.25rem;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
 ul.social-network {
   list-style: none;
   display: inline;

@@ -2,12 +2,11 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  HostListener,
   OnInit,
   ViewChild,
   ChangeDetectionStrategy
 } from "@angular/core";
-import { ToastrService } from "ngx-toastr";
+import { ToastService } from "../../shared/toast/toast.service";
 import { DomSanitizer } from "@angular/platform-browser";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { NgbdModalContent } from "app/components/modal/modal.component";
@@ -29,48 +28,35 @@ export class LandingComponent implements OnInit {
   name = "Angular";
   @ViewChild("videoPlayer", { static: false }) videoplayer: ElementRef;
   isPlay = false;
-  //
 
-  arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  totalCards: number = 30;
-  currentPage: number = 1;
-  pagePosition: string = "0%";
-  cardsPerPage: number;
+  featuredTopic;
+  featuredSaved = false;
+  savedTopicIds = new Set<string>();
 
-  totalPages: number;
-  overflowWidth: string;
-  cardWidth: string;
-  containerWidth: number;
-  //
+  readonly tileColors = [
+    "#C2410C",
+    "#6D28D9",
+    "#0E7C6B",
+    "#BE185D",
+    "#B45309",
+    "#1D4ED8",
+    "#A21CAF",
+    "#047857",
+  ];
+
+  // Demo-only stats — the backend has no reading-progress tracking yet.
+  readonly demoCompletedCount = 3;
+
   constructor(
     private topicService: TopicService,
     private downloadService: DownloadService,
     private cd: ChangeDetectorRef,
     public sanitizer: DomSanitizer,
     private modalService: NgbModal,
-    private toastr: ToastrService,
+    private toastr: ToastService,
     private ngxLoaderService: NgxUiLoaderService
   ) {}
-  @ViewChild("carousel", { static: true, read: ElementRef })
-  container: ElementRef;
-  @HostListener("window:resize") windowResize() {
-    let newCardsPerPage = this.getCardsPerPage();
-    if (newCardsPerPage != this.cardsPerPage) {
-      this.cardsPerPage = newCardsPerPage;
-      this.initializeSlider();
-      if (this.currentPage > this.totalPages) {
-        this.currentPage = this.totalPages;
-        this.populatePagePosition();
-      }
-    }
-  }
   ngOnInit() {
-    //
-    this.cardsPerPage = this.getCardsPerPage();
-    this.initializeSlider();
-    //
-    console.log("ssssssssssssssssss");
-
     let imgList = [
       "../../../assets/img/topics/topic12/GospelOfJohn.jpg",
       "../../../assets/img/topics/topic11/Romans.jpg",
@@ -95,20 +81,12 @@ export class LandingComponent implements OnInit {
         // console.log("dddddddddd", this.revTopic);
 
         this.topicsList.forEach((topic, i) => {
-          console.log("topic", topic);
           topic.img = imgList[i];
-          // if (i == 0) {
-          //   topic.isOpen = true;
-          // }
         });
-        // console.log("this.topicsList", this.topicsList);
 
+        this.featuredTopic = this.topicsList[0];
         this.isLoading = false;
         this.cd.markForCheck();
-        console.log("this.topicsList[0]._id", this.topicsList[0]._id);
-
-        // document.getElementById(this.topicsList[0]._id).click();
-        console.log("this.topicsList", this.topicsList);
       },
       (err) => {
         console.log("err", err);
@@ -175,32 +153,27 @@ export class LandingComponent implements OnInit {
   }
 
   handleEvent(t) {
-    console.log("t", t);
     t.isClicked = true;
   }
-  initializeSlider() {
-    this.totalPages = Math.ceil(this.totalCards / this.cardsPerPage);
-    this.overflowWidth = `calc(${this.totalPages * 100}% + ${
-      this.totalPages * 10
-    }px)`;
-    this.cardWidth = `calc((${100 / this.totalPages}% - ${
-      this.cardsPerPage * 10
-    }px) / ${this.cardsPerPage})`;
+
+  toggleFeaturedSave() {
+    this.featuredSaved = !this.featuredSaved;
   }
 
-  getCardsPerPage() {
-    return 3;
-    // return Math.floor(this.container.nativeElement.offsetWidth / 200);
+  isTopicSaved(topic): boolean {
+    return this.savedTopicIds.has(topic._id);
   }
 
-  changePage(incrementor) {
-    this.currentPage += incrementor;
-    this.populatePagePosition();
+  toggleSaveTopic(topic, event: Event) {
+    event.stopPropagation();
+    if (this.savedTopicIds.has(topic._id)) {
+      this.savedTopicIds.delete(topic._id);
+    } else {
+      this.savedTopicIds.add(topic._id);
+    }
   }
 
-  populatePagePosition() {
-    this.pagePosition = `calc(${-100 * (this.currentPage - 1)}% - ${
-      10 * (this.currentPage - 1)
-    }px)`;
+  tileColor(index: number): string {
+    return this.tileColors[index % this.tileColors.length];
   }
 }

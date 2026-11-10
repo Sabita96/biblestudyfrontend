@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { TopicService } from "app/services/topic-service/topic.service";
-import { ToastrService } from "ngx-toastr";
+import { ToastService } from "../shared/toast/toast.service";
 
 @Component({
     selector: "app-create-topic",
@@ -30,7 +30,7 @@ export class CreateTopicComponent implements OnInit {
   constructor(
     private topicService: TopicService,
     private formBuilder: UntypedFormBuilder,
-    private toastr: ToastrService,
+    private toastr: ToastService,
     private cd: ChangeDetectorRef
   ) {
     this.productForm = this.formBuilder.group({

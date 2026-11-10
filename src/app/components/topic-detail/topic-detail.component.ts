@@ -4,7 +4,7 @@ import { NgbdModalContent } from "../modal/modal.component";
 import { ActivatedRoute } from "@angular/router";
 import { TopicService } from "app/services/topic-service/topic.service";
 import { DownloadService } from "app/services/download-service/download.service";
-import { ToastrService } from "ngx-toastr";
+import { ToastService } from "../../shared/toast/toast.service";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
@@ -23,7 +23,7 @@ export class TopicDetailComponent implements OnInit {
     private topicService: TopicService,
     private route: ActivatedRoute,
     private downloadService: DownloadService,
-    private toastr: ToastrService,
+    private toastr: ToastService,
     private ngxLoaderService: NgxUiLoaderService
   ) {
     console.log("this.route.snapshot.params", this.route.snapshot.params.id);

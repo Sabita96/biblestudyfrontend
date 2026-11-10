@@ -1,3 +1,6 @@
+$accent: #8c4040;
+$accent-light: #a85a5a;
+
 .rev-cards {
   width: calc(100% - 80px);
   overflow: hidden;
@@ -9,43 +12,132 @@
 }
 
 .rev-card {
-  // height: 300px;
-  // background-color: #e0e1e2;
-  border-radius: 5px;
+  border-radius: 14px;
   display: inline-block;
   margin-right: 10px;
   position: relative;
-  border-radius: 12px;
-    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 15%);
-    background-color: #fff;
+  box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.18);
+  background-color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  vertical-align: top;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px -8px rgba(140, 64, 64, 0.3);
+
+    .rev-card__media img {
+      transform: scale(1.08);
+    }
+
+    .rev-card__overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.rev-card__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+}
+
+.rev-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    rgba(140, 64, 64, 0) 40%,
+    rgba(60, 25, 25, 0.55) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.rev-card__play {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: $accent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.rev-card .card-body {
+  padding: 14px 16px 18px;
+}
+
+.rev-card .card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2b2b2b;
+  margin-bottom: 8px;
+}
+
+.rev-card__watch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $accent;
+  transition: color 0.2s ease;
+
+  i {
+    font-size: 11px;
+  }
+}
+
+.rev-card:hover .rev-card__watch {
+  color: $accent-light;
 }
 
 .no-right-margin {
   margin-right: 0px;
 }
 
-// .card span {
-//   font-size:48px;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-// }
-
 .left,
 .right {
-  height: 30px;
-  width: 30px;
-  background-color: #0072bc;
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  background-color: $accent;
   position: absolute;
   top: 50%;
   color: white;
   transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(140, 64, 64, 0.35);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+
+  &:hover:not(.disabled) {
+    background-color: $accent-light;
+  }
 }
 
-.left.disabled, .right.disabled {
-  background-color:#CCC;
-  color: #0072bc;
+.left.disabled,
+.right.disabled {
+  background-color: #ddd;
+  color: #aaa;
+  box-shadow: none;
+  cursor: default;
 }
 
 .left {
@@ -55,14 +147,25 @@
 .right {
   right: 0;
 }
-.left span ,.right span{
-  position: relative;
-    top: 12%;
-    right: -10%;
-    border-radius: 50%;
-}
-.carousel-container{
+
+.left span,
+.right span {
   display: flex;
-    position: relative;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  padding: 6px 0;
+}
+
+@media (max-width: 576px) {
+  .left,
+  .right {
+    height: 34px;
+    width: 34px;
+  }
 }

@@ -11,26 +11,26 @@
     <div class="overflow" [ngStyle]="{ width: overflowWidth, left: pagePosition }">
       @for (subTopic of subTopics; track subTopic; let i = $index) {
         <div class="rev-card card my-3 br-12"
-          [ngStyle]="{ width: cardWidth }">
-          <!-- *ngFor="let subTopic of revTopic.subTopics; let i = index" -->
-          <!-- <span>TEST</span> -->
-          <img class="img-fluid br-14" alt="100%x280" src="../../../assets/img/revelation/Revelation 0{{ i + 1 }}.jpg"
-            loading="lazy" />
+          [ngStyle]="{ width: cardWidth }"
+          (click)="watchVideo(subTopic)">
+          <div class="rev-card__media">
+            <img class="img-fluid br-14" alt="Revelation Part {{ i + 1 }}" src="../../../assets/img/revelation/Revelation 0{{ i + 1 }}.jpg"
+              loading="lazy" />
+            <div class="rev-card__overlay">
+              <span class="rev-card__play"><i class="fa fa-play"></i></span>
+            </div>
+          </div>
           <div class="card-body">
             <h5 class="card-title">Revelation Part - {{ i + 1 }}</h5>
             <p class="card-text">
-              <span (click)="watchVideo(subTopic)" class="cursor">View</span>
-              <!-- <button
-              type="button"
-              class="btn btn-outline-danger btn-round mr-md-3 mr-lg-3"
-              (click)="watchVideo(subTopic)"
-              >
-              <i class="fa fa-play"></i>Watch Video
-            </button> -->
-          </p>
+              <span class="rev-card__watch cursor">
+                <i class="fa fa-play"></i> Watch Video
+              </span>
+            </p>
+          </div>
         </div>
-      </div>
-    }
+      }
+    </div>
   </div>
   @if (totalPages > 1) {
     <div class="right cursor" (click)="currentPage != totalPages && changePage(+1)"
@@ -40,5 +40,4 @@
       </span>
     </div>
   }
-</div>
 </div>

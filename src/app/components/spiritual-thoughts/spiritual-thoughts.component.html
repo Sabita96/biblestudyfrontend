@@ -1,130 +1,86 @@
-<div class="main mt-5" style="padding: 5% 8%" id="thoughts-section">
-  <div class="tz-gallery">
-    <div class="text-center">
-      <h2 class="title move-up">Spiritual Thoughts</h2>
+<div class="thoughts-page" id="thoughts-section">
+  <div class="thoughts-header text-center">
+    <h2 class="title move-up">Spiritual Thoughts</h2>
+    <p class="subtitle">A gallery of encouraging thoughts in English, Tamil, Hindi &amp; Marathi</p>
+  </div>
 
-      <!-- <p class="page-description text-center">Grid Layout With Zoom Effect</p> -->
+  <div class="lang-tabs" role="tablist" aria-label="Gallery language">
+    @for (lang of languages; track lang.id) {
+      <button
+        type="button"
+        role="tab"
+        class="lang-tab"
+        [class.active]="activeLanguage.id === lang.id"
+        [attr.aria-selected]="activeLanguage.id === lang.id"
+        (click)="selectLanguage(lang)"
+      >
+        <span class="lang-tab__label">{{ lang.label }}</span>
+        <span class="lang-tab__count">{{ lang.images.length }}</span>
+      </button>
+    }
+  </div>
+
+  <div class="gallery-grid" role="tabpanel">
+    @for (img of activeLanguage.images; track img; let i = $index) {
+      <figure class="gallery-card" (click)="openLightbox(i)">
+        <img
+          loading="lazy"
+          [src]="imagePath(activeLanguage, img)"
+          alt="Spiritual Truth Bible Study"
+        />
+        <figcaption class="gallery-card__overlay">
+          <svg viewBox="0 0 24 24" class="gallery-card__icon">
+            <path
+              d="M15.5,14H14.71L14.43,13.73C15.41,12.59 16,11.11 16,9.5A6.5,6.5 0 0,0 9.5,3A6.5,6.5 0 0,0 3,9.5A6.5,6.5 0 0,0 9.5,16C11.11,16 12.59,15.41 13.73,14.43L14,14.71V15.5L19,20.49L20.49,19L15.5,14M9.5,14C7.01,14 5,11.99 5,9.5C5,7.01 7.01,5 9.5,5C11.99,5 14,7.01 14,9.5C14,11.99 11.99,14 9.5,14Z"
+            />
+          </svg>
+        </figcaption>
+      </figure>
+    } @empty {
+      <p class="gallery-empty">No images available for this language yet.</p>
+    }
+  </div>
+</div>
+
+@if (lightboxOpen) {
+  <div class="lightbox-overlay" (click)="closeLightbox()">
+    <button
+      type="button"
+      class="lightbox-close"
+      aria-label="Close"
+      (click)="closeLightbox()"
+    >
+      &times;
+    </button>
+
+    <button
+      type="button"
+      class="lightbox-nav lightbox-nav--prev"
+      aria-label="Previous image"
+      (click)="showPrev(); $event.stopPropagation()"
+    >
+      &#10094;
+    </button>
+
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <img [src]="currentLightboxSrc" alt="Spiritual Truth Bible Study" />
+      <a
+        class="lightbox-download"
+        [href]="currentLightboxSrc"
+        [download]="currentLightboxImage"
+        title="Download image"
+      >
+        Download
+      </a>
     </div>
 
-    <div class="tabs item">
-      <input type="radio" id="tab1" name="tab-control" checked />
-      <input type="radio" id="tab2" name="tab-control" />
-      <input type="radio" id="tab3" name="tab-control" />
-      <input type="radio" id="tab4" name="tab-control" />
-      <ul>
-        <li title="English">
-          <label for="tab1" role="button"
-            ><svg viewBox="0 0 24 24">
-            <path
-              d="M14,2A8,8 0 0,0 6,10A8,8 0 0,0 14,18A8,8 0 0,0 22,10H20C20,13.32 17.32,16 14,16A6,6 0 0,1 8,10A6,6 0 0,1 14,4C14.43,4 14.86,4.05 15.27,4.14L16.88,2.54C15.96,2.18 15,2 14,2M20.59,3.58L14,10.17L11.62,7.79L10.21,9.21L14,13L22,5M4.93,5.82C3.08,7.34 2,9.61 2,12A8,8 0 0,0 10,20C10.64,20 11.27,19.92 11.88,19.77C10.12,19.38 8.5,18.5 7.17,17.29C5.22,16.25 4,14.21 4,12C4,11.7 4.03,11.41 4.07,11.11C4.03,10.74 4,10.37 4,10C4,8.56 4.32,7.13 4.93,5.82Z"
-              /></svg
-              ><br /><span>English</span></label
-              >
-            </li>
-            <li title="Tamil">
-              <label for="tab2" role="button"
-                ><svg viewBox="0 0 24 24">
-                <path
-                  d="M14,2A8,8 0 0,0 6,10A8,8 0 0,0 14,18A8,8 0 0,0 22,10H20C20,13.32 17.32,16 14,16A6,6 0 0,1 8,10A6,6 0 0,1 14,4C14.43,4 14.86,4.05 15.27,4.14L16.88,2.54C15.96,2.18 15,2 14,2M20.59,3.58L14,10.17L11.62,7.79L10.21,9.21L14,13L22,5M4.93,5.82C3.08,7.34 2,9.61 2,12A8,8 0 0,0 10,20C10.64,20 11.27,19.92 11.88,19.77C10.12,19.38 8.5,18.5 7.17,17.29C5.22,16.25 4,14.21 4,12C4,11.7 4.03,11.41 4.07,11.11C4.03,10.74 4,10.37 4,10C4,8.56 4.32,7.13 4.93,5.82Z"
-                  /></svg
-                  ><br /><span>Tamil</span></label
-                  >
-                </li>
-                <li title="Hindi">
-                  <label for="tab3" role="button"
-                    ><svg viewBox="0 0 24 24">
-                    <path
-                      d="M14,2A8,8 0 0,0 6,10A8,8 0 0,0 14,18A8,8 0 0,0 22,10H20C20,13.32 17.32,16 14,16A6,6 0 0,1 8,10A6,6 0 0,1 14,4C14.43,4 14.86,4.05 15.27,4.14L16.88,2.54C15.96,2.18 15,2 14,2M20.59,3.58L14,10.17L11.62,7.79L10.21,9.21L14,13L22,5M4.93,5.82C3.08,7.34 2,9.61 2,12A8,8 0 0,0 10,20C10.64,20 11.27,19.92 11.88,19.77C10.12,19.38 8.5,18.5 7.17,17.29C5.22,16.25 4,14.21 4,12C4,11.7 4.03,11.41 4.07,11.11C4.03,10.74 4,10.37 4,10C4,8.56 4.32,7.13 4.93,5.82Z"
-                      /></svg
-                      ><br /><span>Hindi</span></label
-                      >
-                    </li>
-                    <li title="Marathi">
-                      <label for="tab4" role="button"
-                        ><svg viewBox="0 0 24 24">
-                        <path
-                          d="M14,2A8,8 0 0,0 6,10A8,8 0 0,0 14,18A8,8 0 0,0 22,10H20C20,13.32 17.32,16 14,16A6,6 0 0,1 8,10A6,6 0 0,1 14,4C14.43,4 14.86,4.05 15.27,4.14L16.88,2.54C15.96,2.18 15,2 14,2M20.59,3.58L14,10.17L11.62,7.79L10.21,9.21L14,13L22,5M4.93,5.82C3.08,7.34 2,9.61 2,12A8,8 0 0,0 10,20C10.64,20 11.27,19.92 11.88,19.77C10.12,19.38 8.5,18.5 7.17,17.29C5.22,16.25 4,14.21 4,12C4,11.7 4.03,11.41 4.07,11.11C4.03,10.74 4,10.37 4,10C4,8.56 4.32,7.13 4.93,5.82Z"
-                          /></svg
-                          ><br /><span>Marathi</span></label
-                          >
-                        </li>
-                      </ul>
-
-                      <div class="slider"><div class="indicator"></div></div>
-                      <div class="content">
-                        <div class="section">
-                          <h2>English</h2>
-                          <div class="row mt-2">
-                            @for (img of engImgArr; track img) {
-                              <div class="col-sm-6 col-md-4">
-                                <a class="lightbox">
-                                  <img
-                                    loading="lazy"
-                                    height="329"
-                                    [src]="'../../../assets/img/gallery/eng/' + img"
-                                    alt="Spiritual Truth Bible Study"
-                                    laoding="lazy"
-                                    />
-                                </a>
-                              </div>
-                            }
-                          </div>
-                        </div>
-                        <div class="section">
-                          <h2>Tamil</h2>
-
-                          <div class="row mt-2">
-                            @for (img of tamilImgArr; track img) {
-                              <div class="col-sm-6 col-md-4">
-                                <a class="lightbox">
-                                  <img
-                                    [src]="'../../../assets/img/gallery/tamil/' + img"
-                                    loading="lazy"
-                                    height="329"
-                                    alt="Spiritual Truth Bible Study"
-                                    />
-                                </a>
-                              </div>
-                            }
-                          </div>
-                        </div>
-                        <div class="section">
-                          <h2>Hindi</h2>
-
-                          <div class="row mt-2">
-                            @for (img of hindiImgArr; track img) {
-                              <div class="col-sm-6 col-md-4">
-                                <a class="lightbox">
-                                  <img
-                                    [src]="'../../../assets/img/gallery/hindi/' + img"
-                                    loading="lazy"
-                                    height="329"
-                                    alt="Spiritual Truth Bible Study"
-                                    />
-                                </a>
-                              </div>
-                            }
-                          </div>
-                        </div>
-                        <div class="section">
-                          <h2>Marathi</h2>
-
-                          <div class="row mt-2">
-                            @for (img of marathiImgArr; track img) {
-                              <div class="col-sm-6 col-md-4">
-                                <a class="lightbox">
-                                  <img
-                                    [src]="'../../../assets/img/gallery/marathi/' + img"
-                                    loading="lazy"
-                                    height="329"
-                                    alt="Spiritual Truth Bible Study"
-                                    />
-                                </a>
-                              </div>
-                            }
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    <button
+      type="button"
+      class="lightbox-nav lightbox-nav--next"
+      aria-label="Next image"
+      (click)="showNext(); $event.stopPropagation()"
+    >
+      &#10095;
+    </button>
+  </div>
+}

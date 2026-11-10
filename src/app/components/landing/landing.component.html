@@ -1,111 +1,149 @@
 <!-- <app-loader *ngIf="isLoading">{{ isLoading }}</app-loader> -->
 
-<app-landing-page-banner></app-landing-page-banner>
-<div class="section" id="video-section">
-  <div class="container">
-    <div class="text-center t1">
-      <h1 class="title move-up">What is Spritual Truth Study ?</h1>
-    </div>
-    <p class="mb-4" style="line-height: 2rem">
-      Spiritual Truth Bible Study is all about the spiritual truths of Bible.
-      Through the inspiration of the Holy Spirit and His revelation that was
-      given to a Servant of God Charles Paul through His grace, this page
-      reveals the truth behind every word of God. As the scriptures say
-      <strong
-        >"He will give you the treasures of darkness and hidden riches of secret
-        places. "</strong
-        >
-        . It is for propagating the Gospel of Jesus Christ and the truth across
-        the globe through Holy Spirit inspired writings and videos. Let's get
-        transformed and empowered through the word of God by mediating and
-        unveiling the truth in the Holy scripture.
-      </p>
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe
-          width="640"
-          height="360"
-          src="//www.youtube.com/embed/nnJOo4R-VqE?rel=0&html5=1&vq=hd720&autoplay=0&mute=1&loop=1"
-          frameborder="0"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-  </div>
-
-  <div class="main" style="background: #f8f9fa">
-    <div class="container pt-3">
-      <div class="text-center" id="overview">
-        <h2 class="title move-up">Overview</h2>
-      </div>
-      <div class="item">
-        @if (isLoading) {
-          <ngx-skeleton-loader
-            count="4"
-            [theme]="{ 'border-radius': '0', height: '150px' }"
+@if (!isLoading) {
+  <section class="featured-hero">
+    <div class="featured-hero__inner">
+      <div class="featured-hero__text">
+        <div class="eyebrow-row">
+          <span class="eyebrow-rule" aria-hidden="true"></span>
+          <span class="eyebrow eyebrow--light">This Week</span>
+        </div>
+        <h1 class="featured-hero__title">{{ featuredTopic.name }}</h1>
+        <p class="featured-hero__intro">
+          {{
+          featuredTopic.description.length > 260
+          ? featuredTopic.description.slice(0, 260) + "..."
+          : featuredTopic.description
+          }}
+        </p>
+        <div class="featured-hero__meta">
+          <span>{{ featuredTopic.subTopics.length }} parts</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>Video &amp; Notes</span>
+        </div>
+        <div class="featured-hero__actions">
+          <a
+            class="btn-solid-arrow"
+            [routerLink]="['/topic-detail', featuredTopic._id]"
             >
-          </ngx-skeleton-loader>
+            Begin Study
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+          <button
+            type="button"
+            class="btn-ghost"
+            [class.is-active]="featuredSaved"
+            (click)="toggleFeaturedSave()"
+            >
+            <svg width="17" height="17" viewBox="0 0 24 24" [attr.fill]="featuredSaved ? 'currentColor' : 'none'" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"></path></svg>
+            {{ featuredSaved ? "Saved" : "Save for later" }}
+          </button>
+        </div>
+      </div>
+      <figure class="featured-quote-card">
+        <div class="featured-quote-card__blob featured-quote-card__blob--a" aria-hidden="true"></div>
+        <div class="featured-quote-card__blob featured-quote-card__blob--b" aria-hidden="true"></div>
+        <div class="featured-quote-card__inner">
+          <span class="featured-quote-card__mark" aria-hidden="true">&ldquo;</span>
+          <blockquote class="featured-quote-card__verse">
+            You shall know the truth, and the truth shall set you free.
+          </blockquote>
+          <figcaption class="featured-quote-card__ref">
+            <span aria-hidden="true"></span>John 8:32
+          </figcaption>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="journey-bar">
+    <div class="journey-bar__inner">
+      <div class="journey-bar__progress">
+        <div class="journey-bar__progress-label">
+          <span>Your Journey</span>
+          <span>{{ demoCompletedCount }} of {{ topicsList.length }} completed</span>
+        </div>
+        <div class="journey-bar__track">
+          <div
+            class="journey-bar__fill"
+            [style.width.%]="(demoCompletedCount / topicsList.length) * 100"
+          ></div>
+        </div>
+      </div>
+      <div class="journey-bar__continue">
+        <span class="journey-bar__continue-label">Continue Reading</span>
+        <a class="arrow-link" [routerLink]="['/topic-detail', featuredTopic._id]">
+          {{ featuredTopic.name }}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+      </div>
+      <a class="journey-bar__chip" href="#topics">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"></path></svg>
+        Browse All Topics
+      </a>
+    </div>
+  </section>
+
+  <section class="recent-topics">
+    <div class="container">
+      <div class="recent-topics__head">
+        <div>
+          <span class="eyebrow eyebrow--dark">New Every Week</span>
+          <h2 class="section-h2">Recent Studies</h2>
+        </div>
+        <a class="arrow-link arrow-link--dark" href="#topics">
+          View all {{ topicsList.length }} studies
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+      </div>
+      <div class="recent-topics__grid">
+        @for (topic of topicsList.slice(0, 6); track topic; let i = $index) {
+          <article class="recent-card" [style.border-top-color]="tileColor(i)">
+            <div class="recent-card__head">
+              <span class="recent-card__num" [style.color]="tileColor(i)">{{ i + 1 < 10 ? "0" + (i + 1) : i + 1 }}</span>
+              <button
+                type="button"
+                class="recent-card__save"
+                [class.is-saved]="isTopicSaved(topic)"
+                (click)="toggleSaveTopic(topic, $event)"
+                aria-label="Save for later"
+                >
+                <svg width="16" height="16" viewBox="0 0 24 24" [attr.fill]="isTopicSaved(topic) ? 'currentColor' : 'none'" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"></path></svg>
+              </button>
+            </div>
+            <h3 class="recent-card__title">
+              <a [routerLink]="['/topic-detail', topic._id]">{{ topic.name }}</a>
+            </h3>
+            <p class="recent-card__quote">
+              &ldquo;{{
+              topic.description.length > 140
+              ? topic.description.slice(0, 140) + "..."
+              : topic.description
+              }}&rdquo;
+            </p>
+            <div class="recent-card__foot">
+              <span>{{ topic.subTopics.length }} parts</span>
+              <a class="arrow-link arrow-link--dark" [routerLink]="['/topic-detail', topic._id]">
+                Read
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+              </a>
+            </div>
+          </article>
         }
       </div>
-      @if (!isLoading) {
-        <div class="card-group vgr-cards">
-          @for (topic of topicsList; track topic) {
-            <div class="card">
-              <div class="card-img-body">
-                <img
-                  class="card-img"
-                  [src]="topic.img"
-                  alt="spiritual truths"
-                  title="spiritual truth"
-                  loading="lazy"
-                  />
-              </div>
-              <div class="card-body">
-                <h4 class="card-title" style="font-weight: 500">
-                  {{ topic.name }}
-                </h4>
-                <p class="card-text">
-                  <!-- {{ topic.description }} -->
-                  {{
-                  topic.description.length > 205 && !topic.seeMore
-                  ? topic.description.slice(0, 205) + "..."
-                  : topic.description
-                  }}
-                  <!-- {{ topic.description.length>205 && topic.seeMore ?topic.description }} -->
-                  @if (!topic.seeMore && topic.description.length > 205) {
-                    <span
-                      class="cursor seeText"
-                      (click)="topic.seeMore = true"
-                      >
-                      See More
-                    </span>
-                  }
-                  @if (topic.seeMore && topic.description.length > 205) {
-                    <span
-                      class="cursor seeText"
-                      (click)="topic.seeMore = false"
-                      >
-                      ... See Less
-                    </span>
-                  }
-                </p>
-                <!-- <a class="button arrow">Read More</a> -->
-                <a
-                  [routerLink]="['/topic-detail', topic._id]"
-                  class="arrow btn btn-outline-primary"
-                  >View Detail
-                </a>
-              </div>
-            </div>
-          }
-        </div>
-      }
     </div>
-  </div>
-  <div class="main">
+  </section>
+}
+
+<div class="main revelation-section">
     <section class="pt-3">
       <div class="container">
         <div class="text-center" id="overview">
           <h2 class="title move-up">Revelation Topics</h2>
+          <p class="revelation-subtitle">
+            Unveiling the prophetic visions of the Book of Revelation, one part
+            at a time
+          </p>
         </div>
         <div class="item">
           @if (isLoading) {
@@ -167,36 +205,41 @@
               <div
                 ngbAccordionItem
                 [id]="'ngb-panel-' + index"
-                class="accordion-button collapsed"
+                class="accordion-item topic-card"
                 >
                 <h2 ngbAccordionHeader>
                   <button
                     ngbAccordionButton
                     (click)="handleEvent(topic); topic.isOpen = !topic.isOpen"
-                    class="d-flex justify-content-between w-100"
+                    class="d-flex align-items-center w-100 topic-card-header"
                     >
-                    <div class="d-flex justify-content-between" [id]="topic._id">
-                      <h5
-                        class="m-0"
-                    style="
-                      font-weight: bold;
-                      color: #1c2128;
-                      font-size: 15px !important;
-                    "
-                        >
-                        {{ topic.name }}
-                      </h5>
-                      <span class="p-0" style="color: black !important">
-                        <span>
-                          @if (topic.isOpen) {
-                            <i class="nc-icon nc-minimal-up"></i>
-                          }
-                          @if (!topic.isOpen) {
-                            <i
-                              class="nc-icon nc-minimal-down"
-                            ></i>
-                          }
-                        </span>
+                    <div class="d-flex align-items-center w-100" [id]="topic._id">
+                      <img
+                        class="topic-card-img"
+                        [src]="topic.img"
+                        alt="spiritual truths"
+                        title="spiritual truth"
+                        loading="lazy"
+                        />
+                      <div class="topic-card-info flex-grow-1">
+                        <h5 class="m-0 topic-card-title">
+                          {{ topic.name }}
+                        </h5>
+                        <p class="m-0 topic-card-desc">
+                          {{
+                          topic.description.length > 140
+                          ? topic.description.slice(0, 140) + "..."
+                          : topic.description
+                          }}
+                        </p>
+                      </div>
+                      <span class="topic-card-toggle-icon" [class.is-open]="topic.isOpen">
+                        @if (topic.isOpen) {
+                          <i class="nc-icon nc-minimal-up"></i>
+                        }
+                        @if (!topic.isOpen) {
+                          <i class="nc-icon nc-minimal-down"></i>
+                        }
                       </span>
                     </div>
                   </button>
@@ -204,12 +247,19 @@
                 <div ngbAccordionCollapse>
                   <div ngbAccordionBody>
                     <ng-template>
-                      <div class="accordion accordion-flush" id="accordionFlushExample">
+                      <div class="topic-card-detail-link">
+                        <a
+                          [routerLink]="['/topic-detail', topic._id]"
+                          class="arrow btn btn-outline-primary btn-sm"
+                          >View Full Detail
+                        </a>
+                      </div>
+                      <div class="accordion accordion-flush" [id]="'accordionFlushExample' + topic._id">
                         @for (subTopic of topic.subTopics; track subTopic) {
                           <div
                             class="accordion-item"
                             >
-                            <h2 class="accordion-header" id="flush-headingOne">
+                            <h2 class="accordion-header" [attr.id]="'flush-heading' + subTopic._id">
                               <button
                                 class="accordion-button collapsed"
                                 type="button"
@@ -224,8 +274,8 @@
                             <div
                               [attr.id]="'flush-collapse' + subTopic._id"
                               class="accordion-collapse collapse"
-                              aria-labelledby="flush-heading"
-                              data-bs-parent="#accordionFlushExample"
+                              [attr.aria-labelledby]="'flush-heading' + subTopic._id"
+                              [attr.data-bs-parent]="'#accordionFlushExample' + topic._id"
                               >
                               <div class="accordion-body">
                                 <div class="motto row my-3">
@@ -308,6 +358,66 @@
           </div>
         </div>
       </div>
+
+      <section class="motto-band">
+        <div class="motto-band__inner">
+          <svg aria-hidden="true" width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#F5B53D" stroke-width="1.2"><circle cx="28" cy="28" r="27"></circle><path d="M28 12v32M18 22h20"></path></svg>
+          <p class="motto-band__text">
+            You shall know the truth, and the truth shall set you free.
+          </p>
+          <span class="motto-band__ref">John 8:32</span>
+        </div>
+      </section>
+
+      @if (!isLoading) {
+        <section class="themes-section">
+          <div class="container">
+            <span class="eyebrow eyebrow--dark">Browse</span>
+            <h2 class="section-h2">By Topic</h2>
+            <div class="themes-grid">
+              @for (topic of topicsList; track topic; let i = $index) {
+                <a
+                  class="theme-tile"
+                  [routerLink]="['/topic-detail', topic._id]"
+                  [style.background]="tileColor(i)"
+                  >
+                  <svg aria-hidden="true" width="140" height="140" viewBox="0 0 180 180" fill="none" stroke="#FFFFFF" stroke-width="1.2" class="theme-tile__rings"><circle cx="90" cy="90" r="88"></circle><circle cx="90" cy="90" r="62"></circle><circle cx="90" cy="90" r="36"></circle></svg>
+                  <span class="theme-tile__label">{{ topic.name }}</span>
+                  <span class="theme-tile__count">{{ topic.subTopics.length }} studies</span>
+                </a>
+              }
+            </div>
+          </div>
+        </section>
+      }
+
+      <section class="about-teaser">
+        <div class="container about-teaser__grid">
+          <figure class="about-teaser__photo">
+            <div class="about-teaser__blob about-teaser__blob--a" aria-hidden="true"></div>
+            <div class="about-teaser__blob about-teaser__blob--b" aria-hidden="true"></div>
+            <img
+              src="./assets/img/profile-img/profile-pic.jpg"
+              alt="Bro. Charles Paul"
+              loading="lazy"
+              />
+            <figcaption>Bro. Charles Paul</figcaption>
+          </figure>
+          <div class="about-teaser__text">
+            <span class="eyebrow eyebrow--dark">About the Study</span>
+            <h2 class="section-h2">A study of spiritual truth</h2>
+            <p>
+              This study is conducted by a servant of God, Bro. Charles Paul. He
+              explains spiritual truth in detail, so that knowing it helps you
+              grow in your spiritual life.
+            </p>
+            <a class="btn-solid-arrow btn-solid-arrow--dark" routerLink="/about-us">
+              Read More
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </a>
+          </div>
+        </div>
+      </section>
 
       <!--
       <app-spiritual-thoughts></app-spiritual-thoughts>

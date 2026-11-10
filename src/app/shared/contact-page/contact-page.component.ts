@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 import { ContactService } from "app/services/contact-service/contact.service";
-import { ToastrService } from "ngx-toastr";
+import { ToastService } from "../toast/toast.service";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
@@ -21,7 +21,7 @@ export class ContactPageComponent implements OnInit {
   constructor(
     private formBuilder: UntypedFormBuilder,
     private contactService: ContactService,
-    private toastr: ToastrService,
+    private toastr: ToastService,
     private ngxLoaderService: NgxUiLoaderService
   ) {}
 

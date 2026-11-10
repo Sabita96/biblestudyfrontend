@@ -13,91 +13,60 @@
           {{ this.topicObj.name }}
         </h2>
       </div>
-      @for (subTopic of topicObj.subTopics; track subTopic; let i = $index) {
-        <div
-          class="row mt-3"
-          >
+      <div class="subtopics-list">
+        @for (subTopic of topicObj.subTopics; track subTopic; let i = $index) {
           <div
-            class="col-md-6 no-trans"
-            [ngClass]="{ 'order-2': i % 2 !== 0 && !detectMob() }"
+            class="subtopic-card"
+            [ngClass]="{ 'subtopic-card--reverse': i % 2 !== 0 && !detectMob() }"
             >
-            <div
-              class="mini-spacer"
-            style="
-              overflow: hidden;
-              margin: 0 auto;
-              width: 100%;
-              transition: 0.5s all ease-in-out;
-              height: 100%;
-            "
-              >
+            <div class="subtopic-card__media">
               <img
                 [src]="subTopic.img"
                 alt="Spiritual Truth Bible Study"
                 title="spiritual truth"
-                class="img-fluid"
+                class="subtopic-card__img"
                 loading="lazy"
-              style="
-                min-height: 100%;
-                width: 100%;
-                transition: 0.5s all ease-in-out;
-              "
                 />
             </div>
-          </div>
-          <div class="col-md-6" style="background: azure">
-            <h3 class="title" style="font-weight: 500">{{ subTopic.name }}</h3>
-            <p style="line-height: 1.8em !important">
-              {{ subTopic.description }}
-            </p>
-            <!-- <p class="m-t-30 m-b-30">
-            Adipisicing sit minim occaecat nulla proident exercitation do laboris.
-          </p>
-          <p class="m-t-30 m-b-30">
-            Laboris culpa ea est et aliqua amet ullamco Lorem non enim laborum
-            incididunt ex Lorem. Minim sint cupidatat magna esse labore id.
-          </p> -->
-          <div class="m-t-30 mb-2 pt-5">
-            @if (subTopic.youtubeLink) {
-              <button
-                type="button"
-                class="btn btn-outline-danger btn-round mr-md-3 mr-lg-3"
-                (click)="watchVideo(subTopic)"
-                >
-                <i class="fa fa-play"></i>Watch Video
-              </button>
-            }
-            @if (subTopic.notesLink.tamil || subTopic.notesLink.english) {
-              <span
-                class="btn mt-2 noHover"
-                >
-                <i class="fa fa-download" aria-hidden="true"></i>
-                <span>Download Notes</span>
-                <br />
-                <span>
-                  (
-                  <span
-                    class="cursor underline"
-                    (click)="downloadNotes(subTopic, subTopic.notesLink.tamil)"
-                    >Tamil</span
-                    ></span
+            <div class="subtopic-card__body">
+              <h3 class="subtopic-card__title">{{ subTopic.name }}</h3>
+              <p class="subtopic-card__desc">
+                {{ subTopic.description }}
+              </p>
+              <div class="subtopic-card__actions">
+                @if (subTopic.youtubeLink) {
+                  <button
+                    type="button"
+                    class="btn btn-outline-danger btn-round"
+                    (click)="watchVideo(subTopic)"
                     >
-                    {{ subTopic.notesLink.english ? "&nbsp;| &nbsp;" : "" }}
-                    @if (subTopic.notesLink.english) {
-                      <span
-                        (click)="downloadNotes(subTopic, subTopic.notesLink.english)"
-                        class="cursor underline"
-                        >
-                        English</span
-                        >
-                      }
-                      )
-                    </span>
-                  }
+                    <i class="fa fa-play"></i>Watch Video
+                  </button>
+                }
+                @if (subTopic.notesLink.tamil || subTopic.notesLink.english) {
+                  <div class="subtopic-card__notes">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                    <span>Download Notes:</span>
+                    <span
+                      class="cursor underline"
+                      (click)="downloadNotes(subTopic, subTopic.notesLink.tamil)"
+                      >Tamil</span
+                      >
+                      {{ subTopic.notesLink.english ? "&nbsp;| &nbsp;" : "" }}
+                      @if (subTopic.notesLink.english) {
+                        <span
+                          (click)="downloadNotes(subTopic, subTopic.notesLink.english)"
+                          class="cursor underline"
+                          >English</span
+                          >
+                        }
+                      </div>
+                    }
+                  </div>
                 </div>
               </div>
-            </div>
-          }
+            }
+          </div>
         }
       </div>
     </div>
