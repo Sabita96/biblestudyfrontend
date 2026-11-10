@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 import { ContactService } from "app/services/contact-service/contact.service";
 import { ToastrService } from "ngx-toastr";
 import { NgxUiLoaderService } from "ngx-ui-loader";
@@ -12,12 +12,12 @@ import { NgxUiLoaderService } from "ngx-ui-loader";
 export class ContactPageComponent implements OnInit {
   focus: any;
   focus1: any;
-  contactForm: FormGroup;
+  contactForm: UntypedFormGroup;
 
   submitted = false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private contactService: ContactService,
     private toastr: ToastrService,
     private ngxLoaderService: NgxUiLoaderService

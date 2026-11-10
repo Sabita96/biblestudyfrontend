@@ -19,7 +19,7 @@ import { FooterComponent } from "./shared/footer/footer.component";
 import { ToastrService } from "ngx-toastr";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 import { ApiService } from "./services/api-service/api.service";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
   @ViewChild("contact", { read: ViewContainerRef, static: true })
   contact: ViewContainerRef;
   mybutton: HTMLElement;
-  subscriptionForm: FormGroup;
+  subscriptionForm: UntypedFormGroup;
   showContact = false;
   isHome = false;
   userView = false;
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
     private toastr: ToastrService,
     private ngxLoaderService: NgxUiLoaderService,
     private apiService: ApiService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {}
   ngOnInit() {
     this.subscriptionForm = this.formBuilder.group({
