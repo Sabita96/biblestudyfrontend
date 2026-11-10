@@ -39,18 +39,10 @@ export class SliderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.cardsPerPage = this.getCardsPerPage();
     this.initializeSlider();
-    console.log("[SLIDER DEBUG] ngOnInit", {
-      offsetWidth: this.container.nativeElement.offsetWidth,
-      cardsPerPage: this.cardsPerPage,
-      totalPages: this.totalPages,
-      subTopicsLength: this.subTopics?.length,
-    });
 
     this.resizeObserver = new ResizeObserver(() => {
-      console.log("[SLIDER DEBUG] resize fired", this.container.nativeElement.offsetWidth);
       this.ngZone.run(() => {
         const newCardsPerPage = this.getCardsPerPage();
-        console.log("[SLIDER DEBUG] newCardsPerPage", newCardsPerPage, "old", this.cardsPerPage);
         if (newCardsPerPage && newCardsPerPage != this.cardsPerPage) {
           this.cardsPerPage = newCardsPerPage;
           this.initializeSlider();

@@ -8,10 +8,10 @@
     </div>
   }
   <div class="rev-cards cards" [ngClass]="{ 'w-100': totalPages === 1 }">
-    <div class="overflow" [ngStyle]="{ width: overflowWidth, left: pagePosition }">
+    <div class="overflow" [style.width]="overflowWidth" [style.left]="pagePosition">
       @for (subTopic of subTopics; track subTopic; let i = $index) {
         <div class="rev-card card my-3 br-12"
-          [ngStyle]="{ width: cardWidth }"
+          [style.width]="cardWidth"
           (click)="watchVideo(subTopic)">
           <div class="rev-card__media">
             <img class="img-fluid br-14" alt="Revelation Part {{ i + 1 }}" src="../../../assets/img/revelation/Revelation 0{{ i + 1 }}.jpg"
