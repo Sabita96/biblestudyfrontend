@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
-import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { TopicService } from "app/services/topic-service/topic.service";
 import { ToastrService } from "ngx-toastr";
 
@@ -17,17 +17,17 @@ export class CreateTopicComponent implements OnInit {
     { id: 5, name: "Klaipėda" },
   ];
   topicsList: any;
-  topicForm: FormGroup;
-  subTopicForm: FormGroup;
+  topicForm: UntypedFormGroup;
+  subTopicForm: UntypedFormGroup;
   showTopicForm = false;
 
   showSubtopicForm = false;
   subTopicsList =[]
-  productForm: FormGroup;
+  productForm: UntypedFormGroup;
   isEdit= false;
   constructor(
     private topicService: TopicService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private toastr: ToastrService,
     private cd: ChangeDetectorRef
   ) {
@@ -134,15 +134,15 @@ export class CreateTopicComponent implements OnInit {
     //   }
     // );
   }
-  subTopics() : FormArray {
-    return this.topicForm.get("subTopics") as FormArray
+  subTopics() : UntypedFormArray {
+    return this.topicForm.get("subTopics") as UntypedFormArray
   }
    
  
   addNewSubTopic() {
     console.log('sssssssssssssssssss');
     
-    const subTopicList = this.topicForm.get('subTopics') as FormArray;
+    const subTopicList = this.topicForm.get('subTopics') as UntypedFormArray;
     subTopicList.push(this.formBuilder.group({
       id: [""],
 
