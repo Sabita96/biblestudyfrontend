@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { DownloadService } from "app/services/download-service/download.service";
 
 @Component({
     selector: "app-spiritual-thoughts",
     templateUrl: "./spiritual-thoughts.component.html",
     styleUrls: ["./spiritual-thoughts.component.scss"],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SpiritualThoughtsComponent implements OnInit {

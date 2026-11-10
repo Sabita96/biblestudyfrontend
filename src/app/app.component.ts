@@ -6,12 +6,12 @@ import {
   ElementRef,
   ViewChild,
   ViewContainerRef,
-  ComponentFactoryResolver,
-  DOCUMENT
+  DOCUMENT,
+  ChangeDetectionStrategy
 } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
-import { Subscription } from "rxjs/Subscription";
-import "rxjs/add/operator/filter";
+import { Subscription } from "rxjs";
+import { filter } from "rxjs/operators";
 
 import { LocationStrategy, PlatformLocation, Location } from "@angular/common";
 import { NavbarComponent } from "./shared/navbar/navbar.component";
@@ -25,6 +25,7 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms
     selector: "app-root",
     templateUrl: "./app.component.html",
     styleUrls: ["./app.component.scss"],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AppComponent implements OnInit {
@@ -54,7 +55,6 @@ export class AppComponent implements OnInit {
     @Inject(DOCUMENT) private document: any,
     private element: ElementRef,
     public location: Location,
-    private cfr: ComponentFactoryResolver,
     private toastr: ToastrService,
     private ngxLoaderService: NgxUiLoaderService,
     private apiService: ApiService,
@@ -107,7 +107,7 @@ export class AppComponent implements OnInit {
     var navbar: HTMLElement =
       this.element.nativeElement.children[0].children[0];
     this._router = this.router.events
-      .filter((event) => event instanceof NavigationEnd)
+      .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         if (window.outerWidth > 991) {
           window.document.children[0].scrollTop = 0;
@@ -162,9 +162,7 @@ export class AppComponent implements OnInit {
         if (visible) {
           this.footer.clear();
 
-          this.footer2 = this.footer.createComponent(
-            this.cfr.resolveComponentFactory(FooterComponent)
-          );
+          this.footer2 = this.footer.createComponent(FooterComponent);
         }
         break;
       case "app-contact":
@@ -174,9 +172,7 @@ export class AppComponent implements OnInit {
         if (visible) {
           this.contact.clear();
 
-          this.contact2 = this.contact.createComponent(
-            this.cfr.resolveComponentFactory(ContactPageComponent)
-          );
+          this.contact2 = this.contact.createComponent(ContactPageComponent);
         }
         break;
 

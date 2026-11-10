@@ -5,6 +5,7 @@ import {
   HostListener,
   OnInit,
   ViewChild,
+  ChangeDetectionStrategy
 } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 import { DomSanitizer } from "@angular/platform-browser";
@@ -17,6 +18,7 @@ import { NgxUiLoaderService } from "ngx-ui-loader";
     selector: "app-landing",
     templateUrl: "./landing.component.html",
     styleUrls: ["./landing.component.scss"],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class LandingComponent implements OnInit {

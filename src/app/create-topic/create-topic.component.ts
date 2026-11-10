@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { TopicService } from "app/services/topic-service/topic.service";
 import { ToastrService } from "ngx-toastr";
@@ -7,6 +7,7 @@ import { ToastrService } from "ngx-toastr";
     selector: "app-create-topic",
     templateUrl: "./create-topic.component.html",
     styleUrls: ["./create-topic.component.scss"],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CreateTopicComponent implements OnInit {

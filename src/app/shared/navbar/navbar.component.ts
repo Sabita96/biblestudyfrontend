@@ -3,6 +3,7 @@ import {
   OnInit,
   ElementRef,
   ChangeDetectorRef,
+  ChangeDetectionStrategy
 } from "@angular/core";
 import {
   Location,
@@ -15,6 +16,7 @@ import { NavigationEnd, Router } from "@angular/router";
     selector: "app-navbar",
     templateUrl: "./navbar.component.html",
     styleUrls: ["./navbar.component.scss"],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class NavbarComponent implements OnInit {

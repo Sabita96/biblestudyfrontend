@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 import { ContactService } from "app/services/contact-service/contact.service";
 import { ToastrService } from "ngx-toastr";
@@ -8,6 +8,7 @@ import { NgxUiLoaderService } from "ngx-ui-loader";
     selector: "app-contact-page",
     templateUrl: "./contact-page.component.html",
     styleUrls: ["./contact-page.component.scss"],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ContactPageComponent implements OnInit {
