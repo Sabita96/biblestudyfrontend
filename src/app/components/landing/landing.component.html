@@ -154,59 +154,45 @@
         ></ngx-skeleton-loader>
       </div>
       <div class="pt-4" *ngIf="!isLoading">
-        <ngb-accordion class="range-accordion">
-          <!-- activeIds="ngb-panel-0" -->
-          <ngb-panel
+        <div ngbAccordion class="range-accordion">
+          <div
+            ngbAccordionItem
             *ngFor="let topic of topicsList; let index = index"
-            id="ngb-panel-{{ index }}"
-            (click)="handleEvent(topic)"
-            ngbPanelToggle
+            [id]="'ngb-panel-' + index"
             class="accordion-button collapsed"
-            data-bs-toggle="collapse"
           >
-            <ng-template ngbPanelHeader>
-              <div class="d-flex justify-content-between" [id]="topic._id">
-                <h5
-                  class="m-0"
-                  style="
-                    font-weight: bold;
-                    color: #1c2128;
-                    font-size: 15px !important;
-                  "
-                >
-                  {{ topic.name }}
-                </h5>
-                <!-- <div
-                  class="d-flex"
-                  style="
-                    font-weight: bold;
-                    color: #1c2128;
-                    font-size: 15px !important;
-                  "
-                >
-                  {{ topic.name }}
-                </div> -->
-                <button
-                  ngbPanelToggle
-                  class="btn btn-link p-0"
-                  (click)="topic.isOpen = !topic.isOpen"
-                  style="color: black !important"
-                >
-                  <span>
-                    <i class="nc-icon nc-minimal-up" *ngIf="topic.isOpen"></i>
-                    <i
-                      class="nc-icon nc-minimal-down"
-                      *ngIf="!topic.isOpen"
-                    ></i>
+            <h2 ngbAccordionHeader>
+              <button
+                ngbAccordionButton
+                (click)="handleEvent(topic); topic.isOpen = !topic.isOpen"
+                class="d-flex justify-content-between w-100"
+              >
+                <div class="d-flex justify-content-between" [id]="topic._id">
+                  <h5
+                    class="m-0"
+                    style="
+                      font-weight: bold;
+                      color: #1c2128;
+                      font-size: 15px !important;
+                    "
+                  >
+                    {{ topic.name }}
+                  </h5>
+                  <span class="p-0" style="color: black !important">
+                    <span>
+                      <i class="nc-icon nc-minimal-up" *ngIf="topic.isOpen"></i>
+                      <i
+                        class="nc-icon nc-minimal-down"
+                        *ngIf="!topic.isOpen"
+                      ></i>
+                    </span>
                   </span>
-                </button>
-
-                <!-- <div class="float-right">
-                    <i class="nc-icon nc-minimal-down"></i>
-                  </div> -->
-              </div>
-            </ng-template>
-            <ng-template ngbPanelContent>
+                </div>
+              </button>
+            </h2>
+            <div ngbAccordionCollapse>
+              <div ngbAccordionBody>
+                <ng-template>
               <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div
                   class="accordion-item"
@@ -299,9 +285,11 @@
                   </div>
                 </div>
               </div>
-            </ng-template>
-          </ngb-panel>
-        </ngb-accordion>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
